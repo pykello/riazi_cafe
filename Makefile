@@ -1,3 +1,3 @@
 
 http:
-	ruby -run -e httpd . -p 8000
+	ruby -run -e httpd ./website -p 8000
