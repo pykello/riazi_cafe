@@ -1,14 +1,18 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    commonmarker (0.23.8)
     erubis (2.7.0)
+    github-markup (4.0.1)
     webrick (1.8.1)
 
 PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  commonmarker
   erubis
+  github-markup
   webrick
 
 RUBY VERSION

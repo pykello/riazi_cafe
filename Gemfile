@@ -5,3 +5,5 @@ ruby "3.2.1"
 
 gem "webrick"
 gem "erubis"
+gem "github-markup"
+gem "commonmarker"
