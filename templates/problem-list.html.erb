@@ -1,0 +1,12 @@
+<div class="row">
+    <h2>مساله‌ها</h2>
+    <ul>
+        <% problems.each do |problem| %>
+            <li>
+                <a href="<%= problem["path"] %>">
+                    <%= problem["title"] %>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+</div>

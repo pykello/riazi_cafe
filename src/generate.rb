@@ -1,3 +1,4 @@
+require 'fileutils'
 require 'erubis'
 require 'github/markup'
 
@@ -39,49 +40,66 @@ def render_with_layout(layout_path, template_path, data)
 end
 
 def generate_index
-    output_html = render_with_layout(tmpl('layout.html.erb'), tmpl('index.html.erb'), {})
+    data = {}
+    output_html =
+        render_with_layout(
+            tmpl('layout.html.erb'),
+            tmpl('index.html.erb'),
+            data)
     File.write(outp('index.html'), output_html)
 end
 
+def generate_problem_list(problems)
+    data = {
+        "problems": problems,
+    }
+    output_html =
+        render_with_layout(
+            tmpl('layout.html.erb'),
+            tmpl('problem-list.html.erb'),
+            data)
+    File.write(outp('problem-list.html'), output_html)
+end
+
 def parse_problem(path)
-    contents = File.readlines(File.join(problems_dir, path)).map { _1.strip }
+    contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     structure = {
-        :title => nil,
-        :source => nil,
-        :tags => [],
-        :difficulty => nil,
-        :statement => nil,
-        :hints => [],
-        :solutions => []
+        "title" => nil,
+        "source" => nil,
+        "tags" => [],
+        "difficulty" => nil,
+        "statement" => nil,
+        "hints" => [],
+        "solutions" => []
     }
 
     def process_section(name, contents, structure)
         case name
         when 'title' then
-            structure[:title] = contents.join(" ")
+            structure["title"] = contents.join(" ")
         when 'source' then
             if not contents.empty? and contents[0].length > 0
-                structure[:source] = contents[0]
+                structure["source"] = contents[0]
             end
         when 'tags' then
-            structure[:tags] = contents
+            structure["tags"] = contents
         when 'difficulty' then
             if not contents.empty? and contents[0].length > 0
-                structure[:difficulty] = contents[0]
+                structure["difficulty"] = contents[0]
             end
         when 'statement' then
-            structure[:statement] =
+            structure["statement"] =
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n"))
         when 'hint' then
-            structure[:hints].append(
+            structure["hints"].append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
         when 'solution' then
-            structure[:solutions].append(
+            structure["solutions"].append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
@@ -101,17 +119,51 @@ def parse_problem(path)
             current_content.append(line)
         end
     }
+    structure
 end
 
-def render_problem(path)
-    structure = parse_problem(path)
-    print structure
+def render_problem(problem_path, output_path)
+    structure = parse_problem(problem_path)
+    output_html = render_with_layout(tmpl('layout.html.erb'), tmpl('problem.html.erb'), structure)
+    File.write(output_path, output_html)
+    structure
 end
 
 def generate_problems(subfolder='')
+    problem_files_path = File.join(problems_dir, subfolder)
+    output_files_path = File.join(output_dir, 'problems', subfolder)
 
+    FileUtils.mkdir_p(output_files_path)
+
+    entries = Dir.entries(problem_files_path)
+
+    files = entries.filter { |entry|
+                File.file? File.join(problem_files_path, entry)
+            }
+
+    subfolders = entries.filter { |entry|
+                    entry != '.' && entry != '..' &&
+                    (File.directory? File.join(problem_files_path, entry))
+                }
+
+    problems = []
+
+    subfolders.each do |entry|
+        problems = problems + generate_problems(File.join(subfolder, entry))
+    end
+
+    files.each do |entry|
+        entry_html = entry.gsub(".md", ".html")
+        problem_path = File.join(problem_files_path, entry)
+        output_path = File.join(output_files_path, entry_html)
+        structure = render_problem(problem_path, output_path)
+        structure["path"] = File.join(subfolder, entry_html)
+        problems.append(structure)
+    end
+
+    problems
 end
 
-
+problems = generate_problems
+generate_problem_list(problems)
 generate_index
-render_problem("stanford-problem-book/47.1.page-numbers.md")
