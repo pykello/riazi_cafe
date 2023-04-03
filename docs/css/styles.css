@@ -81,3 +81,8 @@ li {
 .nav-tabs li {
     margin-right: 0;
 }
+
+header a {
+    color: inherit;
+    text-decoration: none;
+}
