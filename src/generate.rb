@@ -124,7 +124,14 @@ end
 
 def render_problem(problem_path, output_path)
     structure = parse_problem(problem_path)
-    output_html = render_with_layout(tmpl('layout.html.erb'), tmpl('problem.html.erb'), structure)
+    data = {
+        "problem": structure
+    }
+    output_html =
+        render_with_layout(
+            tmpl('layout.html.erb'),
+            tmpl('problem.html.erb'),
+            data)
     File.write(output_path, output_html)
     structure
 end
@@ -157,7 +164,7 @@ def generate_problems(subfolder='')
         problem_path = File.join(problem_files_path, entry)
         output_path = File.join(output_files_path, entry_html)
         structure = render_problem(problem_path, output_path)
-        structure["path"] = File.join(subfolder, entry_html)
+        structure["path"] = File.join('problems', subfolder, entry_html)
         problems.append(structure)
     end
 

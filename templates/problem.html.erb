@@ -1,1 +1,44 @@
-صفحه مربوط به مساله
+
+<h2><%= problem["title"] %></h2>
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+  <% problem["hints"].each_index do |idx| %>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-hint-<%= idx %>-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-<%= idx %>" type="button" role="tab" aria-controls="pills-hint-<%= idx %>" aria-selected="false">
+            راهنمایی <% if problem["hints"].length > 1%><%= idx + 1 %><% end %>
+        </button>
+    </li>
+  <% end %>
+
+  <% problem["solutions"].each_index do |idx| %>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-<%= idx %>-tab" data-bs-toggle="tab" data-bs-target="#pills-solution-<%= idx %>" type="button" role="tab" aria-controls="pills-solution-<%= idx %>" aria-selected="false">
+            راه‌حل <% if problem["solutions"].length > 1%><%= idx + 1 %><% end %>
+        </button>
+    </li>
+  <% end %>
+
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <%= problem["statement"] %>
+  </div>
+
+  <% problem["hints"].each_with_index do |hint, idx| %>
+    <div class="tab-pane fade" id="pills-hint-<%= idx %>" role="tabpanel" aria-labelledby="pills-hint-<%= idx %>-tab">
+        <%= hint %>
+    </div>
+  <% end %>
+  
+  <% problem["solutions"].each_with_index do |solution, idx| %>
+    <div class="tab-pane fade" id="pills-solution-<%= idx %>" role="tabpanel" aria-labelledby="pills-solution-<%= idx %>-tab">
+        <%= solution %>
+    </div>
+  <% end %>
+</div>
