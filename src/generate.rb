@@ -22,6 +22,10 @@ def problems_dir
     File.join(".", "problems")
 end
 
+def pages_dir
+    File.join(".", "pages")
+end
+
 def layout_path
     File.join(templates_dir, "layout.html.erb")
 end
@@ -136,41 +140,72 @@ def render_problem(problem_path, output_path)
     structure
 end
 
-def generate_problems(subfolder='')
-    problem_files_path = File.join(problems_dir, subfolder)
-    output_files_path = File.join(output_dir, 'problems', subfolder)
+def walk_and_generate(input_root, output_root, subfolder, process_f)
+    input_files_path = File.join(input_root, subfolder)
+    output_files_path = File.join(output_root, subfolder)
 
     FileUtils.mkdir_p(output_files_path)
 
-    entries = Dir.entries(problem_files_path)
+    entries = Dir.entries(input_files_path)
 
     files = entries.filter { |entry|
-                File.file? File.join(problem_files_path, entry)
+                File.file? File.join(input_files_path, entry)
             }
 
     subfolders = entries.filter { |entry|
                     entry != '.' && entry != '..' &&
-                    (File.directory? File.join(problem_files_path, entry))
+                    (File.directory? File.join(input_files_path, entry))
                 }
-
-    problems = []
+    
+    results = []
 
     subfolders.each do |entry|
-        problems = problems + generate_problems(File.join(subfolder, entry))
+        results =
+        results +
+            walk_and_generate(
+                input_root,
+                output_root,
+                File.join(subfolder, entry),
+                process_f)
     end
 
     files.each do |entry|
-        entry_html = entry.gsub(".md", ".html")
-        problem_path = File.join(problem_files_path, entry)
-        output_path = File.join(output_files_path, entry_html)
-        structure = render_problem(problem_path, output_path)
-        structure["path"] = File.join('problems', subfolder, entry_html)
-        problems.append(structure)
+        results.append(process_f.call(input_root, output_root, subfolder, entry))
     end
 
-    problems
+    return results
+end
+
+def generate_problems
+    generate_problem = lambda {|input_root, output_root, subfolder, entry|
+        entry_html = entry.gsub(".md", ".html")
+        problem_path = File.join(input_root, subfolder, entry)
+        output_path = File.join(output_root, subfolder, entry_html)
+        structure = render_problem(problem_path, output_path)
+        structure["path"] = File.join('problems', subfolder, entry_html)
+        structure
+    }
+
+    output_root = File.join(output_dir, 'problems')
+    walk_and_generate(problems_dir, output_root, '', generate_problem)
+end
+
+def generate_pages
+    generate_page = lambda {|input_root, output_root, subfolder, entry|
+        input_path = File.join(input_root, subfolder, entry)
+        if entry.match? /html.erb$/
+            output_html = render_with_layout(tmpl('layout.html.erb'), input_path, {})
+            output_filename = entry.gsub(".html.erb", ".html")
+            output_path = File.join(output_root, subfolder, output_filename)
+            File.write(output_path, output_html)
+        end
+        ""
+    }
+
+    walk_and_generate(pages_dir, output_dir, '', generate_page)
 end
 
 problems = generate_problems
 generate_problem_list(problems)
+generate_pages
 generate_index
