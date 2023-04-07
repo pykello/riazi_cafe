@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'erubis'
 require 'github/markup'
+require_relative 'config.rb'
 
 def tmpl(path)
     File.join(File.join(".", "templates"), path)
@@ -24,7 +25,10 @@ def render_with_layout(layout_path, template_path, data)
 end
 
 def render_with_master_layout(template_path, data)
-    render_with_layout(tmpl("layout.html.erb"), template_path, data)
+    render_with_layout(
+        tmpl("layout.html.erb"),
+        template_path,
+        data.merge({'config' => config}))
 end
 
 #
