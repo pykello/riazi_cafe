@@ -11,23 +11,33 @@ def output_dir
     File.join(".", "docs")
 end
 
-def render_with_layout(layout_path, template_path, data)
+def render_with_layout_s(layout_path, content_html, data)
     layout_template = File.read(layout_path)
-    content_template = File.read(template_path)
-
-    content_erb = Erubis::Eruby.new(content_template)
-    content_html = content_erb.result(data)
-
     layout_erb = Erubis::Eruby.new(layout_template)
     layout_html = layout_erb.result(data.merge({content: content_html}))
 
     layout_html
 end
 
+def render_with_layout(layout_path, template_path, data)
+    content_template = File.read(template_path)
+    content_erb = Erubis::Eruby.new(content_template)
+    content_html = content_erb.result(data)
+
+    render_with_layout_s(layout_path, content_html, data)
+end
+
 def render_with_master_layout(template_path, data)
     render_with_layout(
         tmpl("layout.html.erb"),
         template_path,
+        data.merge({'config' => config}))
+end
+
+def render_with_master_layout_s(content, data)
+    render_with_layout_s(
+        tmpl("layout.html.erb"),
+        content,
         data.merge({'config' => config}))
 end
 

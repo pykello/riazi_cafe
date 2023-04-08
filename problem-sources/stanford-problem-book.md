@@ -1,1 +1,5 @@
-توضیح درباره کتاب The Stanford Mathematics Problem Book
+## کتاب مسائل ریاضی استنفورد
+
+این کتاب شامل مجموعه‌ای کامل از مسائل، راهنمایی‌ها، و راه‌حل‌هایی است که در مسابقات ریاضی دانشگاه استنفورد آمده است.
+
+![stanford problem book](/images/stanford-problem-book.jpg)

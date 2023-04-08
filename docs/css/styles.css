@@ -86,3 +86,8 @@ li {
     margin-right: 0;
     font-size: 20pt;
 }
+
+a {
+    text-underline-offset: 25%;
+    text-decoration: none;
+}

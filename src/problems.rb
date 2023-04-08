@@ -17,12 +17,13 @@ def generate_problem_list_page(problems)
     File.write(File.join(output_dir, 'problem-list.html'), output_html)
 end
 
-def generate_problem_pages
+def generate_problem_pages(source_info)
     generate_problem = lambda {|input_root, output_root, subfolder, entry|
         entry_html = entry.gsub(".md", ".html")
         problem_path = File.join(input_root, subfolder, entry)
         output_path = File.join(output_root, subfolder, entry_html)
-        structure = render_problem(problem_path, output_path)
+        structure = parse_problem(problem_path, source_info)
+        render_problem(structure, output_path)
         structure["path"] = File.join('problems', subfolder, entry_html)
         structure
     }
@@ -31,7 +32,18 @@ def generate_problem_pages
     walk_and_generate(problems_dir, output_root, generate_problem)
 end
 
-def parse_problem(path)
+def render_problem(structure, output_path)
+    data = {
+        "problem": structure
+    }
+    output_html =
+        render_with_master_layout(
+            tmpl('problem.html.erb'),
+            data)
+    File.write(output_path, output_html)
+end
+
+def parse_problem(path, source_info)
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     structure = {
@@ -89,18 +101,9 @@ def parse_problem(path)
             current_content.append(line)
         end
     }
-    structure
-end
-
-def render_problem(problem_path, output_path)
-    structure = parse_problem(problem_path)
-    data = {
-        "problem": structure
-    }
-    output_html =
-        render_with_master_layout(
-            tmpl('problem.html.erb'),
-            data)
-    File.write(output_path, output_html)
+    if (source = structure["source"])
+        structure["source_title"] = source_info.title(source)
+        structure["source_url"] = source_info.url(source)
+    end
     structure
 end
