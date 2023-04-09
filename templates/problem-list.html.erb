@@ -3,8 +3,8 @@
     <ul>
         <% problems.each do |problem| %>
             <li>
-                <a href="<%= problem["path"] %>">
-                    <%= problem["title"] %>
+                <a href="<%= problem.url %>">
+                    <%= problem.title %>
                 </a>
             </li>
         <% end %>

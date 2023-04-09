@@ -1,5 +1,6 @@
 require 'fileutils'
 require 'github/markup'
+require 'date'
 require_relative 'common'
 
 def problems_dir
@@ -8,7 +9,7 @@ end
 
 def generate_problem_list_page(problems)
     data = {
-        "problems": problems,
+        "problems": problems.sort_by { _1.timestamp }.reverse,
     }
     output_html =
         render_with_master_layout(
@@ -22,19 +23,19 @@ def generate_problem_pages(source_info)
         entry_html = entry.gsub(".md", ".html")
         problem_path = File.join(input_root, subfolder, entry)
         output_path = File.join(output_root, subfolder, entry_html)
-        structure = parse_problem(problem_path, source_info)
-        render_problem(structure, output_path)
-        structure["path"] = File.join('problems', subfolder, entry_html)
-        structure
+        problem_info = parse_problem(problem_path, source_info)
+        render_problem(problem_info, output_path)
+        problem_info.url = File.join('', 'problems', subfolder, entry_html)
+        problem_info
     }
 
     output_root = File.join(output_dir, 'problems')
     walk_and_generate(problems_dir, output_root, generate_problem)
 end
 
-def render_problem(structure, output_path)
+def render_problem(problem_info, output_path)
     data = {
-        "problem": structure
+        "problem": problem_info
     }
     output_html =
         render_with_master_layout(
@@ -46,42 +47,40 @@ end
 def parse_problem(path, source_info)
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
-    structure = {
-        "title" => nil,
-        "source" => nil,
-        "tags" => [],
-        "difficulty" => nil,
-        "statement" => nil,
-        "hints" => [],
-        "solutions" => []
-    }
+    info = ProblemInfo.new
 
-    def process_section(name, contents, structure)
+    def process_section(name, contents, info)
         case name
         when 'title' then
-            structure["title"] = contents.join(" ")
+            info.title = contents.join(" ")
         when 'source' then
             if not contents.empty? and contents[0].length > 0
-                structure["source"] = contents[0]
+                info.source = contents[0]
             end
         when 'tags' then
-            structure["tags"] = contents
+            info.tags = contents
+        when 'timestamp' then
+            begin
+                info.timestamp = DateTime.parse(contents[0].strip)
+            rescue
+                # no changes
+            end
         when 'difficulty' then
             if not contents.empty? and contents[0].length > 0
-                structure["difficulty"] = contents[0]
+                info.difficulty = contents[0]
             end
         when 'statement' then
-            structure["statement"] =
+            info.statement =
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n"))
         when 'hint' then
-            structure["hints"].append(
+            info.hints.append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
         when 'solution' then
-            structure["solutions"].append(
+            info.solutions.append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
@@ -93,7 +92,7 @@ def parse_problem(path, source_info)
     contents.each { |line|
         if line.start_with? "# "
             if not current_section.nil?
-                process_section(current_section, current_content, structure)
+                process_section(current_section, current_content, info)
             end
             current_section = line.downcase[2..]
             current_content = []
@@ -101,9 +100,29 @@ def parse_problem(path, source_info)
             current_content.append(line)
         end
     }
-    if (source = structure["source"])
-        structure["source_title"] = source_info.title(source)
-        structure["source_url"] = source_info.url(source)
+    if (source = info.source)
+        info.source_title = source_info.title(source)
+        info.source_url = source_info.url(source)
     end
-    structure
+    info
+end
+
+class ProblemInfo
+    attr_accessor :title, :source, :tags, :statement,
+                  :hints, :solutions, :source, :source_title, :source_url,
+                  :url, :difficulty, :timestamp
+    def initialize
+        @title = nil
+        @source = nil
+        @tags = []
+        @difficulty = 0
+        @statement = nil
+        @hints = []
+        @solutions = []
+        @source = nil
+        @source_title = nil
+        @source_url = nil
+        @url = nil
+        @timestamp = nil
+    end
 end

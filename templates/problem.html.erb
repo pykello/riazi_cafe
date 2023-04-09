@@ -1,12 +1,12 @@
 
-<h2><%= problem["title"] %></h2>
+<h2><%= problem.title %></h2>
 
-<% if problem["source_title"] %>
+<% if problem.source_title %>
 <div class="row mb-1">
   <p>
   منبع:
-  <a href="<%= problem["source_url"] %>">
-    <%= problem["source_title"] %>
+  <a href="<%= problem.source_url %>">
+    <%= problem.source_title %>
   </a>
   </p>
 </div>
@@ -18,10 +18,10 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
   </li>
 
-  <% problem["hints"].each_index do |idx| %>
+  <% problem.hints.each_index do |idx| %>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-hint-<%= idx %>-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-<%= idx %>" type="button" role="tab" aria-controls="pills-hint-<%= idx %>" aria-selected="false">
-            راهنمایی <% if problem["hints"].length > 1%><%= idx + 1 %><% end %>
+            راهنمایی <% if problem.hints.length > 1%><%= idx + 1 %><% end %>
         </button>
     </li>
   <% end %>
@@ -36,18 +36,18 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    <%= problem["statement"] %>
+    <%= problem.statement %>
   </div>
 
-  <% problem["hints"].each_with_index do |hint, idx| %>
+  <% problem.hints.each_with_index do |hint, idx| %>
     <div class="tab-pane fade" id="pills-hint-<%= idx %>" role="tabpanel" aria-labelledby="pills-hint-<%= idx %>-tab">
         <%= hint %>
     </div>
   <% end %>
   
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
-        <% problem["solutions"].each_with_index do |solution, idx| %>
-            <% if problem["hints"].length > 1%>
+        <% problem.solutions.each_with_index do |solution, idx| %>
+            <% if problem.hints.length > 1%>
                 <h4>راه حل <%= idx + 1 %></h4>
             <% end %>
 
