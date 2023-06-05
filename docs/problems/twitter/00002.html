@@ -54,7 +54,7 @@
 
     <main class="container mt-5">
         
-<h2>تاس‌های غیرتکراری</h2>
+<h2>ده عکس</h2>
 
 
 <!-- tabs -->
@@ -63,11 +63,6 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
   </li>
 
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
-            راهنمایی 
-        </button>
-    </li>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
@@ -79,17 +74,29 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    <p>چندبار بايد يه تاس را بندازيم كه ٦ تا عدد متفاوت پشت سر هم ببينيم؟</p>
+    <p>۱۰ قاب عکس داریم که توی هر کدوم از اونها سه نفر حضور دارن. در همه عکس ها نفر سمت چپی پدر و نفر سمت راستی عموی نفر وسط هستند. همچنین نفر سمت چپ عکس ها ۱۰ نفر متفاوت هستند. حداقل چند نفر در مجموع این ۱۰ عکس حضور دارن؟</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1663699752070905856">https://twitter.com/Riazi_Cafe/status/1663699752070905856</a></p>
 
   </div>
 
-    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
-        
-    </div>
   
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
-            
+            <p>جواب درست ۱۶ ه. برای اثبات این، اول باید نشون بدیم که با ۱۶ نفر میشه ۱۰ عکس ساخت و با کمتر از ۱۶ تا نمی‌شه ساخت.</p>
+<p>همونطور که بعضی از دوستان اشاره کردن با ۱۶ نفر میشه ساخت، مثل حالتی که این دوستمون گذاشته: <a href="https://twitter.com/AliAbdi_fa/status/1663881857862193153">https://twitter.com/AliAbdi_fa/status/1663881857862193153</a></p>
+<p>حالا بررسی می‌کنیم که چرا با کمتر از ۱۶ نفر نمی‌شه ساخت.</p>
+<p>فرض کنین:
+a = تعداد کسانی که در عکسا پدر یا عمو نبودن و فقط پسر بودن
+b = تعداد کسانی که در عکسا پدر بودن، عمو نبودن
+c = تعداد کسانی که در عکسا عمو بودن، پدر نبودن
+d = تعداد کسانی  که در عکسا هم عمو بودن و هم پدر</p>
+<p>تعداد کل افراد در عکس‌ها میشه جمع این ۴ عدد.</p>
+<p>میشه ثابت کرد \[a &gt;= \frac{d}{2} + 1\]</p>
+<p>و چون ۱۰ عکس داریم که ۲۰ عمو و پدر توش هست، \[b + c + 2d = 20\]
+از کنار هم گذاشتن ۲ رابطه بالا نتیجه می‌گیریم \[a + b + c + d &gt;= 21 - \frac{d}{2}\]
+و چون ۱۰ عکس داریم، d حداکثر ۱۰ ه، و پس \[a + b + c + d &gt;= 16\].</p>
+<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1664832603759824897">https://twitter.com/Riazi_Cafe/status/1664832603759824897</a></p>
+
 
     </div>
 </div>
