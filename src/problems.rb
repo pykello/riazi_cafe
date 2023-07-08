@@ -57,6 +57,10 @@ def parse_problem(path, source_info)
             if not contents.empty? and contents[0].length > 0
                 info.source = contents[0]
             end
+        when 'image' then
+            if not contents.empty? and contents[0].length > 0
+                info.image = contents[0]
+            end
         when 'tags' then
             info.tags = contents
         when 'timestamp' then
@@ -110,7 +114,7 @@ end
 class ProblemInfo
     attr_accessor :title, :source, :tags, :statement,
                   :hints, :solutions, :source, :source_title, :source_url,
-                  :url, :difficulty, :timestamp
+                  :url, :difficulty, :timestamp, :image
     def initialize
         @title = nil
         @source = nil
@@ -124,5 +128,6 @@ class ProblemInfo
         @source_url = nil
         @url = nil
         @timestamp = nil
+        @image = nil
     end
 end
