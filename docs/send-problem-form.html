@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/under-construction.html">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        <h2>پیشنهاد مساله</h2>
+
+<div class="row mb-4">
+<div class="col-md-6 mb-2">
+    <p>
+    با پر کردن فرم زیر به ما مساله پیشنهاد دهید.
+    </p>
+
+    <form
+    class="needs-validation" novalidate
+    action="https://formspree.io/f/mknaqeyj"
+    method="POST">
+
+        <div class="col-md-11 mb-3">
+            <label for="problem_title">عنوان مساله (اجباری)</label>
+            <input type="text" class="form-control" id="problem_title" placeholder="" value="" name="problem_title" required>
+            <div class="invalid-feedback">
+                عنوان سوال اجباری است!
+            </div>
+        </div>
+
+        <div class="col-md-11 mb-3">
+            <label for="problem_solution">راه‌حل (اجباری)</label>
+            <textarea class="form-control" id="problem_solution" name="problem_solution" rows="3" required></textarea>
+            <div class="invalid-feedback">
+                راه‌حل اجباری است!
+            </div>
+        </div>
+
+        <div class="col-md-11 mb-3">
+            <label for="submitter_name">نام شما (اختیاری)</label>
+            <input type="text" class="form-control" id="submitter_name" name="submitter_name" placeholder="">
+        </div>
+
+        <div class="col-md-11 mb-3">
+            <label for="submitter_name">آدرس ایمیل (اختیاری)</label>
+            <input type="text" class="form-control" id="submitter_email" name="submitter_email" placeholder="">
+        </div>
+
+        <div class="col-md-11 mb-3">
+            <label for="twitter_handle">هندل توویتر (اختیاری)</label>
+            <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroupPrepend">@</span>
+            </div>
+            <input type="text" class="form-control" id="twitter_handle" name="twitter_handle" placeholder="" aria-describedby="inputGroupPrepend">
+            </div>
+        </div>
+
+        <div class="col-md-11 mb-3">
+            <label for="problem_solution">سایر توضیحات (اختیاری)</label>
+            <textarea class="form-control" id="other_notes" name="other_notes" rows="3"></textarea>
+        </div>
+
+    <button class="btn btn-primary" type="submit">ارسال</button>
+    </form>
+</div>
+<div class="col-md-6 text-center">
+    <img src="images/germain-gauss.jpg" style="width:90%" />
+</div>
+</div>
+
+<script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2023 riazi.cafe</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
