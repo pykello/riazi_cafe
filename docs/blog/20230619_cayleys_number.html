@@ -53,61 +53,21 @@
 </nav>
 
     <main class="container mt-5">
-        <div class="row mb-4">
-    <div class="col-md-7">
-        <p>
-        به کافه ریاضی خوش اومدین! در اینجا قراره با حل مساله با هم اوقات خوشی داشته باشیم!
-        </p>
+        
+<h2>تعداد شبکه‌های شهری متصل با کمترین جاده</h2>
 
-        <p>
-        می‌تونین با دنبال کردن اکانت توویتر 
-        <a style="display: inline-block; direction: ltr" href="https://twitter.com/riazi_cafe">@riazi_cafe</a>
-        از آخرین مساله‌ها خبردار بشین.
-        </p>
+<p>امروز به جای مساله، یه متن کوچولوی آموزشی داریم.</p>
+<p>اگه n تا شهر داشته باشیم، می‌تونیم با کشیدن n-1 جاده بین‌شهری، شبکه‌ای بسازیم که هر شهری به هر شهر دیگه مسیر داشته باشه. این جاده‌کشی رو می‌تونیم n^(n-2) جور انجام بدیم.</p>
+<p>مثلا ۱۶ حالت جاده‌کشی برای ۴ شهر رو می‌بینین.</p>
+<p><img src="/images/blog/cayley_trees.jpg" alt="image" /></p>
+<p>امروز به یه اثبات ساده برای فرمول تعداد حالات نگاه می‌کنیم.</p>
 
-        <p>
-        اگه علاقه‌مندین به ما در طرح سوال کمک کنین، 
-         به
-         <a href="https://twitter.com/riazi_cafe">
-         اکانت توویتر
-         </a>
-          ما پیام بفرستین.
-        </p>
-    </div>
-    <div class="col-md-5 text-center">
-        <img src="images/latte-with-dices.jpg" style="width:80%" />
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4 mb-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">لیست مساله‌ها</h5>
-                <p class="card-text">از حل مساله‌ها لذت ببرید!</p>
-                <a href="/problem-list.html" class="btn btn-primary">مشاهده ...</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 mb-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">تاریخ ریاضیات</h5>
-                <p class="card-text">با تاریخ ریاضیات آشنا شوید!</p>
-                <a href="/under-construction.html" class="btn btn-primary">مشاهده ...</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 mb-2">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">وبلاگ</h5>
-                <p class="card-text">مطالب آموزشی و بیشتر!</p>
-                <a href="/blog" class="btn btn-primary">مشاهده ...</a>
-            </div>
-        </div>
-    </div>
-</div>
+<p>یه کدگذاری هست به نام پروفر که میشه نشون داد هر عضوش تناظر یک به یک داره با شبکه با شرایط بالا. ولی شمردنش آسونتره. به خاطر این تناظر یک به یک، اگه تعداد کدهای پروفر رو بشمریم، در واقع تعداد شبکه‌ها رو شمردیم.</p>
+<p>برای محاسبه این کد، از بین شهرایی که سر فقط یه جاده هستن اونی که عددش کمتره رو پیدا می‌کنیم (مثلا A)، شماره اون سر دیگه جاده رو یادداشت می‌کنیم، و سپس خود A رو حذف می‌کنیم. این کار رو هی تکرار می‌کنیم تا فقط ۲ شهر بمونه. این شماره شهرایی که یادداشت کردیم میشه کد پروفر.</p>
+<p><img src="/images/blog/cayley_prufer.jpg" alt="image" /></p>
+<p>جالبیش اینجاست که اگه این کد رو داشته باشیم، خود شبکه رو می‌تونیم بازسازی کنیم! که این بخش رو و کامل کردن اثبات تناظر یک به یک رو به عنوان تمرین میذاریم برای شما. حال چون این دنباله طولش n - 2 و برای هر عضوش n تا انتخاب داریم و تکرار هم مجازه، تعداد این دنباله‌ها میشه n ^ (n-2).</p>
+
 
     </main>
 

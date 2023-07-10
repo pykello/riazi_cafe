@@ -1,0 +1,11 @@
+<div class="row">
+    <ul>
+        <% blogposts.each do |blogpost| %>
+            <li>
+                <a href="<%= blogpost.url %>">
+                    <%= blogpost.title %>
+                </a>
+            </li>
+        <% end %>
+    </ul>
+</div>
