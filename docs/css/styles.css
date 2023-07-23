@@ -105,3 +105,9 @@ a {
 img {
     max-width: 100%;
 }
+
+.blog img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
