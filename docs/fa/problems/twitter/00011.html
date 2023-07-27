@@ -13,7 +13,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کافه ریاضی</title>
+    <title>کافه ریاضی
+        - اعداد متقارن
+    </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap RTL CSS -->
@@ -39,13 +41,13 @@
           <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/problem-list.html">لیست مساله‌ها</a>
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/blog">وبلاگ</a>
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
         </li>
       </ul>
     </div>
@@ -54,16 +56,8 @@
 
     <main class="container mt-5">
         
-<h2>تعداد صفحات کتاب</h2>
+<h2>اعداد متقارن</h2>
 
-<div class="row mb-1">
-  <p>
-  منبع:
-  <a href="/problems/sources/stanford-problem-book.html">
-    کتاب مسائل ریاضی استنفورد
-  </a>
-  </p>
-</div>
 
 <!-- tabs -->
 <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
@@ -71,11 +65,6 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
   </li>
 
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
-            راهنمایی 
-        </button>
-    </li>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
@@ -87,23 +76,76 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    <p>برای چاپ شماره صفحات یک کتاب ۱۸۹۰ رقم چاپ شده است. این کتاب چند صفحه دارد؟</p>
+      <img src="/images/problems/11_palindrome_numbers.jpg" style="float:left;max-width:35%"/>
+    <p>۱۲۳۴۵ امین عدد مثبتی که متقارن است (با برعکس خود برابر است) چیست؟</p>
+<p>اولین عدد مثبت متقارن ۱ است.</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1676156294665850880">https://twitter.com/Riazi_Cafe/status/1676156294665850880</a></p>
 
   </div>
 
-    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
-        <p>یک مساله مرتبط: اگر کتاب دقیقا ۹ صفحه داشته باشد، چند رقم برای چاپ شماره صفحات استفاده خواهد شد؟ (پاسخ: ۹)</p>
-<p>یک مساله مرتبط دیگر: اگر کتاب دقیقا ۹۹ صفحه داشته باشد، چند رقم برای چاپ شماراه صفحات استفاده خواهد شد؟</p>
-
-    </div>
   
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
-            <p>یک کتاب ۹۹۹ صفحه‌ای به تعداد زیر رقم نیاز دارد:</p>
-<p>\[9 + 2 \times 90 + 3 \times 900 = 2889\]</p>
-<p>اگر کتاب مورد نظر در صورت مساله \(x\) صفحه داشته باشد:</p>
-<p>\[189 + 3(x - 99) = 1890\]</p>
-<p>\[x = 666\]</p>
+            <p>با توجه به جدول زیر، چون ۱۲۳۴۵ امین عدد متقارن بین ۱۰۹۹۹ امین و ۱۹۹۹۹ امین عدد متقارن قرار گرفته، معلوم است که ۱۳۴۶ امین عدد متقارن ۸ رقمی است.</p>
+<table>
+<thead>
+<tr>
+<th>اندیس اولین عدد</th>
+<th>ارقام</th>
+<th>تعداد حالات</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>۱</td>
+<td>۱</td>
+<td>۹</td>
+</tr>
+<tr>
+<td>۱۰</td>
+<td>۲</td>
+<td>۹</td>
+</tr>
+<tr>
+<td>۱۹</td>
+<td>۳</td>
+<td>۱۰*۹</td>
+</tr>
+<tr>
+<td>۱۰۹</td>
+<td>۴</td>
+<td>۱۰*۹</td>
+</tr>
+<tr>
+<td>۱۹۹</td>
+<td>۵</td>
+<td>۱۰۰*۹</td>
+</tr>
+<tr>
+<td>۱۰۹۹</td>
+<td>۶</td>
+<td>۱۰۰*۹</td>
+</tr>
+<tr>
+<td>۱۹۹۹</td>
+<td>۷</td>
+<td>۱۰۰۰*۹</td>
+</tr>
+<tr>
+<td>۱۰۹۹۹</td>
+<td>۸</td>
+<td>۱۰۰۰*۹</td>
+</tr>
+<tr>
+<td>۱۹۹۹۹</td>
+<td>۹</td>
+<td>۱۰۰۰۰*۹</td>
+</tr>
+</tbody>
+</table>
+<p>از آنجا که سمت چپ اولین عدد متقارن ۸ رقمی برابر ۱۰۰۰ میباشد، کافی است ۱۳۴۶ را
+به آن اضافه کنیم تا ۱۳۴۶ امین عدد ۸ رقمی متقارن را پیدا کنیم که می‌شود ۲۳۴۶۶۴۳۲.</p>
+<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1676794374548598784">https://twitter.com/Riazi_Cafe/status/1676794374548598784</a></p>
 
 
     </div>

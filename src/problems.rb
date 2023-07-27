@@ -10,12 +10,13 @@ end
 def generate_problem_list_page(problems)
     data = {
         "problems": problems.sort_by { _1.timestamp }.reverse,
+        "title": "لیست مساله‌ها"
     }
     output_html =
         render_with_master_layout(
             tmpl('problem-list.html.erb'),
             data)
-    File.write(File.join(output_dir, 'problem-list.html'), output_html)
+    File.write(File.join(output_dir, "fa", 'problem-list.html'), output_html)
 end
 
 def generate_problem_pages(source_info)
@@ -25,17 +26,18 @@ def generate_problem_pages(source_info)
         output_path = File.join(output_root, subfolder, entry_html)
         problem_info = parse_problem(problem_path, source_info)
         render_problem(problem_info, output_path)
-        problem_info.url = File.join('', 'problems', subfolder, entry_html)
+        problem_info.url = File.join('', 'fa', 'problems', subfolder, entry_html)
         problem_info
     }
 
-    output_root = File.join(output_dir, 'problems')
+    output_root = File.join(output_dir, 'fa', 'problems')
     walk_and_generate(problems_dir, output_root, generate_problem)
 end
 
 def render_problem(problem_info, output_path)
     data = {
-        "problem": problem_info
+        "problem": problem_info,
+        "title": problem_info.title
     }
     output_html =
         render_with_master_layout(

@@ -13,7 +13,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کافه ریاضی</title>
+    <title>کافه ریاضی
+        - یافتن مساحت ۱
+    </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap RTL CSS -->
@@ -39,13 +41,13 @@
           <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/problem-list.html">لیست مساله‌ها</a>
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/blog">وبلاگ</a>
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
         </li>
       </ul>
     </div>
@@ -54,7 +56,7 @@
 
     <main class="container mt-5">
         
-<h2>اعداد متقارن</h2>
+<h2>یافتن مساحت ۱</h2>
 
 
 <!-- tabs -->
@@ -74,76 +76,42 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/11_palindrome_numbers.jpg" style="float:left;max-width:35%"/>
-    <p>۱۲۳۴۵ امین عدد مثبتی که متقارن است (با برعکس خود برابر است) چیست؟</p>
-<p>اولین عدد مثبت متقارن ۱ است.</p>
-<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1676156294665850880">https://twitter.com/Riazi_Cafe/status/1676156294665850880</a></p>
+    <p>در شکل زیر ضلع مربع ۸ سانتی‌متره. مساحت قسمت سبز رو پیدا کنین.</p>
+<p>(سوال پیشنهادی از
+<a href="https://twitter.com/sina_yari13">@sina_yari13</a>
+)</p>
+<p><img src="/images/problems/16_geometry1.jpg" alt="" /></p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1681206384296337408">https://twitter.com/Riazi_Cafe/status/1681206384296337408</a></p>
 
   </div>
 
   
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
-            <p>با توجه به جدول زیر، چون ۱۲۳۴۵ امین عدد متقارن بین ۱۰۹۹۹ امین و ۱۹۹۹۹ امین عدد متقارن قرار گرفته، معلوم است که ۱۳۴۶ امین عدد متقارن ۸ رقمی است.</p>
-<table>
-<thead>
-<tr>
-<th>اندیس اولین عدد</th>
-<th>ارقام</th>
-<th>تعداد حالات</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>۱</td>
-<td>۱</td>
-<td>۹</td>
-</tr>
-<tr>
-<td>۱۰</td>
-<td>۲</td>
-<td>۹</td>
-</tr>
-<tr>
-<td>۱۹</td>
-<td>۳</td>
-<td>۱۰*۹</td>
-</tr>
-<tr>
-<td>۱۰۹</td>
-<td>۴</td>
-<td>۱۰*۹</td>
-</tr>
-<tr>
-<td>۱۹۹</td>
-<td>۵</td>
-<td>۱۰۰*۹</td>
-</tr>
-<tr>
-<td>۱۰۹۹</td>
-<td>۶</td>
-<td>۱۰۰*۹</td>
-</tr>
-<tr>
-<td>۱۹۹۹</td>
-<td>۷</td>
-<td>۱۰۰۰*۹</td>
-</tr>
-<tr>
-<td>۱۰۹۹۹</td>
-<td>۸</td>
-<td>۱۰۰۰*۹</td>
-</tr>
-<tr>
-<td>۱۹۹۹۹</td>
-<td>۹</td>
-<td>۱۰۰۰۰*۹</td>
-</tr>
-</tbody>
-</table>
-<p>از آنجا که سمت چپ اولین عدد متقارن ۸ رقمی برابر ۱۰۰۰ میباشد، کافی است ۱۳۴۶ را
-به آن اضافه کنیم تا ۱۳۴۶ امین عدد ۸ رقمی متقارن را پیدا کنیم که می‌شود ۲۳۴۶۶۴۳۲.</p>
-<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1676794374548598784">https://twitter.com/Riazi_Cafe/status/1676794374548598784</a></p>
+            <p>پاسخ درست تقریبا برابر 18.7368 است.</p>
+<p>برای سادگی محاسبات، ۴۵ درجه دوران میدیم. سپس با استفاده از رابطه ۲ دایره، x برخورد دایره کوچیک و ربع دایره را حساب می‌کنیم و با اون زاویه‌های α و β را طبق شکل حساب می‌کنیم.</p>
+<p><img src="/images/problems/16_geometry2.jpg" alt="" /></p>
+<p>سپس با استفاده از فرمول مساحت قطعه دایره،</p>
+<ol>
+<li>مساحت قسمت سبز + نارنجی رو با استفاده از β و شعاع دایره کوچکتر،</li>
+<li>مساحت قسمت نارنجی رو با استفاده از α و شعاع ربع دایره</li>
+</ol>
+<p>حساب می‌کنیم و با تفریق این دو مساحت قسمت سبز رو بدست میاریم.</p>
+<p>درآخر چون در مساله اصلی ۲ تا از این سبزها داریم، این عدد رو ضربدر ۲ می‌کنیم</p>
+<p>یه کد پایتون که این محاسبات رو انجام میده:</p>
+<pre lang="python"><code>import math
+
+def segment_area(r, theta): return 0.5 * r * r * (theta - math.sin(theta))
+
+alpha = math.acos(5 * math.sqrt(2) / 8) * 2
+beta = math.acos(math.sqrt(2) / 4) * 2
+
+green_and_orange = segment_area(4, beta)
+orange = segment_area(8, alpha)
+green = green_and_orange - orange
+print(2 * green)
+</code></pre>
+<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1681590740441522178">https://twitter.com/Riazi_Cafe/status/1681590740441522178</a></p>
 
 
     </div>

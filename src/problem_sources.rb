@@ -5,7 +5,7 @@ require_relative 'pages'
 def generate_problem_sources
     data = generate_pages_generic(
             File.join(".", "problem-sources"),
-            File.join(output_dir, "problems", "sources"))
+            File.join(output_dir, "fa", "problems", "sources"))
     ProblemSourcesInfo.new(data)
 end
 
@@ -20,7 +20,7 @@ class ProblemSourcesInfo
             "#"
         else
             File.join(
-                "", "problems", "sources",
+                "", "fa", "problems", "sources",
                 entry[:subfolder],
                 entry[:output_filename])
         end

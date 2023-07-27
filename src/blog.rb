@@ -7,12 +7,13 @@ require_relative 'common'
 def generate_blog_index(blogposts, blogdir)
     data = {
         "blogposts": blogposts.sort_by { _1.timestamp }.reverse,
+        "title": "وبلاگ"
     }
     output_html =
         render_with_master_layout(
             tmpl('blog-index.html.erb'),
             data)
-    File.write(File.join(output_dir, blogdir, 'index.html'), output_html)
+    File.write(File.join(output_dir, "fa", blogdir, 'index.html'), output_html)
 end
 
 def generate_blogposts(blogdir)
@@ -22,17 +23,18 @@ def generate_blogposts(blogdir)
         output_path = File.join(output_root, subfolder, entry_html)
         blogpost_info = parse_blogpost(blogpost_path)
         render_blogpost(blogpost_info, output_path)
-        blogpost_info.url = File.join('', blogdir, subfolder, entry_html)
+        blogpost_info.url = File.join('', 'fa', blogdir, subfolder, entry_html)
         blogpost_info
     }
 
-    output_root = File.join(output_dir, blogdir)
+    output_root = File.join(output_dir, 'fa', blogdir)
     walk_and_generate(File.join(".", blogdir), output_root, generate_blogpost)
 end
 
 def render_blogpost(blogpost_info, output_path)
     data = {
-        "blogpost": blogpost_info
+        "blogpost": blogpost_info,
+        "title": blogpost_info.title
     }
     output_html =
         render_with_master_layout(

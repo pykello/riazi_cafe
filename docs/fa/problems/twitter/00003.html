@@ -13,7 +13,9 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>کافه ریاضی</title>
+    <title>کافه ریاضی
+        - سنگ کاغذ قیچی
+    </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap RTL CSS -->
@@ -39,13 +41,13 @@
           <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/problem-list.html">لیست مساله‌ها</a>
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/blog">وبلاگ</a>
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
         </li>
       </ul>
     </div>
@@ -54,7 +56,7 @@
 
     <main class="container mt-5">
         
-<h2>یافتن مساحت ۱</h2>
+<h2>سنگ کاغذ قیچی</h2>
 
 
 <!-- tabs -->
@@ -74,42 +76,24 @@
 
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-    <p>در شکل زیر ضلع مربع ۸ سانتی‌متره. مساحت قسمت سبز رو پیدا کنین.</p>
-<p>(سوال پیشنهادی از
-<a href="https://twitter.com/sina_yari13">@sina_yari13</a>
-)</p>
-<p><img src="/images/problems/16_geometry1.jpg" alt="" /></p>
-<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1681206384296337408">https://twitter.com/Riazi_Cafe/status/1681206384296337408</a></p>
+      <img src="/images/problems/03_rock_paper_scissors.jpg" style="float:left;max-width:35%"/>
+    <p>قرار هست در یک بازی سنگ کاغذ قیچی شرکت کنید. اگر بازی را ببرید یک دلار دریافت میکنید، اگر ببازید باید یک دلار پرداخت کنید، اگر مساوی شود پولی رد و بدل نمیکنید.</p>
+<p>حریف شما از قبل به شما اطلاع داده که هیچ وقت سنگ بازی نمیکند. بهترین استراتژی شما برای شرکت در این بازی چیست؟</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1664986539582017537">https://twitter.com/Riazi_Cafe/status/1664986539582017537</a></p>
 
   </div>
 
   
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
-            <p>پاسخ درست تقریبا برابر 18.7368 است.</p>
-<p>برای سادگی محاسبات، ۴۵ درجه دوران میدیم. سپس با استفاده از رابطه ۲ دایره، x برخورد دایره کوچیک و ربع دایره را حساب می‌کنیم و با اون زاویه‌های α و β را طبق شکل حساب می‌کنیم.</p>
-<p><img src="/images/problems/16_geometry2.jpg" alt="" /></p>
-<p>سپس با استفاده از فرمول مساحت قطعه دایره،</p>
-<ol>
-<li>مساحت قسمت سبز + نارنجی رو با استفاده از β و شعاع دایره کوچکتر،</li>
-<li>مساحت قسمت نارنجی رو با استفاده از α و شعاع ربع دایره</li>
-</ol>
-<p>حساب می‌کنیم و با تفریق این دو مساحت قسمت سبز رو بدست میاریم.</p>
-<p>درآخر چون در مساله اصلی ۲ تا از این سبزها داریم، این عدد رو ضربدر ۲ می‌کنیم</p>
-<p>یه کد پایتون که این محاسبات رو انجام میده:</p>
-<pre lang="python"><code>import math
-
-def segment_area(r, theta): return 0.5 * r * r * (theta - math.sin(theta))
-
-alpha = math.acos(5 * math.sqrt(2) / 8) * 2
-beta = math.acos(math.sqrt(2) / 4) * 2
-
-green_and_orange = segment_area(4, beta)
-orange = segment_area(8, alpha)
-green = green_and_orange - orange
-print(2 * green)
-</code></pre>
-<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1681590740441522178">https://twitter.com/Riazi_Cafe/status/1681590740441522178</a></p>
+            <p>همونطور که بعضی از دوستان اشاره کردند استراتژی درست در این بازی این هست که به احتمال ۲/۳ قیچی بازی کنیم و به احتمال ۱/۳ سنگ.</p>
+<p>تعریف ریاضی بهترین بازی در این نوع بازی ها، بازی هست که در بدترین حالت به صورت میانگین بیشترین سود را داشته باشه. بدیهی هست که بازی کردن کاغذ هیچ فایده ای برای ما نداره. پس ما یا سنگ بازی میکنیم یا قیچی. فرص کنید به احتمال p قیچی بازی کنیم و به احتمال یک منهای p سنگ بازی کنیم.</p>
+<p>در این صورت اگر حریف ما قیچی بازی کند، به احتمال p بازی مساوی و به احتمال یک منهای p بازی به نفع ما میشود.</p>
+<p>اگر حریف کاغذ بازی کند، به احتمال p ما برنده بازی هستیم و به احتمال یک منهای p ما بازنده بازی هستیم.</p>
+<p>پس باید طوری احتمال p را انتخاب کنیم که کمینه سود ما در دو حالت بالا بیشینه شود. به عبارت دیگر p باید به گونه ای انتخاب شود که
+Min(p-(1-p), 1-p)
+بیشینه شود که نتیجه میدهد مقدار p برابر با 2/3 هست.</p>
+<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1665301277142654976">https://twitter.com/Riazi_Cafe/status/1665301277142654976</a></p>
 
 
     </div>
