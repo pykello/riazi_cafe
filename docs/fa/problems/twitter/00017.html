@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی
+        - شلیک به اژدها
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>شلیک به اژدها</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
+            راهنمایی 
+        </button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+            راه حل
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <img src="/images/problems/17_dragon.jpg" style="float:left;max-width:35%"/>
+    <p>صد تا جعبه داریم که افقی کنار هم چیده شدن و هر کدوم به سمت چپی و راستی راه داره. یه اژدها توی یکی از این جعبه هاست (و ما نمی‌دونیم کدوم جعبه) و ما یه تفنگ داریم. بعد از هر شلیک ما اژدها یا به جعبه سمت راستی میپره یا چپی. آیا الگوریتمی برای شلیک به جعبه‌ها وجود داره که حتما اژدها رو بکشه؟ اگه نه، چرا؟ اگه آره، چگونه؟</p>
+<p>(سوال پیشنهادی از
+<a href="https://twitter.com/De_MH_">@De_MH_</a>
+)</p>
+<p>توضیحات. این شلیک‌کردن هر چند مرحله دلمون خواست می‌تونه ادامه پیدا کنه. فقط در هر مرحله اول ما شلیک می‌کنیم، بعد اژدها یا به چپی میره یا راستی. فرض کنید اژدها باهوشه و شانسی نمی‌پره و اگه راهی داشته باشه که الگوریتم ما جواب نده، از دست ما فرار می‌کنه.</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1682276511402037248">https://twitter.com/Riazi_Cafe/status/1682276511402037248</a></p>
+
+  </div>
+
+    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
+        <p>به عنوان راهنمایی، این فرض اضافی رو به مساله اضافه کنین: فرض کنین شماره خونه‌ای که اژدها در شروع اونجاست حتما فرده و ما اینو میدونیم (ولی همچنان نمی‌دونیم کدوم خونه‌ی فرد).</p>
+<p>آیا در این حالت راهی هست که حتما اژدها رو بزنیم؟</p>
+
+    </div>
+  
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+
+            <p>بله، همانطور که تعدادی از دوستان گفتند، همچنین الگوریتمی وجود دارد.</p>
+<p>مثلا شلیک ۱ تا ۱۰۰ به خونه ۱ تا ۱۰۰، شلیک ۱۰۱ تا ۲۰۰ به خونه ۱۰۰ تا ۱.</p>
+<p>در ۱۰۰ مرحله اول موقعیت شلیک ما هر دفعه یکی زیاد میشه، و موقعیت اژدها یا یکی زیاد میشه یا یکی کم، پس فاصله شلیک ما با اژدها یا ثابت میمونه و یا ۲ تا کم میشه. با توجه به اینکه در شروع اژدها سمت چپ شلیک ما نیست، پس اگر فاصله اژدها با شلیک ما در شروع زوج باشد (یعنی اژدها در خونه‌ای با شماره فرد باشد)، در یکی از این ۱۰۰ شلیک فاصله‌اش با شلیک ما صفر میشه و میزنیمش.</p>
+<p>اگه در این ۱۰۰ شلیک نزدیم، میفهمیم که موقعیت اژدها در شروع زوج بوده (و فاصله‌اش با شلیک‌های ۱ تا ۱۰۰ ما فرد) و چون در هر مرحله موقعیتش یکی فرق می‌کنه، پس از ۱۰۰ مرحله هم باز در خونه زوجه. پس در مرحله ۱۰۱ که به ۱۰۰ شلیک می‌کنیم فاصله‌اش با شلیک ما زوجه و سمت راست شلیک ما هم نیست. و در مرحله‌های بعدی فاصله یا ثابت میمونه و یا ۲ کم میشه، و بالاخره این فاصله صفر میشه و میزنیمش.</p>
+<p>لینک راه‌حل در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1682656010081828865">https://twitter.com/Riazi_Cafe/status/1682656010081828865</a></p>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <!--<p>&copy; 2023 riazi.cafe</p> -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
