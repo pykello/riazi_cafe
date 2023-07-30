@@ -56,9 +56,9 @@ def parse_blogpost(path)
             info.tags = contents
         when 'twitter' then
             info.twitter = contents[0].strip
-        when 'author' then
-            info.author = contents[0].strip
-        when 'author_link' then
+        when 'authorname' then
+            info.author_name = contents[0].strip
+        when 'authorlink' then
             info.author_link = contents[0].strip
         when 'timestamp' then
             begin
@@ -96,12 +96,13 @@ def parse_blogpost(path)
 end
 
 class BlogpostInfo
-    attr_accessor :title, :timestamp, :twitter, :intro, :body, :tags, :url
+    attr_accessor :title, :timestamp, :twitter, :intro,
+                  :body, :tags, :url, :author_name, :author_link
     def initialize
         @title = nil
         @timestamp = nil
         @twitter = nil
-        @author = nil
+        @author_name = nil
         @author_link = nil
         @intro = nil
         @body = nil

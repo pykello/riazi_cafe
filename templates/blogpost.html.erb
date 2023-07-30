@@ -1,5 +1,14 @@
 
 <h2><%= blogpost.title %></h2>
+<% if blogpost.author_name and blogpost.author_link %>
+    <p class="author-info">(نویسنده:
+        <a href="<%= blogpost.author_link %>">
+            <%= blogpost.author_name %></a>)</p>
+<% elsif blogpost.author_name %>
+    <p class="author-info">
+        (نویسنده: <%= blogpost.author_name %>)
+    </p>
+<% end %>
 
 <div class="blog">
 <%= blogpost.intro %>

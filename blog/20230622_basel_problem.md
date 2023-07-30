@@ -2,6 +2,10 @@
 مساله بازل
 # Timestamp
 2023-06-22 00:00
+# AuthorName
+SherVn
+# AuthorLink
+https://twitter.com/SherVn31
 # Twitter
 https://twitter.com/SherVn31/status/1671834556477865987
 # Intro
