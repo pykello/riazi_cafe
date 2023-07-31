@@ -1,12 +1,20 @@
 
 <h2><%= blogpost.title %></h2>
 <% if blogpost.author_name and blogpost.author_link %>
-    <p class="author-info">(نویسنده:
+    <p class="author-info">نویسنده:
         <a href="<%= blogpost.author_link %>">
-            <%= blogpost.author_name %></a>)</p>
+            <%= blogpost.author_name %></a></p>
 <% elsif blogpost.author_name %>
     <p class="author-info">
-        (نویسنده: <%= blogpost.author_name %>)
+        نویسنده: <%= blogpost.author_name %>
+    </p>
+<% end %>
+
+<% if blogpost.twitter %>
+    <p class="twitter-link">
+        لینک توویتر: <a href="<%= blogpost.twitter %>">
+            <%= blogpost.twitter %>
+        </a>
     </p>
 <% end %>
 
