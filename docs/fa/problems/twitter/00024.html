@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی
+        - جعبه‌ها و تاس‌ها
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>جعبه‌ها و تاس‌ها</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+            راه حل
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content problem" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <img src="/images/problems/24_dices.jpg" style="float:left;max-width:35%"/>
+    <p>۶ تا جعبه داریم که روی هر کدوم نوشته ۱. هر بار دو تا تاس میندازیم. فرض کنید عدد تاس اول بشه x و عدد تاس دوم بشه y. عدد جعبه x را میکنیم y.</p>
+<p>به صورت میانگین چند بار این کار را تکرار میکنیم تا عدد جعبه ها به ترتیب بشه ۱۲۳۴۵۶؟</p>
+<p>سوال تکمیلی: به صورت میانگین چند بار این کار را تکرار میکنیم تا عدد ۶ تا جعبه متفاوت بشه؟</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1690240896535789568">https://twitter.com/Riazi_Cafe/status/1690240896535789568</a></p>
+
+  </div>
+
+
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+
+            <p>پاسخ صحیح برای مسئله برابر است با 58501.2. همچنین پاسخ مسئله تکمیلی برابر است با 90.36</p>
+<p>در هر لحظه از زمان، تنها عاملی که مشخص می‌کند به صورت میانگین چند مرحله لازم است تا اعداد روی جعبه ها به صورت مطلوب در بیاید این هست که عدد نوشته شده روی چند جعبه با عدد مطلوب نهایی برابر است. در ابتدا چون همه اعداد برابر با یک هست این میزان برابر با ۱ است. زیرا تنها عدد نوشته شده روی یک جعبه (جعبه اول) با عدد مطلوب نهایی یکسان است.</p>
+<p>به این صورت مسئله را می‌توان با یک مدل گراف تعریف کرد:
+یک گراف ۷ راسی داریم که راس شماره i نماینده  تمام حالاتی هست که در آن i جعبه عدد مطلوب را دارند.</p>
+<p>در ابتدا یک نشانه بر روی راس شماره ۱ قرار دارد. در هر مرحله این نشانه بر اساس احتمالات مشخص به یکی از رئوس گراف (از جمله راس کنونی) حرکت می‌کند.</p>
+<p>به صورت میانگین چند مرحله طول می‌کشد که  نشانه به راس شماره ۶ برسد؟</p>
+<p>در شکل می‌توانید احتمال حرکت از هر راس به رئوس دیگه را مشاهده کنید:</p>
+<p><img src="/images/problems/24_diagram1.jpeg" alt="" /></p>
+<p>چنین مسائلی را می‌توان به صورت یک دستگاه معادلاتی حل کرد. در این دستگاه به ازای هر راس i یک متغیر v_i وجود دارد که پاسخ مسئله برای آن راس را نشان می‌دهد.</p>
+<p>دستگاه معادلات مربوط به مسئله ما برابر است با:</p>
+<p>$$
+\begin{aligned}
+&amp;v_0 = 1 + \frac{5}{6}v_0 + \frac{1}{6}v_1 \\
+&amp;v_1 = 1 + \frac{5}{36}v_0 + \frac{13}{18}v_1 + \frac{5}{36}v_2 \\
+&amp;v_2 = 1 + \frac{5}{18}v_1 + \frac{11}{18}v_2 + \frac{1}{9}v_3 \\
+&amp;v_3 = 1 + \frac{5}{12}v_2 + \frac{1}{2}v_3 + \frac{1}{12}v_4 \\
+&amp;v_4 = 1 + \frac{5}{9}v_3 + \frac{7}{18}v_4 + \frac{1}{18}v_5 \\
+&amp;v_5 = 1 + \frac{25}{36}v_4 + \frac{5}{18}v_5 + \frac{1}{36}v_6 \\
+&amp;v_6 = 0
+\end{aligned}
+$$</p>
+<p>پاسخ این دستگاه معادلاتی به صورت زیر است:</p>
+<p>$$
+\begin{aligned}
+&amp;v_0 = 58507.2 \\
+&amp;v_1 = 58501.2 \\
+&amp;v_2 = 58488 \\
+&amp;v_3 = 58446 \\
+&amp;v_4 = 58224 \\
+&amp;v_5 = 55986 \\
+&amp;v_6 = 0
+\end{aligned}
+$$</p>
+<p>چون در ابتدا از راس شماره ۱ شروع می‌کنیم پس پاسخ مسئله برابر است با 58501.2.</p>
+<p>با همین روش می‌توان مسئله امتیازی را هم حل کرد. اما گراف به دست آماده اندکی بزرگتر است و به این دلیل حل سوال نیاز به برنامه نویسی دارد.</p>
+<p>در این مورد عاملی که مشخص می‌کند به طور میانگین چند گام باقیمانده، این است
+که از هر رنگ مجزا چندتا داریم. مثلا اگر روی جعبه‌ها نوشته شده باشد ۱ ۳ ۱ ۵ ۵ ۲، این حالت عبارت است از (2,2,1,1) زیرا ۴ عدد مجزا روی جعبه‌ها نوشته شده که از ۲ تا ۲ بار نوشته شده و از ۲ تا یک بار.</p>
+<p>در ابتدا عدد نوشته شده روی ۶ جعبه یکسان است، پس از حالت (6) شروع می‌کنیم. هدف این است که به حالت (1,1,1,1,1,1) برویم که نمایانگر این است که ۶ عدد متفاوت روی ۶ جعبه نوشته شده.</p>
+<p>این حالت‌های مختلف رو به شکل زیر نامگذاری می‌کنیم:</p>
+<p>$$
+\begin{aligned}
+v_0&amp;=(6)\\
+v_1&amp;=(5,1)\\
+v_2&amp;=(4,2)\\
+v_3&amp;=(3,3)\\
+v_4&amp;=(4,1,1)\\
+v_5&amp;=(3,2,1)\\
+v_6&amp;=(2,2,2)\\
+v_7&amp;=(3,1,1,1)\\
+v_8&amp;=(2,2,1,1)\\
+v_9&amp;=(2,1,1,1,1)\\
+v_{10}&amp;=(1,1,1,1,1,1)
+\end{aligned}
+$$</p>
+<p>در زیر گراف مسئله و دستگاه معادلاتی و پاسخ آن را آورده ایم:</p>
+<p><img src="/images/problems/24_diagram4.png" alt="" /></p>
+<p>$$
+\begin{aligned}
+&amp;v_0 = 1 + \frac{1}{6}v_0 + \frac{5}{6}v_1 \\
+&amp;v_1 = 1 + \frac{1}{36}v_0 + \frac{5}{18}v_1 + \frac{5}{36}v_2 + \frac{5}{9}v_4 \\
+&amp;v_2 = 1 + \frac{1}{18}v_1 + \frac{1}{6}v_2 + \frac{1}{9}v_3 + \frac{2}{9}v_4 + \frac{4}{9}v_5 \\
+&amp;v_3 = 1 + \frac{1}{6}v_2 + \frac{1}{6}v_3 + \frac{2}{3}v_5 \\
+&amp;v_4 = 1 + \frac{1}{18}v_1 + \frac{1}{18}v_2 + \frac{1}{3}v_4 + \frac{2}{9}v_5 + \frac{1}{3}v_7 \\
+&amp;v_5 = 1 + \frac{1}{36}v_2 + \frac{1}{36}v_3 + \frac{1}{18}v_4 + \frac{7}{18}v_5 + \frac{1}{12}v_6 + \frac{1}{6}v_7 + \frac{1}{4}v_8 \\
+&amp;v_6 = 1 + \frac{1}{3}v_5 + \frac{1}{6}v_6 + \frac{1}{2}v_8 \\
+&amp;v_7 = 1 + \frac{1}{12}v_4 + \frac{1}{6}v_5 + \frac{1}{3}v_7 + \frac{1}{4}v_8 + \frac{1}{6}v_9 \\
+&amp;v_8 = 1 + \frac{1}{9}v_5 + \frac{1}{18}v_6 + \frac{1}{9}v_7 + \frac{1}{2}v_8 + \frac{2}{9}v_9 \\
+&amp;v_9 = 1 + \frac{1}{9}v_7 + \frac{1}{3}v_8 + \frac{1}{2}v_9 + \frac{1}{18}v_{10} \\
+&amp;v_{10} = 0
+\end{aligned}
+$$</p>
+<p>که حل دستگاه معادلات بالا میشود:</p>
+<p>$$
+\begin{aligned}
+v_0 &amp;= 90.36 \\
+v_1 &amp;= 89.16 \\
+v_2 &amp;= 88.44 \\
+v_3 &amp;= 88.2 \\
+v_4 &amp;= 87.48 \\
+v_5 &amp;= 86.64 \\
+v_6 &amp;= 86.04 \\
+v_7 &amp;= 84.6 \\
+v_8 &amp;= 83.64 \\
+v_9 &amp;= 76.56 \\
+v_{10} &amp;= 0
+\end{aligned}
+$$</p>
+<p>و پاسخ مسئله برابر است با 90.36</p>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <!--<p>&copy; 2023 riazi.cafe</p> -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
