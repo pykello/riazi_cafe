@@ -3,6 +3,18 @@ require 'erubis'
 require 'github/markup'
 require_relative 'config.rb'
 
+def numfa(num)
+    if num == 0
+        return "۰"
+    end
+    result = ""
+    while num > 0
+        result = "۰۱۲۳۴۵۶۷۸۹"[num%10] + result
+        num = num / 10
+    end
+    result
+end
+
 def tmpl(path)
     File.join(File.join(".", "templates"), path)
 end

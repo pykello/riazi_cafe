@@ -51,7 +51,7 @@
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
         <% problem.solutions.each_with_index do |solution, idx| %>
             <% if problem.solutions.length > 1%>
-                <h4>راه حل <%= idx + 1 %></h4>
+                <h4>راه‌حل <%= numfa(idx + 1) %></h4>
             <% end %>
 
             <%= solution %>
