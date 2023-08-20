@@ -13,4 +13,9 @@ bundle install
 
 ### Using asdf
 
-Use asdf-vm which allows to use directory specific environments. See [README-asdf.md]
+Use asdf-vm which allows to use directory specific environments. See [README-asdf.md](./README-asdf.md)
+
+## Running
+
+1. To generate the website, run `make generate`.
+2. Then run `make http` and visit http://localhost:8000/.
