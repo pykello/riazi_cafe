@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی
+        - یافتن گنج
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>یافتن گنج</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+            راه حل
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content problem" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <img src="/images/problems/28_grid.png" style="float:left;max-width:35%"/>
+    <p>یک جدول ۱۱ در ۱۱ به شما داده شده که در یک خانه اون یک گنج قرار داره. هر بار می‌تونیم یک مستطیل دلخواه از جدول را انتخاب کنیم و از پیشگو بپرسیم آیا گنج توی این مستطیل قرار داره؟</p>
+<p>کمترین سوال لازم برای این که گنج را پیدا کنیم چقدر هست؟</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1693859687786074266">https://twitter.com/Riazi_Cafe/status/1693859687786074266</a></p>
+
+  </div>
+
+
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+
+            <p>پاسخ مورد نظر ۷ می‌باشد.</p>
+<p>چون با هر پرسش فضای جستجو را به دو بخش می‌کنیم، پاسخ کمتر از ⌈log₂ 121⌉=7 نمی‌تواند باشد.</p>
+<p>ابتدا یک راه‌حل ساده با ۸ حرکت را توضیح می‌دهیم و سپس به توضیح ۷ حرکت می‌پردازیم.</p>
+<p>اگر با الهام از باینری‌سرچ مستطیل اصلی را هر دفعه به ۲ مستطیل تقریبا مساوی تقسیم کنیم و یکی از آن دو رو بپرسیم، در حداکثر ۸ حرکت به جواب می‌رسیم:
+سوال اول مستطیل 11x6، سپس 6x6، سپس 3x6، سپس 3x3، سپس 3x2، سپس 3x1، سپس 2x1، و بالاخره 1x1.  در شکل زیر فضای بزرگترین جستجوی باقیمانده در هر مرحله و پرسش آن نشان داده شده.</p>
+<p><img src="/images/problems/28_diagram0.png" alt="" /></p>
+<p>برای اینکه به ۷ حرکت برسیم، به ۲ نکته‌ی کلیدی توجه می‌کنیم:</p>
+<ul>
+<li>پس از حرکت اول باید حداکثر ۶۴ خانه در فضای جستجو باقی مانده باشد، پس از حرکت دوم حداکثر ۳۲، ... و پس از حرکت هفت یک. در راه‌حل بالا پس از حرکت اول ممکن بود ۶۶ خانه باقی مانده باشد.</li>
+<li>لزومی ندارد فضای جستجوی باقیمانده مستطیل پیوسته باشد!</li>
+</ul>
+<p>با در نظر گرفتن نکات بالا احتمالا خودتان بتوانید روی کاغذ یک سری راه‌حل پیدا کنید.</p>
+<p>یک راه (شبیه راه‌حل <a href="https://twitter.com/_peyman_m">_peyman_m</a>) این است که مثل شکل ۱ ابتدا مستطیل قرمز را بپرسیم.
+جواب آری را بعدا بررسی خواهیم کرد، ولی اگر جواب نه بود، مستطیل سبز شکل ۲ را می‌پرسیم.</p>
+<p>در این ۲ سوال فضای جستجو را حرکت اول به حداکثر ۶۱ و حرکت دوم حداکثر ۳۱ خانه محدود کردیم.</p>
+<p><img src="/images/problems/28_diagram1.png" alt="" /></p>
+<p>جواب آری شکل ۲ را بعدا بررسی خواهیم کرد، ولی اگر جواب نه بود، ۳۱ خانه باقی می‌ماند. پرسیدن بخش شطرنجی شکل ۳ فضای جستجو را به ۲ بخش ۱۵ خانه و ۱۶ خانه تقسیم می‌کند. بخش ۱۶ خانه چون هر دو ضلعش توان ۲ است، در ۴ مرحله می‌توان به مستطیل‌های کوچکتر مساوی تقسیم کرد و پرسید. بخش ۱۵ تایی در شکل ۴ نشان داده شده، که بخش شطرنجی مشخص شده را سوال می‌کنیم. پس از این پرسش هر ۲ حالت آری و نه را می‌توان با حداکثر ۳ سوال دیگر به یک خانه رساند. که در مجموع حداکثر ۷ پرسش می‌شود.</p>
+<p><img src="/images/problems/28_diagram2.png" alt="" /></p>
+<p>تکلیف مستطیل قرمز شکل یک و مستطیل سبز شکل دو باقی مانده است. مستطیل قرمز را با ۲ پرسش و مستطیل سبز را با یک پرسش می‌توان به مستطیل 3x5 تقلیل داد. دو سوال اول این حالت
+در شکل‌های ۶ و ۷ مشخص شده، که بعد از آن به آسانی با ۲ سوال دیگر می‌توان به یک خانه رسید.</p>
+<p><img src="/images/problems/28_diagram3.png" alt="" /></p>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <!--<p>&copy; 2023 riazi.cafe</p> -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
