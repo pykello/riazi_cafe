@@ -37,7 +37,7 @@ end
 def render_problem(problem_info, output_path)
     data = {
         "problem": problem_info,
-        "title": problem_info.title
+        "title": problem_info.web_title
     }
     output_html =
         render_with_master_layout(
@@ -55,6 +55,8 @@ def parse_problem(path, source_info)
         case name
         when 'title' then
             info.title = contents.join(" ")
+        when 'id' then
+            info.id = contents[0]
         when 'source' then
             if not contents.empty? and contents[0].length > 0
                 info.source = contents[0]
@@ -116,9 +118,10 @@ end
 class ProblemInfo
     attr_accessor :title, :source, :tags, :statement,
                   :hints, :solutions, :source, :source_title, :source_url,
-                  :url, :difficulty, :timestamp, :image
+                  :url, :difficulty, :timestamp, :image, :id
     def initialize
         @title = nil
+        @id = ""
         @source = nil
         @tags = []
         @difficulty = 0
@@ -131,5 +134,13 @@ class ProblemInfo
         @url = nil
         @timestamp = nil
         @image = nil
+    end
+
+    def web_title
+        if @id.empty?
+            @title
+        else
+            "#{@id}. #{@title}"
+        end
     end
 end

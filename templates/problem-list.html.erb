@@ -4,6 +4,9 @@
         <% problems.each do |problem| %>
             <li>
                 <a href="<%= problem.url %>">
+                    <% if !problem.id.empty? %>
+                       <b> <%= problem.id %>. </b>
+                    <% end %>
                     <%= problem.title %>
                 </a>
             </li>
