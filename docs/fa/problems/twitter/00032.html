@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی
+        - مساله ۳۲. هشمت و قلی
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>مساله ۳۲. هشمت و قلی</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+            راه حل
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content problem" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <img src="/images/problems/32_ninja.png" style="float:left;max-width:35%"/>
+    <p>(سوال المپیاد جهانی ریاضی امسال با اندکی دخل و تصرف)</p>
+<p>۱۳۶۹ ردیف گوی داریم که در ردیف شماره i ، i گوی قرار دارد. گوی j ام هر ردیف با گوی های j و j+1 ام ردیف بعدی در ارتباط است.</p>
+<p>یک مسیر نینجایی تشکیل شده از ۱۳۶۹ گوی که هر کدام به یک ردیف تعلق دارند و هر گوی مسیر با گوی ردیف بعدی مسیر در ارتباط هست.</p>
+<p>هشمت از هر ردیف یک گوی را با رنگ قرمز رنگ میکند و پس از آن قلی یک مسیر نینجایی پیدا میکند که بیشترین تعداد گوی قرمز را شامل باشد.</p>
+<p>اگر هشمت هیچ همکاری با قلی نکند، حداقل تعداد گوی قرمز مسیر نینجایی قلی چقدر است؟</p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1699307153184739688">https://twitter.com/Riazi_Cafe/status/1699307153184739688</a></p>
+
+  </div>
+
+
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+
+            <p>پاسخ سوال ۱۱ هست.</p>
+<p>ما باید دو گزاره را اثبات کنیم:</p>
+<p>گزاره اول این است که روشی برای هشمت وجود دارد که اگر به آن صورت گوی‌ها را رنگ‌آمیزی کند، تعداد گوی‌های هر مسیر نینجا حداکثر ۱۱ میشود.</p>
+<p>گزاره دوم این است که هر گونه که هشمت گوی ها را رنگ کند، مسیر نینجایی با ۱۱ گوی رنگی وجود دارد.</p>
+<p>ابتدا گزاره اول را نشان میدهیم. شیوه رنگ کردن زیر را در نظر بگیرید:</p>
+<p>1 ← 1</p>
+<p>2 ← 1</p>
+<p>3 ← 3</p>
+<p>4 ← 1</p>
+<p>5 ← 3</p>
+<p>6 ← 5</p>
+<p>7 ← 7</p>
+<p>8 ← 1</p>
+<p>...</p>
+<p>به صورت کلی از هر سطر 2^i گوی شماره یک را رنگ میکنیم و به ازای هر.
+i﮲^2 &gt; j =&gt; ﮲i
+گوی شماره 1+2*j از سطر
+2^i+﮲j
+را رنگ میکنیم.</p>
+<p>در این صورت از هر بازه از سطر های
+[1,1] [2,3] [4,7] … [512,1023] [1024,1369]
+حداکثر یک گوی رنگی در هر مسیر نینجا وجود خواهد داشت.</p>
+<p>پس تعدادگوی های رنگی مسیر قلی حداکثر برابر با ۱۱ خواهد بود.</p>
+<p>در ادامه گزاره دوم را نشان میدهیم. به عبارت دیگر نشان میدهیم به ازای هر رنگ آمیزی هشمت، مسیری نینجایی برای قلی وجود دارد که ۱۱ گوی آن رنگ شده.</p>
+<p>برای این کار از
+<a href="https://en.wikipedia.org/wiki/Dilworth%27s_theorem">قضیه دیلوورث</a>
+استفاده میکنیم.</p>
+<p>قضیه دیلوورث نشان میدهد که اگر به ازای یک رنگ آمیزی از گوی ها هیچ مسیر نینجایی با ۱۰ گوی رنگی وجود نداشته باشد، پس میتوان سطرهای گوی ها را به ۱۰ دسته تقسیم کرد که در هر دسته، اگر دو سطر i و j وجود دارند فاصله گوی های رنگ آنها بیشتر از |i-j| می باشد</p>
+<p>چون ۲ به توان ۱۰ کمتر از ۱۳۶۹ هست، پس در یکی از دسته ها به ازای یک i، بیشتر از i/2 سطر با اندازه کمتر یا مساوی i قراز خواهد گرفت.</p>
+<p>می توان مشاهده کرد که در این صورت دو سطر i و j در آن دسته قرار خواهند داشت که فاصله گوی رنگی آن ها کمتر یا مساوی |i-j| خواهد بود که با شرط گفته شده تناقض دارد.</p>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <!--<p>&copy; 2023 riazi.cafe</p> -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
