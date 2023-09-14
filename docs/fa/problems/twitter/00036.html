@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی
+        - مساله ۳۶. مساله‌ای از ابوریحان بیرونی
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>مساله ۳۶. مساله‌ای از ابوریحان بیرونی</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+            راه حل
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content problem" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+    <p>دو مثلث قائم‌الزاویه ABZ و DBZ و طول اضلاع آن داده شده. طول TH را پیدا کنید.</p>
+<p>طول ZA=33</p>
+<p>طول BD=16</p>
+<p>طول BZ=65</p>
+<p><img src="/images/problems/36_biruni.png" alt="" /></p>
+<p>لینک مساله در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1701844480939397217">https://twitter.com/Riazi_Cafe/status/1701844480939397217</a></p>
+
+  </div>
+
+
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+                <h4>راه‌حل ۱</h4>
+
+            <p>طبق قضیه فیثاغورث، داریم AB=56 و DZ=63. با در نظر گرفتن B به عنوان مبدا، تابع خطوط AB و DZ را می‌نویسیم. مختصات y محل تقاطع این دو خط برابر با جواب است.</p>
+<p>تابع خط را می‌توان با داشتن شیب و یک نقطه از آن خط نوشت. شیب خط برابر تانژانت زاویه آن با محور x در راستای مثبت است.</p>
+<p>$$
+\begin{align}
+\left.
+\begin{aligned}
+BA:&amp; y = \frac{33}{56} x \\
+DZ:&amp; y = -\frac{16}{63}(x - 65)
+\end{aligned}
+\right\}
+\quad &amp;\implies \quad
+x \approx 19.57647, y \approx 11.53613
+\end{align}
+$$</p>
+
+
+                <h4>راه‌حل ۲</h4>
+
+            <p>ابتدا طول BT را بدست می‌آوریم، و با ضرب آن در سینوس زاویه TBH حاصل را بدست می‌آوریم.</p>
+<p>$$
+\begin{aligned}
+\angle TBH &amp;= \arcsin(\frac{33}{65}) \\
+\angle DBH &amp;= \arccos(\frac{16}{65}) \\
+\angle DBT &amp;= \angle DBH - \angle TBH \\
+\\
+BT &amp;= \frac{16}{\cos(\angle DBT)} \\
+\\
+TH &amp;= BT \times \sin(\angle TBH) \approx 11.53613
+\end{aligned}
+$$</p>
+
+
+                <h4>راه‌حل ۳</h4>
+
+            <p>(راه‌حل بیرونی)</p>
+<p>موضوع این کتاب بیرونی ۴ قضیه درباره‌ی وترهای دایره است و  سعی کرده مساله‌ها رو با استفاده از ۴ قضیه‌ای که در ابتدای کتاب آورده حل کند و دنبال ساده‌ترین راه نبوده. پس این راه‌حل کمی پیچیده‌تر از راه‌حل‌های ما است.</p>
+<p>اگر به قطر BZ دایره‌ای رسم کنیم به خاطر قائم‌الزاویه بودن دو مثلث از A و D خواهد گذشت.</p>
+<p>همچنین در شکل زیر کمان نقطه C طوری انتخاب می‌شود که کمان BC با کمان AD برابر باشد.</p>
+<p><img src="/images/problems/36_diagram0.png" alt="" /></p>
+<p>خلاصه راه‌حل:</p>
+<ul>
+<li>با استفاده از <a href="https://en.wikipedia.org/wiki/Ptolemy%27s_theorem">قضیه‌ی بطلمیوس</a> طول AD را بدست می‌آوریم.</li>
+<li>با استفاده از قضیه دوم کتاب بیرونی BC را بدست می‌آوریم.</li>
+<li>با استفاده از قضیه اول کتاب بیرونی، E وسط خط شکسته ABC است. چون AB و BC را داریم، پس BE و AE را می‌توانیم بدست بیاوریم.</li>
+<li>طول DE را با استفاده از قضیه‌ی فیثاغورث در مثلث BDE بدست می‌آوریم.</li>
+<li>با استفاده از <a href="https://en.wikipedia.org/wiki/Geometric_mean_theorem">قضیه ارتفاع وارد بر وتر</a> در مثلث BDT طول ET را بدست می‌آوریم.</li>
+<li>با استفاده از تناسب مثلث‌های TBH و AZB مقدار TH را بدست می‌آوریم.</li>
+</ul>
+<p>برای راه‌حل کامل به صفحه‌ی ۱۸۸ <a href="https://fa.wikipedia.org/wiki/%D8%AA%D8%AD%D9%82%DB%8C%D9%82%DB%8C_%D8%AF%D8%B1_%D8%A2%D8%AB%D8%A7%D8%B1_%D8%B1%DB%8C%D8%A7%D8%B6%DB%8C_%D8%A7%D8%A8%D9%88%D8%B1%DB%8C%D8%AD%D8%A7%D9%86_%D8%A8%DB%8C%D8%B1%D9%88%D9%86%DB%8C">کتاب تحقیقی در آثار ریاضی ابوریحان بیرونی</a>
+مراجعه کنید.</p>
+<p>تصویر قضیه‌ی ۱ و ۲ از کتاب:</p>
+<p><img src="/images/problems/36_theorem1.png" alt="" /></p>
+<p><img src="/images/problems/36_theorem2.png" alt="" /></p>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <!--<p>&copy; 2023 riazi.cafe</p> -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
