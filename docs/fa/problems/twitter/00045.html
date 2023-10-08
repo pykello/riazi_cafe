@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کافه ریاضی
+        - مساله ۴۵. اعداد بخش‌پذیر بر ۵ و ۷
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap RTL CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">کافه ریاضی</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/problem-list.html">لیست مساله‌ها</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">پیشنهاد مساله</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/fa/blog">وبلاگ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>مساله ۴۵. اعداد بخش‌پذیر بر ۵ و ۷</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+  </li>
+
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+            راه حل
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content problem" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <img src="/images/problems/37_imo.jpg" style="float:left;max-width:35%"/>
+    <p>امروز یک سوال براتون داریم که بر اساس یک سوال از المپیاد ریاضی هند ۲۰۰۳ است.</p>
+<p>چند عدد ۷ رقمی وجود داره که هر رقم ۵ یا ۷ باشه و کل عدد بر هر دوی ۵ و ۷ بخش‌پذیر باشه؟</p>
+<p>سوال چالشی. همون سوال، ولی ۱۳ رقم: چندعدد ۱۳ رقمی وجود داره که هر رقم ۵ یا ۷  باشه و کل عدد بر هر دوی ۵ و ۷ بخش‌پذیر باشه؟</p>
+<p>(بدون استفاده از کامپیوتر یا ماشین‌حساب)</p>
+<p>لینک سوال در توویتر: <a href="https://twitter.com/Riazi_Cafe/status/1709796691770323356">https://twitter.com/Riazi_Cafe/status/1709796691770323356</a></p>
+
+  </div>
+
+
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+
+            <p>پاسخ برای ۷ رقم برابر با ۹ و برای ۱۳ رقم برابر با ۵۸۵ و برای 6n+1 رقم برابر است با:</p>
+<p>$$
+\frac{2^{6n}-1}{7}
+$$</p>
+<p>ابتدا سعی می‌کنیم مساله را برای ۷ رقم به طور خاص حل کنیم. برای اینکه عدد بر ۵ بخش‌پذیر باشد، رقم یکان باید ۵ باشد.
+پس عدد را می‌توان به صورت abcdef5 نوشت. برای اینکه کل عدد بر ۷ بخش پذیر باشد، باید باقیمانده‌ی abcdef0 بر ۷ برابر ۲ باشد.</p>
+<p>که باقیمانده‌ی این عدد بر ۷ را می‌توان به صورت زیر نوشت:</p>
+<p>$$
+\begin{aligned}
+abcdef0 \% 7 = (&amp;(f \times 10^1)\%7 + (e \times 10^2)\%7 + (d \times 10^3)\%7 + \\
+&amp;(c \times 10^4)\%7 + (b \times 10^5)\%7 + (a \times 10^6)\%7) \%7
+\end{aligned}
+$$</p>
+<p>با کمی دقت متوجه می‌شویم که اینکه رقمی را ۷ بگذاریم معادل این است که آن رقم را صفر بگذاریم و در باقیمانده تاثیری ندارد.
+پس حالت‌هایی که قرار است بشماریم معادل این است که زیرمجموعه‌ای از ارقام a، b، c، d، e، f را برابر ۵ قرار دهیم بطوری که حاصل باقیمانده‌ی بالا برابر با ۲ باشد.</p>
+<p>همچنین  \((5 \times 10^i)\%7\) به ازای ۱ تا ۷ به ترتیب برابر است با
+۱، ۳، ۲، ۶، ۴، ۵.</p>
+<p>بنابراین مساله معادل این است که زیرمجموعه‌هایی از ۱،۲،۳،۴،۵،۶ را بشماریم که باقیمانده‌ی مجموع اعدادشان بر ۷ برابر با ۲ باشد.</p>
+<p>یک راه ساده این است سعی کنیم دستی زیرمجموعه‌های به هر طول را که باقیمانده‌ی ۲ می‌دهند را دربیاوریم:</p>
+<ul>
+<li>طول ۱: {2}</li>
+<li>طول ۲: {3,6}، {4,5}</li>
+<li>طول ۳: {1,2,6}، {1,3,5}، {2,3,4}</li>
+<li>طول ۴: {1,4,5,6}، {2,3,5,6}</li>
+<li>طول ۵: {1,2,3,4,6}</li>
+</ul>
+<p>پس پاسخ برابر با ۹ است.</p>
+<p>اگر \((5 \times 10^i)\%7\) را به ازای ۸ تا ۱۳ ادامه دهیم
+(یا به ازای هر i برابر \(7n+1\) تا \(7n+6\))
+، باز بدست می‌آوریم ۱، ۳، ۲، ۶، ۴، ۵.</p>
+<p>یعنی برای شمردن پاسخ برای ۱۳، باید باقیمانده‌ی ۲ را با استفاده از داشتن انتخاب دو تا از هر کدام از ۱ تا ۶ بدست بیاوریم.</p>
+<p>می‌توان اثبات کرد که (قضیه ۲ در انتها) اگر همه‌ی زیرمجموعه‌های \(\{1_1,2_1,3_1,4_1,5_1,6_1, ..., 1_n,2_n,3_n,4_n,5_n,6_n\}\) که در آن هر کدام از ۱ تا ۶، n بار تکرار شده باشد را در نظر بگیریم،
+تعداد آن‌هایی که باقیمانده‌شان بر ۷ برابر با ۱ یا ۲ یا ... یا ۶ است مساوی است، و تعداد آن‌هایی که باقیمانده‌شان صفر است یکی بیشتر است.</p>
+<p>(چگونه به این رسیدم؟ با راه‌حل ترکیبیاتی مساله را برای ۱۳ حل کردم و شباهت پاسخ آن با حالت ۷ را دیدم و حدس زدم برای حالت کلی نیز درست باشد. سپس اثبات کردم.
+احتمالا با کمی تلاش راه‌حل ترکیبیاتی حالت ۱۳ رقم را بتوانید پیدا کنید، ولی اگر مایل به دیدن راه‌حل ترکیبیاتی ما نیز هستید، کامنت بگذارید.)</p>
+<p>پس جواب برای n به طور کلی برابر است با:</p>
+<p>$$
+\frac{2^{6n}-1}{7}
+$$</p>
+<p>که به دست می‌آید برای ۱۳ رقم پاسخ برابر است با ۵۸۵.</p>
+<p><strong>توضیح.</strong> در اینجا \(1_1\) و \(1_2\) مجزا هستند (به خاطر اینکه هرکدام نماینده‌ی یک رقم مجزا در عدد 6n+1 رقمی هستند) و ۴ حالت انتخاب برای این دو داریم، ولی هر دو نقش ۱ در حساب کردن باقیمانده‌ی مجموع دارند.</p>
+<p><strong>اثبات ادعای بالا:‌</strong></p>
+<p><strong>قضیه.</strong> در بین زیرمجموعه‌هایی از مجموعه‌ای که در آن هر کدام از ۱ تا ۶، n بار تکرار شده باشد،</p>
+<ul>
+<li>تعداد زیرمجموعه‌هایی که باقیمانده‌ی مجموع اعضای آن بر ۷ برابر با \(1 \leq i \leq 6\) باشد، برابر است با \(\frac{2^{6n}-1}{7}\)</li>
+<li>تعداد زیرمجموعه‌هایی که باقیمانده‌ی مجموع اعضای آن بر ۷ برابر با صفر باشد برابر است با \(\frac{2^{6n}+6}{7}\)</li>
+</ul>
+<p><strong>اثبات.</strong>
+چون ۷ عدد اول است، هر کدام از ۱ تا ۶ در پیمانه‌ی ۷ یک وارون ضربی یکتا دارند. اگر یک زیرمجموعه داشته باشیم که باقیمانده‌اش بر ۷ برابر با \(p\) باشد، با ضرب (در پیمانه ۷) هر کدام از اعضای این زیرمجموعه در \(p^{-1}q\)، یک زیرمجموعه‌ی دیگر بدست می‌آید که باقیمانده‌ی مجموع آن بر ۷ برابر با \(q\) است. چون ۷ اول است، این عمل هر کدام از
+زیرمجموعه‌ها با باقیمانده‌ی \(p\) را به یک زیرمجموعه با باقیمانده‌ی \(q\) مجزا نگاشت می‌کند.
+همچنین ضرب هر کدام اعضای هر کدام از اعضای این زیرمجموعه‌ی جدید در \(q^{-1}p\) زیرمجموعه‌ی اصلی را می‌دهد.</p>
+<p>عمل بالا یک تناظر یک‌به‌یک بین زیرمجموعه‌های با باقیمانده‌ی ۱ تا ۶ می‌دهد. پس تعداد زیرمجموعه‌هایی که باقیمانده‌ی آن بر ۷ برابر با ۱ یا ۲ یا ... یا ۶ است مساوی است.</p>
+<p>بقیه‌ی اثبات را با استقرای ریاضی انجام می‌دهیم:</p>
+<p><strong>حالت پایه (n=1).</strong>
+قبلا دیدیم که برای حالتی که از هر کدام از ۱ تا ۶ یک عدد داشته باشیم، تعداد زیرمجموعه‌ها با باقیمانده‌ی \(1 \leq i \leq 6\) برابر است با ۹. پس تعداد زیرمجموعه‌هایی در این حالت که باقیمانده‌ مجموعشان
+برابر با صفر شود، برابر است با \(2^6-6\times9 = 10\).</p>
+<p><strong>گام استقرا.</strong> برای اینکه یک زیرمجموعه با باقیمانده صفر در حالت تکرار n+1 بسازیم، ۷ انتخاب داریم:</p>
+<ul>
+<li>از حالت n تکرار یک زیرمجموعه با باقیمانده \(1 \leq i \leq 6\) انتخاب کنیم و از حالت ۱ تکرار یک زیرمجموعه با باقیمانده \(7 - i\) انتخاب کنیم و این دو رو بچسبونیم به هم.</li>
+<li>از حالت n تکرار یک زیرمجموعه با باقیمانده صفر انتخاب کنیم و از حالت ۱ تکرار یک زیرمجموعه با باقیمانده صفر انتخاب کنیم و این رو بچسبونیم به هم.</li>
+</ul>
+<p>پس تعداد کل زیرمجموعه‌های حالت n+1 تکرار که باقیمانده مجموع آن صفر باشد، برابر است با:</p>
+<p>$$
+6 \times 9 \times \frac{2^{6n} - 1}{7} + 10 \times \frac{2^{6n}+6}{7} = \frac{54 \times 2^{6n} - 54 + 10 \times 2^{6n} + 60}{7} = \frac{2^{6(n+1)} + 6}{7}
+$$</p>
+<p>و به طرز مشابه برای حالت باقیمانده‌ی غیر صفر به دست می‌آید \(\frac{2^{6(n+1)} - 1}{7}\).</p>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+        <!--<p>&copy; 2023 riazi.cafe</p> -->
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
