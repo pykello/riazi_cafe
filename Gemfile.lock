@@ -4,6 +4,7 @@ GEM
     commonmarker (0.23.8)
     erubis (2.7.0)
     github-markup (4.0.1)
+    pandoc-ruby (2.1.9)
     webrick (1.8.1)
 
 PLATFORMS
@@ -14,6 +15,7 @@ DEPENDENCIES
   commonmarker
   erubis
   github-markup
+  pandoc-ruby
   webrick
 
 BUNDLED WITH

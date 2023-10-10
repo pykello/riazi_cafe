@@ -83,7 +83,8 @@ def walk_and_generate(input_root, output_root, generate_lambda)
         end
 
         files.each do |entry|
-            results.append(generate_lambda.call(input_root, output_root, subfolder, entry))
+            result = generate_lambda.call(input_root, output_root, subfolder, entry)
+            results.append(result) if result
         end
 
         return results

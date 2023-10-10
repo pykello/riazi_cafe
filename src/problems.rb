@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'github/markup'
 require 'date'
+require 'pandoc-ruby'
 require_relative 'common'
 
 def problems_dir
@@ -21,6 +22,7 @@ end
 
 def generate_problem_pages(source_info)
     generate_problem = lambda {|input_root, output_root, subfolder, entry|
+        return nil unless entry.end_with? ".md"
         entry_html = entry.gsub(".md", ".html")
         problem_path = File.join(input_root, subfolder, entry)
         output_path = File.join(output_root, subfolder, entry_html)
@@ -51,7 +53,7 @@ def parse_problem(path, source_info)
     contents.append("# end")
     info = ProblemInfo.new
 
-    def process_section(name, contents, info)
+    def process_section(name, contents, info, path)
         case name
         when 'title' then
             info.title = contents.join(" ")
@@ -92,6 +94,13 @@ def parse_problem(path, source_info)
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
+        when 'solution-tex' then
+            dirname = File.dirname(path)
+            tex_path = File.join(dirname, contents.join("\n").strip)
+            info.solutions.append(
+                RenderTex(tex_path)
+            )
+
         end
     end
 
@@ -100,7 +109,7 @@ def parse_problem(path, source_info)
     contents.each { |line|
         if line.start_with? "# "
             if not current_section.nil?
-                process_section(current_section, current_content, info)
+                process_section(current_section, current_content, info, path)
             end
             current_section = line.downcase[2..]
             current_content = []
@@ -113,6 +122,14 @@ def parse_problem(path, source_info)
         info.source_url = source_info.url(source)
     end
     info
+end
+
+def RenderTex(path)
+    tex_content = File.read(path)
+    converter = PandocRuby.new(tex_content, from: :latex)
+    html_content = converter.to_html(standalone: false, mathjax: false)
+
+    html_content
 end
 
 class ProblemInfo
