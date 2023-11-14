@@ -15,20 +15,20 @@
 <!-- tabs -->
 <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">صورت مساله</button>
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><%= translate("Problem Statement", language) %></button>
   </li>
 
   <% problem.hints.each_index do |idx| %>
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-hint-<%= idx %>-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-<%= idx %>" type="button" role="tab" aria-controls="pills-hint-<%= idx %>" aria-selected="false">
-            راهنمایی <% if problem.hints.length > 1%><%= idx + 1 %><% end %>
+        <%= translate("Hint", language) %> <% if problem.hints.length > 1%><%= idx + 1 %><% end %>
         </button>
     </li>
   <% end %>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
-            راه حل
+        <%= translate("Solution", language) %>
         </button>
     </li>
 
@@ -51,7 +51,7 @@
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
         <% problem.solutions.each_with_index do |solution, idx| %>
             <% if problem.solutions.length > 1%>
-                <h4>راه‌حل <%= numfa(idx + 1) %></h4>
+                <h4><%= translate("Solution", language) %> <%= numfa(idx + 1) %></h4>
             <% end %>
 
             <%= solution %>

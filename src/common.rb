@@ -100,3 +100,18 @@ def walk_and_generate(input_root, output_root, generate_lambda)
 
     worker.call('', worker)
 end
+
+def translate(s, language)
+    return s if language == "en"
+    m = {
+        "Home" => "صفحه اصلی",
+        "Problems" => "لیست مساله‌ها",
+        "Suggest A Problem" => "پیشنهاد مساله",
+        "Blog" => "ویلاگ",
+        "Riazi Cafe" => "کافه ریاضی",
+        "Problem Statement" => "صورت مساله",
+        "Hint" => "راهنمایی",
+        "Solution" => "راه‌حل"
+    }
+    return m[s].nil? ? s : m[s]
+end
