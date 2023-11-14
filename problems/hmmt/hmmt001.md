@@ -28,9 +28,9 @@ combinatorics,algebra,number-theory
 
 $$
 \begin{aligned}
-107n = n \mod 100 &\implies \\\\
-7n = n \mod 100 &\implies \\\\
-6n = 0 \mod 100 &
+107n \equiv n\ (\textrm{mod}\ 100) &\implies \\\\
+7n \equiv n\ (\textrm{mod}\ 100) &\implies \\\\
+6n \equiv 0\ (\textrm{mod}\ 100) &
 \end{aligned}
 $$
 
