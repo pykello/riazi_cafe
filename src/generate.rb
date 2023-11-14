@@ -3,7 +3,7 @@ require_relative 'problems'
 require_relative 'problem_sources'
 require_relative 'blog'
 
-['fa'].each { |language|
+['fa', 'en'].each { |language|
     problem_source_info = generate_problem_sources
     problems = generate_problem_pages(problem_source_info, language)
     generate_problem_list_page(problems, language)

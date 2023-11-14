@@ -39,18 +39,26 @@ def render_with_layout(layout_path, template_path, data)
     render_with_layout_s(layout_path, content_html, data)
 end
 
-def render_with_master_layout(template_path, data)
+def render_with_master_layout(template_path, data, language="fa")
     render_with_layout(
         tmpl("layout.html.erb"),
         template_path,
-        data.merge({'config' => config}))
+        data.merge({
+            'config' => config,
+            'language' => language,
+            'dir' => language == "fa" ? "rtl" : "ltr"
+        }))
 end
 
-def render_with_master_layout_s(content, data)
+def render_with_master_layout_s(content, data, language="fa")
     render_with_layout_s(
         tmpl("layout.html.erb"),
         content,
-        data.merge({'config' => config}))
+        data.merge({
+            'config' => config,
+            'language' => language,
+            'dir' => language == "fa" ? "rtl" : "ltr"
+        }))
 end
 
 #

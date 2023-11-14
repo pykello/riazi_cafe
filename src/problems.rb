@@ -16,18 +16,18 @@ def generate_problem_list_page(problems, language)
     output_html =
         render_with_master_layout(
             tmpl('problem-list.html.erb'),
-            data)
+            data, language)
     File.write(File.join(output_dir, language, 'problem-list.html'), output_html)
 end
 
 def generate_problem_pages(source_info, language)
     generate_problem = lambda {|input_root, output_root, subfolder, entry|
-        return nil unless entry.end_with? ".md"
-        entry_html = entry.gsub(".md", ".html")
+        return nil unless entry.match? /.tex$|.md$/
+        entry_html = entry.gsub(/.tex|.md/, ".html")
         problem_path = File.join(input_root, subfolder, entry)
         output_path = File.join(output_root, subfolder, entry_html)
         problem_info = parse_problem(problem_path, source_info)
-        render_problem(problem_info, output_path)
+        render_problem(problem_info, output_path, language)
         problem_info.url = File.join('', language, 'problems', subfolder, entry_html)
         problem_info
     }
@@ -36,7 +36,7 @@ def generate_problem_pages(source_info, language)
     walk_and_generate(problems_dir(language), output_root, generate_problem)
 end
 
-def render_problem(problem_info, output_path)
+def render_problem(problem_info, output_path, language)
     data = {
         "problem": problem_info,
         "title": problem_info.web_title
@@ -44,11 +44,21 @@ def render_problem(problem_info, output_path)
     output_html =
         render_with_master_layout(
             tmpl('problem.html.erb'),
-            data)
+            data, language)
     File.write(output_path, output_html)
 end
 
 def parse_problem(path, source_info)
+    if path.end_with? ".md"
+        parse_problem_md(path, source_info)
+    elsif path.end_with? ".tex"
+        parse_problem_tex(path, source_info)
+    else
+        raise "Unsupported format: #{path}"
+    end
+end
+
+def parse_problem_md(path, source_info)
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     info = ProblemInfo.new
@@ -98,7 +108,7 @@ def parse_problem(path, source_info)
             dirname = File.dirname(path)
             tex_path = File.join(dirname, contents.join("\n").strip)
             info.solutions.append(
-                RenderTex(tex_path)
+                render_tex_path(tex_path)
             )
 
         end
@@ -124,8 +134,54 @@ def parse_problem(path, source_info)
     info
 end
 
-def RenderTex(path)
+def parse_problem_tex(path, source_info)
+    contents = File.readlines(path).map { _1.strip }
+    contents.append("# end")
+    info = ProblemInfo.new
+
+    def process_section(name, contents, info, path, section_params)
+        puts "process section #{name}"
+        case name
+        when "problem"
+            info.image = section_params[0] if !section_params[0].empty?
+            info.title = section_params[1]
+            info.statement = render_tex_s(contents.join("\n"))
+        when "solution"
+            info.solutions.append(render_tex_s(contents.join("\n")))
+        when "hint"
+            info.hints.append(render_tex_s(contents.join("\n")))
+        end
+    end
+
+    current_section = nil
+    section_params = []
+    current_content = []
+    contents.each { |line|
+        if current_section.nil? && line.start_with?("\\begin{")
+            v = line.strip.split(/}{|{|}/)[1..]
+            current_section = v[0]
+            puts current_section
+            section_params = v[1..]
+            current_content = []
+            next
+        elsif !current_section.nil? && line.start_with?("\\end{#{current_section}}")
+            process_section(current_section, current_content, info, path, section_params)
+            current_section = nil
+        else
+            current_content.append(line)
+        end
+    }
+
+    info
+end
+
+
+def render_tex_path(path)
     tex_content = File.read(path)
+    render_tex_s(tex_content)
+end
+
+def render_tex_s(tex_content)
     converter = PandocRuby.new(tex_content, from: :latex)
     html_content = converter.to_html(standalone: false, mathjax: false)
 
