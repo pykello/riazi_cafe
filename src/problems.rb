@@ -4,11 +4,11 @@ require 'date'
 require 'pandoc-ruby'
 require_relative 'common'
 
-def problems_dir
-    File.join(".", "problems")
+def problems_dir(language)
+    File.join(".", "problems", language)
 end
 
-def generate_problem_list_page(problems)
+def generate_problem_list_page(problems, language)
     data = {
         "problems": problems.sort_by { _1.timestamp }.reverse,
         "title": "لیست مساله‌ها"
@@ -17,10 +17,10 @@ def generate_problem_list_page(problems)
         render_with_master_layout(
             tmpl('problem-list.html.erb'),
             data)
-    File.write(File.join(output_dir, "fa", 'problem-list.html'), output_html)
+    File.write(File.join(output_dir, language, 'problem-list.html'), output_html)
 end
 
-def generate_problem_pages(source_info)
+def generate_problem_pages(source_info, language)
     generate_problem = lambda {|input_root, output_root, subfolder, entry|
         return nil unless entry.end_with? ".md"
         entry_html = entry.gsub(".md", ".html")
@@ -28,12 +28,12 @@ def generate_problem_pages(source_info)
         output_path = File.join(output_root, subfolder, entry_html)
         problem_info = parse_problem(problem_path, source_info)
         render_problem(problem_info, output_path)
-        problem_info.url = File.join('', 'fa', 'problems', subfolder, entry_html)
+        problem_info.url = File.join('', language, 'problems', subfolder, entry_html)
         problem_info
     }
 
-    output_root = File.join(output_dir, 'fa', 'problems')
-    walk_and_generate(problems_dir, output_root, generate_problem)
+    output_root = File.join(output_dir, language, 'problems')
+    walk_and_generate(problems_dir(language), output_root, generate_problem)
 end
 
 def render_problem(problem_info, output_path)
