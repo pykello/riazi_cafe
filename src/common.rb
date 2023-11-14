@@ -107,7 +107,7 @@ def translate(s, language)
         "Home" => "صفحه اصلی",
         "Problems" => "لیست مساله‌ها",
         "Suggest A Problem" => "پیشنهاد مساله",
-        "Blog" => "ویلاگ",
+        "Blog" => "وبلاگ",
         "Riazi Cafe" => "کافه ریاضی",
         "Problem Statement" => "صورت مساله",
         "Hint" => "راهنمایی",
