@@ -175,6 +175,7 @@ def parse_problem_tex(path, source_info)
     begin
         fa_p = parse_problem_md(fa_problem_filename, source_info)
         info.timestamp = fa_p.timestamp
+        info.image = fa_p.image
         info.id = "Problem #{path.scan(/\d/).join.to_i}"
     rescue
         puts "Couldn't open #{fa_problem_filename}"
