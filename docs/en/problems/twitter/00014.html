@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riazi Cafe
-        - Problem 1. The last Cilantro
+        - Problem 14. Playing with Numbers
     </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 
     <main class="container mt-5">
         
-<h2>Problem 1. The last Cilantro</h2>
+<h2>Problem 14. Playing with Numbers</h2>
 
 
 <!-- tabs -->
@@ -71,11 +71,6 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Problem Statement</button>
   </li>
 
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
-        Hint 
-        </button>
-    </li>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
@@ -87,7 +82,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/01_gashniz.jpg" style="float:left;max-width:35%"/>
+      <img src="/images/problems/14_nim.jpg" style="float:left;max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -103,41 +98,17 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>We have a deck of 52 cards whose order is uniformly at random (with all permutations having the same probability). Each time we take one card from the top and remove it until all 13 Coriander cards are completely removed. How many cards do we remove on average?<br />
-Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1662455315546161152">https://twitter.com/Riazi_Cafe/status/1662455315546161152</a></p>
+<p>The number <span class="math inline">\(X\)</span> is equal to 33750000.</p>
+<p>Two people play a game as follows: each person in his turn divides X by one of the divisors of X which is either prime or a power of a prime number (e.g., 2, 17, 8, 9, ol 125). Players play in turns until the value of <span class="math inline">\(X\)</span> becomes 1. Whoever turns <span class="math inline">\(X\)</span> into 1 wins the game. Which player has a winning strategy?<br />
+Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1678625174537527297">https://twitter.com/Riazi_Cafe/status/1678625174537527297</a></p>
 </body>
 </html>
 
   </div>
 
-    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
-        <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>-</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-</head>
-<body>
-<ul>
-<li><p>What is the probability that a particular non-coriander card comes after all the cilantros?</p></li>
-<li><p>How does the final solution relate to the above probability?</p></li>
-</ul>
-</body>
-</html>
-
-    </div>
 
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
@@ -159,17 +130,12 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>The correct answer is equal to: <span class="math inline">\(13 + 39 \cdot 13/14 \simeq 49.2142857143\)</span>.<br />
-Obviously, all 13 Coriander cards are removed in this process. Now consider a card with another suit, say a heart card <span class="math inline">\(h\)</span>. For now, we ignore all cards except for the 13 cards of Coriander and card <span class="math inline">\(h\)</span>. Now, consider the position of card <span class="math inline">\(h\)</span> relative to the 13 Coriander cards. There are 14 possibilities for it:</p>
-<ul>
-<li><p><span class="math inline">\(h\)</span> comes before all the Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the first and second Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the second and the third Coriander cards,</p></li>
-<li><p><span class="math inline">\(\ldots\)</span></p></li>
-<li><p><span class="math inline">\(h\)</span> comes after all of the Coriander cards.</p></li>
-</ul>
-<p><span class="math inline">\(h\)</span> will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus we remove card <span class="math inline">\(h\)</span> with probability <span class="math inline">\(13/14\)</span>. Therefore, each of the 39 non-coriander cards will be removed with a probability of <span class="math inline">\(13/14\)</span> in this process, and therefore, the answer to the problem is equal to: <span class="math inline">\(13 + (13/14) \cdot 39\)</span> (keep in mind the linearity of expectation).<br />
-Link to the solution on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1663022266064556033">https://twitter.com/Riazi_Cafe/status/1663022266064556033</a></p>
+<p>The winner of the game is the second player (if both players play optimally).<br />
+The solution is based on the Nim game explained below. By decomposing number 33750000 into its prime factors, it can be seen that the powers of bases two, three and five are equal to four, three and seven (i.e., <span class="math inline">\(33750000 = 2^4 3^3 5^7\)</span>). Because each time a player reduces the power of one of the bases of <span class="math inline">\(X\)</span>, this game is equivalent to a Nim game with pile sizes three, four and seven and thus the winner of the game is the second player.<br />
+<strong>Explanation of the Nim game</strong>: Nim is a two-player game in combinatorial mathematics which includes a number of piles where pile contains a number of beans. Two players take turns to remove the beans from the piles. In each turn, a player must choose one of the non-empty piles and remove some (at least one) beans from it. The winner of the game is the player who removes the last bean from the piles.</p>
+<p>The optimal strategy in the Nim game is to always play in such a way that after your move the XOR of the number of beans in the piles is equals 0. This is possible if and only if the XOR of the number of beans before your move is not equal to 0. For example, if there are two piles of sizes 3 and 5, their XOR will be 6, and removing two beans from a pile of 5 will make the XOR of the number of beans of the piles equal to zero.</p>
+<p>Therefore, if the XOR of the number of beans is zero initially, the player who plays first will lose. This is because after his move the XOR of the number of beans will be non-zero and the opponent can always play in a way that the XOR of the number of beans of the piles becomes zero again. By repeating this process, the opponent will win the game. Because in the Nim game equivalent to our original problem, the XOR of the beans of the equivalent piles (three, four and seven) is equal to zero, the second player has a winning strategy.<br />
+Solution link on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1679386866783776769">https://twitter.com/Riazi_Cafe/status/1679386866783776769</a></p>
 </body>
 </html>
 

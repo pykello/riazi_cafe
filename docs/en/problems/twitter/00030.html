@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riazi Cafe
-        - Problem 1. The last Cilantro
+        - Problem 30. Points on the circle
     </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 
     <main class="container mt-5">
         
-<h2>Problem 1. The last Cilantro</h2>
+<h2>Problem 30. Points on the circle</h2>
 
 
 <!-- tabs -->
@@ -71,11 +71,6 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Problem Statement</button>
   </li>
 
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
-        Hint 
-        </button>
-    </li>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
@@ -87,7 +82,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/01_gashniz.jpg" style="float:left;max-width:35%"/>
+      <img src="/images/problems/30_circle.png" style="float:left;max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -105,39 +100,13 @@
   </style>
 </head>
 <body>
-<p>We have a deck of 52 cards whose order is uniformly at random (with all permutations having the same probability). Each time we take one card from the top and remove it until all 13 Coriander cards are completely removed. How many cards do we remove on average?<br />
-Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1662455315546161152">https://twitter.com/Riazi_Cafe/status/1662455315546161152</a></p>
+<p>Find an approximate answer to this question without using integrals and differential equations: We have a circle with a perimeter of one meter. We randomly select 1369 points in its perimeter. What is the average distance between the two closest points? (Here we mean their distance along the perimeter of the circle, not the Euclidean distance)<br />
+Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1696474726812520522">https://twitter.com/Riazi_Cafe/status/1696474726812520522</a></p>
 </body>
 </html>
 
   </div>
 
-    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
-        <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>-</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-</head>
-<body>
-<ul>
-<li><p>What is the probability that a particular non-coriander card comes after all the cilantros?</p></li>
-<li><p>How does the final solution relate to the above probability?</p></li>
-</ul>
-</body>
-</html>
-
-    </div>
 
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
@@ -159,17 +128,17 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>The correct answer is equal to: <span class="math inline">\(13 + 39 \cdot 13/14 \simeq 49.2142857143\)</span>.<br />
-Obviously, all 13 Coriander cards are removed in this process. Now consider a card with another suit, say a heart card <span class="math inline">\(h\)</span>. For now, we ignore all cards except for the 13 cards of Coriander and card <span class="math inline">\(h\)</span>. Now, consider the position of card <span class="math inline">\(h\)</span> relative to the 13 Coriander cards. There are 14 possibilities for it:</p>
-<ul>
-<li><p><span class="math inline">\(h\)</span> comes before all the Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the first and second Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the second and the third Coriander cards,</p></li>
-<li><p><span class="math inline">\(\ldots\)</span></p></li>
-<li><p><span class="math inline">\(h\)</span> comes after all of the Coriander cards.</p></li>
-</ul>
-<p><span class="math inline">\(h\)</span> will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus we remove card <span class="math inline">\(h\)</span> with probability <span class="math inline">\(13/14\)</span>. Therefore, each of the 39 non-coriander cards will be removed with a probability of <span class="math inline">\(13/14\)</span> in this process, and therefore, the answer to the problem is equal to: <span class="math inline">\(13 + (13/14) \cdot 39\)</span> (keep in mind the linearity of expectation).<br />
-Link to the solution on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1663022266064556033">https://twitter.com/Riazi_Cafe/status/1663022266064556033</a></p>
+<p>The exact answer of the question for <span class="math inline">\(n\)</span> points is equal to <span class="math inline">\(\frac{1}{n^2}\)</span> which is equal to <span class="math inline">\(1/1369^2\)</span> for the case of <span class="math inline">\(1369\)</span> points on the circle.<br />
+Because we asked for an approximate answer, below we present a simple <span class="math inline">\(2\)</span>-approximate solution to the problem. That is, the number we come up with is within a multiplicative factor of 2 from the exact solution.</p>
+<p>We use the double counting technique to get the answer. Let the answer to the question (average distance for the two closest points of <span class="math inline">\(n\)</span> random points on the circle) be equal to <span class="math inline">\(f(n)\)</span>. In what follows calculate the probability that by adding an <span class="math inline">\(n+1\)</span>th point, the distance between the two nearest points will change.</p>
+<p>Our claim is that this probability is between <span class="math inline">\(nf(n)\)</span> and <span class="math inline">\(2nf(n)\)</span>.</p>
+<p>To show this, let for a particular arrangement <span class="math inline">\(A\)</span> the distance between the two nearest points be equal to <span class="math inline">\(f(n,A)\)</span>. For each of the <span class="math inline">\(n\)</span> points, we color an arc of the circle whose distance from that point (along the circle’s perimeter) is equal to <span class="math inline">\(f(n,A)\)</span>. We color the counter-clockwise part of the arc with blue and the clockwise part of the arc with red. Because <span class="math inline">\(f(n,A)\)</span> is equal to the distance of the closest two points, then all the blue arcs are disjoint. Also, so are all of the red arcs. However, red and blue arcs may overlap.</p>
+<p>Therefore, the total size of all colored arcs is between <span class="math inline">\(nf(n,A)\)</span> and <span class="math inline">\(2nf(n,A)\)</span>.</p>
+<p><img src="/images/problems/sol1.png" style="width:9cm" alt="image" /></p>
+<p>Keep in mind that the perimeter of the circle is 1, and thus if the <span class="math inline">\(n+1\)</span>th point is added, the probability that it will be placed on a colored arc is between <span class="math inline">\(n f(n,A)\)</span> and <span class="math inline">\(2nf(n,A)\)</span>.</p>
+<p>If we calculate the average of this probability for all configurations <span class="math inline">\(A\)</span> of the first <span class="math inline">\(n\)</span> points, this probability would be between <span class="math inline">\(nf(n)\)</span> and <span class="math inline">\(2nf(n)\)</span>. Notice that this is exactly equal to the probability that by adding the <span class="math inline">\(n+1\)</span>’th point, the distance between the two closest points change.</p>
+<p>Now we calculate the same quantity in another way. Since all <span class="math inline">\(n+1\)</span> points placed on the circle are random, then the probability that any point is one of the ends of the closest two points is equal to <span class="math inline">\(2/(n+1)\)</span>.</p>
+<p>Thus we have <span class="math inline">\(2/(n+1) \geq n\cdot f(n)\)</span> and <span class="math inline">\(2/(n+1) \leq 2n\cdot f(n)\)</span> which together imply <span class="math inline">\(\frac{1}{n\cdot(n+1)} \leq f(n) \leq \frac{2}{n\cdot(n+1)}\)</span></p>
 </body>
 </html>
 

@@ -1,0 +1,52 @@
+\begin{problem}{/images/problems/01_gashniz.jpg}{The Magician}
+    A magician has 52 cards (13 heart cards, 13 club cards, 13 diamond cards and 13 spades cards) and plays a game with Dena and Tara. In this game, there is a number $n$ and a number $k$, which the magician, Dena and Tara are aware of before the game starts.
+
+Dena and Tara are teammates and their goal is to defeat the magician together.
+Before the game start, Dena and Tara fix a strategy for the game. When the game starts, the magician gives Dena $n \leq 52$ cards, then Dena chooses $k < n$ cards and shows them to Tara in the order of his choosing. After observing those cards and their order, Tara has to tell Dena what are the other $n-k$ cards in his hand. If Tara can identify them correctly, Dena and Tara win the game, otherwise the magician wins.
+
+\textbf{first question}: show that for $n=5$ and $k=4$, Dena and Tara can win the game.
+
+\textbf{challenge question}: for what pairs of $n$ and $k$ can Dena and Tara win the game?\\[0.2cm]
+
+link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1708371315856658706}
+\end{problem}
+\begin{solution}
+\textbf{Solution to the first problem:} Let us assume for simplicity that each card has a suit and a  number between 1 and 13.
+Also we define circular order of the cards in the following way: put the cards 1 to 13 in a circle in the clockwise order. The card after each card $i$ will be $i+1$ and the card after card number 13 will be card $1$. Thus, the 5'th card ahead of card $10$ would be card $2$.
+
+Out of the 5 cards that the magician gives to Dena, according to the pigeonhole principle, at least two cards have the same suit.
+Dena chooses 2 cards with the same suit (If there are more than two cards with this feature, he chooses two cards with the same suit arbitrarily).
+Among these two cards with the same suit, one of them is at most 6 cards ahead of the other one. Let this be card $A$ and the other card be card $B$.
+
+Dena puts  card $A$ faced down
+(i.e., the card that Tara must guess)
+and shows card $B$ as the first card to Tara. The next 3 cards that Dena shows to Tara will determine how many cards is $A$ ahead of $B$. Since there are 3 cards, Dena can make $6$ permutations out of them and they can coordinate which number between 1 and 6 each permutation means. Then by giving the cards to Tara in that order, she can realize the distance between $B$ and $A$ and since she knows the suit of $B$, she can find out what card $A$ is. Thus, with this strategy, Tara and Dena can always win against the magician.
+
+\textbf{An example}: We assume for simplicity that the suits are $A, B, C, D$ and the numbers are $1, 2, \ldots, 13$:
+
+\begin{itemize}
+\item 5 cards chosen by the magician: $A3, C6, B11, A7, D8$.
+\item 2 cards with the same suit that Dena chooses: $A3$ and $A7$.
+\item Dena puts $A7$ faced down.
+\item There are 6 permutations out of the remaining 3 cards: $$[B11,C6,D8], [B11,D8,C6], [C6,B11,D8], [C6,D8,B11], [D8,B11,C6] , [D8, C6, B11]$$.
+\item Since the distance of $A7$ from $A3$ is 4, Dena chooses the 4'th permutation ($[C6,D8,B11]$).
+\item Thus, the cards that Dena shows to Tara are $A3, C6, D8, B11$, respectively.
+\item When Tara sees the first card, she realizes that the faced down card's suit is $A$.
+\item After seeing $C6, D8, B11$, Tara realizes that the number of the card facing down is the 4'th next card to $A3$.
+\item So Tara realizes that the faced down card is $A7$.
+\end{itemize}
+
+\textbf{The solution to the challenging part:}
+
+Consider a bipartite graph, one part of which contains $\binom{52}{n}$ vertices. Each vertex of that section represents the selection of $n$ cards from the 52 cards.
+In the other part, the number of vertices is equal to $\binom{52}{k} k!$ and each vertex represents a permutation $k$ cards out of 52 cards.
+Each vertex $x$ of the first part has an edge to all the vertices $y$ of the second part such that all $k$ cards corresponding to vertex $y$ are among the $n$ cards corresponding to the vertex $x$.
+The number of edges of each vertex of the first part is equal to $\binom{n}{k}  k!$ and the number of edges of each vertex of the second part is equal to $\binom{52-k}{n-k}$.
+Because the constructed graph is a  bipartite graph where the degrees of the vertices of each part are equal, then there is a matching between the vertices of this graph that covers all the vertices of the smaller part.
+
+In order for Dena and Tara to win, they must be able to agree on a matching that covers all vertices of the first part.
+Thus, Dena and Tara can defeat the magician if and only if 
+$\binom{52}{n} \leq \binom{52}{k}  k!$
+
+
+\end{solution}

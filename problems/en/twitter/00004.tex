@@ -1,0 +1,24 @@
+\begin{problem}{/images/problems/04_coins.jpg}{Finding counterfeit coins}
+    We have 12 coins, one of which is fake, and we want to find the fake coin using a scale with two sides. How many times do we need to use the scale to find the fake coin? Note that, the weights of the 11 real coins are equal, and the weight of the fake coin is different from the rest (can be lower or higher). Each time we use the scale, we can put two disjoint subsets of the coins on its two sides and compare their weights.\\[0.2cm]
+
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1665974098911182848}
+\end{problem}
+\begin{solution}.
+The answer is 3.\\[0.2cm]
+
+First, we put four coins on the left side of the scale and another four coins on the right side of the scale and compare their weights. There are two possible outcomes:
+
+\begin{itemize}
+\item \textbf{First case: the weights of the two sides are equal}. This means that the fake coin is one of the four coins that are not on the scale. Thus our search will be narrowed down to four coins; Let us label these coins with numbers 1 to 4. By using the scales twice, we compare coin 1 with coins number 2 and 3 separately. By looking at the results, we can figure out which coin is fake.
+
+\item \textbf{Second case: one of the two sets of coins is heavier than the other set}. In this case, assume that the coins outside the scale are labelled with numbers 1 to 4, the coins in the lighter side of the scale are labelled with numbers 5 to 8, and the coins on the heavier side of the scale are numbered 9 to 12. The fake coin is one of the coins with labels 5 to 12.
+
+We first put coins number 1, 2, 3 and 5 on one side of the scale and coins 6, 7, 9 and 10 on the other side of the scale. If the weights of both sides are equal, the answer is one of the coins 8, 11 and 12, which can be found by comparing the weights of coins 11 and 12 in the next step.
+
+If the first category was lighter than the second category, the answer is either coins 5, 9 or 10. Similarly, by comparing coins 9 and 10, we can figure out which coin is fake.
+
+If the second category was lighter, it means that the answer is either coin 6 or coin 7. In this case, by comparing coin 6 with coin 1 we can figure out which coin is fake.
+\end{itemize}
+
+Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1666297407208845312}
+\end{solution}

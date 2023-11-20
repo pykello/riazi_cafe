@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riazi Cafe
-        - Problem 1. The last Cilantro
+        - Problem 10. Hats
     </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 
     <main class="container mt-5">
         
-<h2>Problem 1. The last Cilantro</h2>
+<h2>Problem 10. Hats</h2>
 
 
 <!-- tabs -->
@@ -71,11 +71,6 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Problem Statement</button>
   </li>
 
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
-        Hint 
-        </button>
-    </li>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
@@ -87,7 +82,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/01_gashniz.jpg" style="float:left;max-width:35%"/>
+      <img src="/images/problems/10_hats.jpg" style="float:left;max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -103,41 +98,23 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>We have a deck of 52 cards whose order is uniformly at random (with all permutations having the same probability). Each time we take one card from the top and remove it until all 13 Coriander cards are completely removed. How many cards do we remove on average?<br />
-Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1662455315546161152">https://twitter.com/Riazi_Cafe/status/1662455315546161152</a></p>
+<p>Three people enter a room and someone randomly puts red or blue hats on each of them. Everyone sees the color of the hats of the other two people, but does not see the color of his own hat.</p>
+<p>Each person either makes a guess on the color of his own hat and writes the color down on a piece of paper or leaves the paper blank. All the papers then are given to a judge. If at least one of the guesses is correct and none of them is wrong, they will win a prize.</p>
+<p>What strategy guarantees the highest probability of winning? How likely is chance of winning with that strategy?</p>
+<p>More details:</p>
+<ul>
+<li><p>They can agree on a strategy before they enter the room, but no information should be exchanged between them inside the room.</p></li>
+<li><p>Each of the 8 combinations of hats colors will happen with probability <span class="math inline">\(1/8\)</span>.</p></li>
+</ul>
+<p>Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1675054034577952768">https://twitter.com/Riazi_Cafe/status/1675054034577952768</a></p>
 </body>
 </html>
 
   </div>
 
-    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
-        <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>-</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-</head>
-<body>
-<ul>
-<li><p>What is the probability that a particular non-coriander card comes after all the cilantros?</p></li>
-<li><p>How does the final solution relate to the above probability?</p></li>
-</ul>
-</body>
-</html>
-
-    </div>
 
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
@@ -159,17 +136,12 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>The correct answer is equal to: <span class="math inline">\(13 + 39 \cdot 13/14 \simeq 49.2142857143\)</span>.<br />
-Obviously, all 13 Coriander cards are removed in this process. Now consider a card with another suit, say a heart card <span class="math inline">\(h\)</span>. For now, we ignore all cards except for the 13 cards of Coriander and card <span class="math inline">\(h\)</span>. Now, consider the position of card <span class="math inline">\(h\)</span> relative to the 13 Coriander cards. There are 14 possibilities for it:</p>
+<p>With the right strategy, they can guarantee a <span class="math inline">\(75\%\)</span> chance of winning.</p>
+<p>Two examples of strategies that guarantee this possibility:</p>
 <ul>
-<li><p><span class="math inline">\(h\)</span> comes before all the Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the first and second Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the second and the third Coriander cards,</p></li>
-<li><p><span class="math inline">\(\ldots\)</span></p></li>
-<li><p><span class="math inline">\(h\)</span> comes after all of the Coriander cards.</p></li>
+<li><p>Strategy 1. If the color of the hats of the other people are the same, write the opposite color on your paper. Otherwise leave it blank. In this case, the players will win in all cases except for the ones in which all three hat colors are the same.</p></li>
+<li><p>Strategy 2. First person: If the two other people have the same color on their hats, write the same color on his paper. Otherwise, leave it blank. 2nd and 3rd person: If the two other people have the same colors on their hats, leave your paper blank, otherwise write down the color of the hat of the first person on the paper.</p></li>
 </ul>
-<p><span class="math inline">\(h\)</span> will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus we remove card <span class="math inline">\(h\)</span> with probability <span class="math inline">\(13/14\)</span>. Therefore, each of the 39 non-coriander cards will be removed with a probability of <span class="math inline">\(13/14\)</span> in this process, and therefore, the answer to the problem is equal to: <span class="math inline">\(13 + (13/14) \cdot 39\)</span> (keep in mind the linearity of expectation).<br />
-Link to the solution on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1663022266064556033">https://twitter.com/Riazi_Cafe/status/1663022266064556033</a></p>
 </body>
 </html>
 

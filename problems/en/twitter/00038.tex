@@ -1,0 +1,42 @@
+\begin{problem}{/images/problems/38_coins.png}{Tossing Coins}
+    Arastu has 51 coins and Parastu has 50 coins. If both of them toss all their coins, what is the probability that the number of heads of Arastu  is more than the number of heads of Parastu?
+
+Additional questions:
+\begin{itemize}
+\item What if Arastu has 52 coins and  Parastu has 50 coins?
+\item What if Arastu has 50 coins and  Parastu has 50 coins?
+\end{itemize}
+
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1703281174658129959}
+\end{problem}
+\begin{solution}
+The answer to the question in the case of 51/50 coins is 0.5, in the case of 50/50 coins, the answer is approximately 0.46, and in the case of 52/50 coins, the answer is approximately 0.54.\\[0.2cm]
+
+In the case that Arastu has 51 coins, in each case of throwing 101 coins, either the number of Arastu's heads is more than the number of Parastu's heads, or the number of Arastu's tails is more than the number of Parastu's tails. Also, both cannot happen at the same time, thus the two cases are completely disjoint. Also, due to symmetry both cases happen with equal probability. Thus, the probability that the number of Arastu's heads is more is Parastu's heads is 0.5.
+
+In the case that Arastu has 50 coins, we have 3 states: either the number of Arastu's heads is more than Parastu's heads (probability $x$), or the number of Parastu's heads is more than Arastu's heads (probability $y$), or the number of the heads is equal (probability $p$). Due to symmetry, we have $x=y$. Thus, $x$ will be equal to $(1-p)/2$.
+We can determine  the value of $p$ (=probability of the number of heads being equal) from the following equation. 
+
+$$
+p = \frac{\Sigma_{i=0}^{50}{50 \choose i}^2}{2^{100}} = \frac{{100 \choose 50}}{2^{100}} \approx 0.0796
+$$
+
+Thus, x is almost equal to 0.46.
+
+
+And finally, the case that Arastu has 52 coins: In the first 51 coins of Arastu, one of the follwing three cases happen:
+\begin{itemize}
+\item either Parastu has more heads, in which case the 52nd coin of Arastu will not make a difference,
+\item or Arastu has more heads, whose probability is equal to $1/2$ as we discussed above
+\item or the number of heads is equal in which case there is a $1/2$ chance that the 52nd coin of Arastu will be heads and he would end up with more heads. 
+\end{itemize}
+
+The desired probability is the probability of the second case above plus the probability of the third case divided by two. Let $q$ be the probability of the third case. Thus the answer would be equal to $1/2 + q/2$. Moreover,
+
+$$
+q = \frac{\Sigma_{i=0}^{50}{50 \choose i}{51 \choose i}}{2^{101}} = \frac{{101 \choose 50}}{2^ {101}} \approx 0.0788
+$$
+
+and thus the final solution is $1/2 + 0.0788/2 \simeq 0.54$
+
+\end{solution}

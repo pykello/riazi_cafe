@@ -135,12 +135,12 @@ def parse_problem_md(path, source_info)
 end
 
 def parse_problem_tex(path, source_info)
+    puts path
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     info = ProblemInfo.new
 
     def process_section(name, contents, info, path, section_params)
-        puts "process section #{name}"
         case name
         when "problem"
             info.image = section_params[0] if !section_params[0].empty?
@@ -160,7 +160,6 @@ def parse_problem_tex(path, source_info)
         if current_section.nil? && line.start_with?("\\begin{")
             v = line.strip.split(/}{|{|}/)[1..]
             current_section = v[0]
-            puts current_section
             section_params = v[1..]
             current_content = []
             next
@@ -171,6 +170,15 @@ def parse_problem_tex(path, source_info)
             current_content.append(line)
         end
     }
+
+    fa_problem_filename = path.gsub('en', 'fa').gsub('tex', 'md')
+    begin
+        fa_p = parse_problem_md(fa_problem_filename, source_info)
+        info.timestamp = fa_p.timestamp
+        info.id = "Problem #{path.scan(/\d/).join.to_i}"
+    rescue
+        puts "Couldn't open #{fa_problem_filename}"
+    end
 
     info
 end

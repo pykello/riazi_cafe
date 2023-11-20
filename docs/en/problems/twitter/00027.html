@@ -14,7 +14,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riazi Cafe
-        - Problem 1. The last Cilantro
+        - Problem 27. Magic Boxes
     </title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -62,7 +62,7 @@
 
     <main class="container mt-5">
         
-<h2>Problem 1. The last Cilantro</h2>
+<h2>Problem 27. Magic Boxes</h2>
 
 
 <!-- tabs -->
@@ -71,11 +71,6 @@
     <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Problem Statement</button>
   </li>
 
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="pills-hint-0-tab" data-bs-toggle="tab" data-bs-target="#pills-hint-0" type="button" role="tab" aria-controls="pills-hint-0" aria-selected="false">
-        Hint 
-        </button>
-    </li>
 
     <li class="nav-item" role="presentation">
         <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
@@ -87,7 +82,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/01_gashniz.jpg" style="float:left;max-width:35%"/>
+      <img src="/images/problems/27_magic_boxes.png" style="float:left;max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -105,39 +100,13 @@
   </style>
 </head>
 <body>
-<p>We have a deck of 52 cards whose order is uniformly at random (with all permutations having the same probability). Each time we take one card from the top and remove it until all 13 Coriander cards are completely removed. How many cards do we remove on average?<br />
-Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1662455315546161152">https://twitter.com/Riazi_Cafe/status/1662455315546161152</a></p>
+<p>You are given 1000 coins to put in two magic boxes. You can divide the coins between these two boxes. After closing the boxes, we throw a coin for each box. If the coin of the first box is drown head, the number of coins in the box will be doubled. If it is tail, it will be halved. (we allow for non-integer numbers if the original number is odd) For the second box, if the coin is drawn head, the number of coins in the box will be multiplied by 1.5. If it is a head, the number of coins will not change. At the end, any number of coins left in each box will be yours. How would you play this game? If instead of two different coins, we use the same coin for both boxes (with similar rules) how do you play?<br />
+Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1692781066136731810">https://twitter.com/Riazi_Cafe/status/1692781066136731810</a></p>
 </body>
 </html>
 
   </div>
 
-    <div class="tab-pane fade" id="pills-hint-0" role="tabpanel" aria-labelledby="pills-hint-0-tab">
-        <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>-</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-  </style>
-</head>
-<body>
-<ul>
-<li><p>What is the probability that a particular non-coriander card comes after all the cilantros?</p></li>
-<li><p>How does the final solution relate to the above probability?</p></li>
-</ul>
-</body>
-</html>
-
-    </div>
 
     <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
 
@@ -159,17 +128,10 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
   <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
 </head>
 <body>
-<p>The correct answer is equal to: <span class="math inline">\(13 + 39 \cdot 13/14 \simeq 49.2142857143\)</span>.<br />
-Obviously, all 13 Coriander cards are removed in this process. Now consider a card with another suit, say a heart card <span class="math inline">\(h\)</span>. For now, we ignore all cards except for the 13 cards of Coriander and card <span class="math inline">\(h\)</span>. Now, consider the position of card <span class="math inline">\(h\)</span> relative to the 13 Coriander cards. There are 14 possibilities for it:</p>
-<ul>
-<li><p><span class="math inline">\(h\)</span> comes before all the Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the first and second Coriander cards,</p></li>
-<li><p><span class="math inline">\(h\)</span> comes between between the second and the third Coriander cards,</p></li>
-<li><p><span class="math inline">\(\ldots\)</span></p></li>
-<li><p><span class="math inline">\(h\)</span> comes after all of the Coriander cards.</p></li>
-</ul>
-<p><span class="math inline">\(h\)</span> will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus we remove card <span class="math inline">\(h\)</span> with probability <span class="math inline">\(13/14\)</span>. Therefore, each of the 39 non-coriander cards will be removed with a probability of <span class="math inline">\(13/14\)</span> in this process, and therefore, the answer to the problem is equal to: <span class="math inline">\(13 + (13/14) \cdot 39\)</span> (keep in mind the linearity of expectation).<br />
-Link to the solution on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1663022266064556033">https://twitter.com/Riazi_Cafe/status/1663022266064556033</a></p>
+<p>Here we only explain the details of the former case. The explanation for the latter case is the same. The expected value of the outcome per coin for both boxes is equal to 1.25. Thus, regardless of how we put the coins in the boxes, the expected number of coins we receive in the end is 1250. When the expected values are the same, then the second parameter that is desirable to minimize is the variance of the outcome, whose formula is given below:</p>
+<p><span class="math display">\[\textsf{Var}(x) = \textsf{E}\big[(\mathsf{E}[x] - x)^2\big].\]</span></p>
+<p>If we put a coin in box number one, the variance of the final number of coins in this box is equal to 0.125, and if we put a coin in box number two, the variance of the final number of coins in this box is equal to 1.125. Because the random process used for boxes are independent (we throw separate coins for them), so by placing <span class="math inline">\(x\)</span> coins in the first box and <span class="math inline">\(y\)</span> coins in the second box, the variance of the total coins is equal to <span class="math inline">\(x^2 \cdot 0.125 + y^2 \cdot 1.125\)</span>. And since we put all 1000 coins in the two boxes, we have <span class="math inline">\(y=1000-x\)</span>.</p>
+<p>Therefore, the variance of the answer is equal to <span class="math inline">\(x^2 \times 0.125 + (1000-x)^2 \times 1.125\)</span>. To minimize this expression, we must set its derivative equal to 0. The value of the derivative of this expression is equal to <span class="math inline">\(\frac{5x-4500}{2}\)</span> which will be equal to 0 for <span class="math inline">\(x = 900\)</span>. The last thing to verify is that the amount of variance becomes minimum (and not maximum) in this case. The reason for this is that when the derivative of a continuous expression is equal to 0, at that point the expression is either minimized or maximized. Since by setting <span class="math inline">\(x=0\)</span>, the value of variance becomes equal to 125000, but by setting <span class="math inline">\(x=900\)</span>, the value of variance becomes equal to 112500, so for <span class="math inline">\(x=900\)</span>, the value of variance is minimized.</p>
 </body>
 </html>
 

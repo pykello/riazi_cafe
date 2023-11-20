@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTYYP55RZD"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-CTYYP55RZD');
+      </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riazi Cafe
+        - Problem 44. The Magician
+    </title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/styles.css" rel="stylesheet">
+
+    <!-- Mathjax stuff -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <h1><a class="navbar-brand" href="/">Riazi Cafe</a></h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/en/problem-list.html">Problems</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/send-problem.html">Suggest A Problem</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/en/blog">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="container mt-5">
+        
+<h2>Problem 44. The Magician</h2>
+
+
+<!-- tabs -->
+<ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="tab" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Problem Statement</button>
+  </li>
+
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-solution-tab" data-bs-toggle="tab" data-bs-target="#pills-solution" type="button" role="tab" aria-controls="pills-solution" aria-selected="false">
+        Solution
+        </button>
+    </li>
+
+</ul>
+
+<div class="tab-content problem" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <img src="/images/problems/01_gashniz.jpg" style="float:left;max-width:35%"/>
+    <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
+</head>
+<body>
+<p>A magician has 52 cards (13 heart cards, 13 club cards, 13 diamond cards and 13 spades cards) and plays a game with Dena and Tara. In this game, there is a number <span class="math inline">\(n\)</span> and a number <span class="math inline">\(k\)</span>, which the magician, Dena and Tara are aware of before the game starts.</p>
+<p>Dena and Tara are teammates and their goal is to defeat the magician together. Before the game start, Dena and Tara fix a strategy for the game. When the game starts, the magician gives Dena <span class="math inline">\(n \leq 52\)</span> cards, then Dena chooses <span class="math inline">\(k &lt; n\)</span> cards and shows them to Tara in the order of his choosing. After observing those cards and their order, Tara has to tell Dena what are the other <span class="math inline">\(n-k\)</span> cards in his hand. If Tara can identify them correctly, Dena and Tara win the game, otherwise the magician wins.</p>
+<p><strong>first question</strong>: show that for <span class="math inline">\(n=5\)</span> and <span class="math inline">\(k=4\)</span>, Dena and Tara can win the game.</p>
+<p><strong>challenge question</strong>: for what pairs of <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> can Dena and Tara win the game?<br />
+link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1708371315856658706">https://twitter.com/Riazi_Cafe/status/1708371315856658706</a></p>
+</body>
+</html>
+
+  </div>
+
+
+    <div class="tab-pane fade" id="pills-solution" role="tabpanel" aria-labelledby="pills-solution-tab">
+
+            <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <script src="/usr/share/javascript/mathjax/tex-mml-chtml.js" type="text/javascript"></script>
+</head>
+<body>
+<p><strong>Solution to the first problem:</strong> Let us assume for simplicity that each card has a suit and a number between 1 and 13. Also we define circular order of the cards in the following way: put the cards 1 to 13 in a circle in the clockwise order. The card after each card <span class="math inline">\(i\)</span> will be <span class="math inline">\(i+1\)</span> and the card after card number 13 will be card <span class="math inline">\(1\)</span>. Thus, the 5’th card ahead of card <span class="math inline">\(10\)</span> would be card <span class="math inline">\(2\)</span>.</p>
+<p>Out of the 5 cards that the magician gives to Dena, according to the pigeonhole principle, at least two cards have the same suit. Dena chooses 2 cards with the same suit (If there are more than two cards with this feature, he chooses two cards with the same suit arbitrarily). Among these two cards with the same suit, one of them is at most 6 cards ahead of the other one. Let this be card <span class="math inline">\(A\)</span> and the other card be card <span class="math inline">\(B\)</span>.</p>
+<p>Dena puts card <span class="math inline">\(A\)</span> faced down (i.e., the card that Tara must guess) and shows card <span class="math inline">\(B\)</span> as the first card to Tara. The next 3 cards that Dena shows to Tara will determine how many cards is <span class="math inline">\(A\)</span> ahead of <span class="math inline">\(B\)</span>. Since there are 3 cards, Dena can make <span class="math inline">\(6\)</span> permutations out of them and they can coordinate which number between 1 and 6 each permutation means. Then by giving the cards to Tara in that order, she can realize the distance between <span class="math inline">\(B\)</span> and <span class="math inline">\(A\)</span> and since she knows the suit of <span class="math inline">\(B\)</span>, she can find out what card <span class="math inline">\(A\)</span> is. Thus, with this strategy, Tara and Dena can always win against the magician.</p>
+<p><strong>An example</strong>: We assume for simplicity that the suits are <span class="math inline">\(A, B, C, D\)</span> and the numbers are <span class="math inline">\(1, 2, \ldots, 13\)</span>:</p>
+<ul>
+<li><p>5 cards chosen by the magician: <span class="math inline">\(A3, C6, B11, A7, D8\)</span>.</p></li>
+<li><p>2 cards with the same suit that Dena chooses: <span class="math inline">\(A3\)</span> and <span class="math inline">\(A7\)</span>.</p></li>
+<li><p>Dena puts <span class="math inline">\(A7\)</span> faced down.</p></li>
+<li><p>There are 6 permutations out of the remaining 3 cards: <span class="math display">\[[B11,C6,D8], [B11,D8,C6], [C6,B11,D8], [C6,D8,B11], [D8,B11,C6] , [D8, C6, B11]\]</span>.</p></li>
+<li><p>Since the distance of <span class="math inline">\(A7\)</span> from <span class="math inline">\(A3\)</span> is 4, Dena chooses the 4’th permutation (<span class="math inline">\([C6,D8,B11]\)</span>).</p></li>
+<li><p>Thus, the cards that Dena shows to Tara are <span class="math inline">\(A3, C6, D8, B11\)</span>, respectively.</p></li>
+<li><p>When Tara sees the first card, she realizes that the faced down card’s suit is <span class="math inline">\(A\)</span>.</p></li>
+<li><p>After seeing <span class="math inline">\(C6, D8, B11\)</span>, Tara realizes that the number of the card facing down is the 4’th next card to <span class="math inline">\(A3\)</span>.</p></li>
+<li><p>So Tara realizes that the faced down card is <span class="math inline">\(A7\)</span>.</p></li>
+</ul>
+<p><strong>The solution to the challenging part:</strong></p>
+<p>Consider a bipartite graph, one part of which contains <span class="math inline">\(\binom{52}{n}\)</span> vertices. Each vertex of that section represents the selection of <span class="math inline">\(n\)</span> cards from the 52 cards. In the other part, the number of vertices is equal to <span class="math inline">\(\binom{52}{k} k!\)</span> and each vertex represents a permutation <span class="math inline">\(k\)</span> cards out of 52 cards. Each vertex <span class="math inline">\(x\)</span> of the first part has an edge to all the vertices <span class="math inline">\(y\)</span> of the second part such that all <span class="math inline">\(k\)</span> cards corresponding to vertex <span class="math inline">\(y\)</span> are among the <span class="math inline">\(n\)</span> cards corresponding to the vertex <span class="math inline">\(x\)</span>. The number of edges of each vertex of the first part is equal to <span class="math inline">\(\binom{n}{k}  k!\)</span> and the number of edges of each vertex of the second part is equal to <span class="math inline">\(\binom{52-k}{n-k}\)</span>. Because the constructed graph is a bipartite graph where the degrees of the vertices of each part are equal, then there is a matching between the vertices of this graph that covers all the vertices of the smaller part.</p>
+<p>In order for Dena and Tara to win, they must be able to agree on a matching that covers all vertices of the first part. Thus, Dena and Tara can defeat the magician if and only if <span class="math inline">\(\binom{52}{n} \leq \binom{52}{k}  k!\)</span></p>
+</body>
+</html>
+
+
+    </div>
+</div>
+
+    </main>
+
+    <footer class="text-center mt-5">
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
