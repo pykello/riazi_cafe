@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -102,7 +103,7 @@
 <body>
 <p>We have a <span class="math inline">\(5 \times 7\)</span> table and we wish to put <span class="math inline">\(1\)</span> or <span class="math inline">\(-1\)</span> in each of its cells, so that the product of the numbers of each row becomes <span class="math inline">\(-1\)</span> and the product of the numbers of each column becomes <span class="math inline">\(-1\)</span> (similar to the figure below). How many different ways can we do that?<br />
 <strong>Additional problem</strong>: What if the table is <span class="math inline">\(15 \times 16\)</span>?</p>
-<p><img src="/images/problems/39_grid.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/39_grid.png" alt="image" /></p>
 <p>Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1704369917871690162">https://twitter.com/Riazi_Cafe/status/1704369917871690162</a></p>
 </body>
 </html>
@@ -132,7 +133,7 @@
 <body>
 <p>The correct answer is <span class="math inline">\(2^{24}\)</span> for the <span class="math inline">\(5 \times 7\)</span> table and 0 for the <span class="math inline">\(15 \times 16\)</span> table.</p>
 <p>Notice that in the figure below, if the values written on the blue part are known, we can determine the values of the yellow part and the red part uniquely so that the product of the values of each column is equal to -1 and the product of the values of each row is equal to -1.</p>
-<p><img src="/images/problems/39_sol.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/39_diagram0.png" alt="image" /></p>
 <p>For example, to determine the value of the yellow cell in the first row, we can multiply the values of the first row, and then multiply the result by -1 and place it there. We can also determine the value of the green cell uniquely by using the yellow or red part so that the product of the last column and the product of the last row becomes -1. Thus by determining the blue part, the rest of the table to will have a unique assignment that satisfies our criteria. The blue section has 24 cells and we have 2 choices for each cell, so we have <span class="math inline">\(2^{24}\)</span> ways.<br />
 In the case of <span class="math inline">\(15 \times 16\)</span> table, the answer is zero, since the parity of the number of rows and columns is not the same. More precisely, if the multiplication of the values in each row is <span class="math inline">\(-1\)</span>, then since we have 15 rows, the multiplication of the values of the table would be equal to <span class="math inline">\((-1)^{15} = -1\)</span>. Similarly, if the multiplication of the values in each column is <span class="math inline">\(-1\)</span>, since we have 16 columns, then the multiplication of all values of the table should be equal to <span class="math inline">\((-1)^{16} = 1\)</span>. Thus, both conditions cannot be satisfied simultaneously.</p>
 </body>

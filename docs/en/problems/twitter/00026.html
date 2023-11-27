@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,7 +83,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/26_oppenheimer.jpg" style="float:left;max-width:35%"/>
+      <img class="problem-image" src="/images/problems/26_oppenheimer.jpg" style="max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -131,11 +132,11 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
 <p>The correct answer is <span class="math inline">\((\binom{40 }{25} - \binom{40}{26}) \cdot 25! \cdot 15!\)</span>.<br />
 Let <span class="math inline">\(m\)</span> be the number of people who have <span class="math inline">\(5\)</span> dollar bills and <span class="math inline">\(n\)</span> be the number of people who have <span class="math inline">\(10\)</span> dollar bills. We show the configuration of a permutation of the people in the queue with a diagram similar to the one below, where we start from the origin and if the next person has <span class="math inline">\(5\)</span> dollar bills, we go to the top right, and if he only has <span class="math inline">\(10\)</span> dollar bills, we go to the bottom right.</p>
 <p>In order to keep the diagram small, instead of <span class="math inline">\(m=25\)</span> and <span class="math inline">\(n=15\)</span> for the main problem, we show an example diagram for <span class="math inline">\(m=6\)</span> and <span class="math inline">\(n=4\)</span>.</p>
-<p><img src="/images/problems/sol1.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/26_diagram1.png" alt="image" /></p>
 <p>The number of such graphs is <span class="math inline">\({n+m \choose m}\)</span>. Notice that a configuration is acceptable, only if we never go below line <span class="math inline">\(y=0\)</span>. An example of an unacceptable configuration is given below.</p>
-<p><img src="/images/problems/sol2.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/26_diagram2.png" alt="image" /></p>
 <p>To count these unacceptable configurations, we observe that these states are the states where the graph intersects the line y=-1. We show a 1-to-1 mapping between such figures and the ones that start from location <span class="math inline">\((0,-2)\)</span>. To this end, we mirror the graph before the first intersection with line <span class="math inline">\(y=-1\)</span>. For example, for the figure above the result would be as follows:</p>
-<p><img src="/images/problems/sol3.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/26_diagram3.png" alt="image" /></p>
 <p>Notice that in all such graphs we start from point <span class="math inline">\((0,-2)\)</span> and end at <span class="math inline">\((m+n, m-n)\)</span> as before. These diagrams have a one-to-one correspondence with unacceptable states. Thus, the number of such configurations is to <span class="math inline">\({n+m \choose m+1}\)</span>.</p>
 <p>So the total number of acceptable configurations is equal to <span class="math inline">\({n+m \choose m} - {n+m \choose m+1}\)</span>. In these configurations, we are indifferent between people who have the same set of bills. If we also take into account such distinctions, the answer would be the following:</p>
 <p><span class="math display">\[({n+m \choose m} - {n+m \choose m+1}) \times n! \times m!\]</span></p>

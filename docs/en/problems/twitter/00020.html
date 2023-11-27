@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,7 +83,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/20_marbles.jpg" style="float:left;max-width:35%"/>
+      <img class="problem-image" src="/images/problems/20_marbles.jpg" style="max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -133,9 +134,9 @@ First, we discuss what we should expect of the reward of the optimal strategy. N
 <p>We first explain two types of strategies that were proposed in the comments:</p>
 <ul>
 <li><p>The first strategy is to continue the game until our total reward reaches a certain number or we remove all of the pebbles from the bag. This method gives us a good approximation of the optimal reward. In the plot below, you can see what our average reward would be for any specific threshold. The maximum reward we can get with this method is equal to 13.56, which is obtained with a threshold of 22. This amounts to about <span class="math inline">\(82\%\)</span> of the optimal reward.</p>
-<p><img src="/images/problems/i1.png" style="width:8cm" alt="image" /></p></li>
+<p><img src="/images/problems/20_diagram1.jpg" alt="image" /></p></li>
 <li><p>The second strategy is to continue the game for <span class="math inline">\(n\)</span> steps. if our total reward is positive after <span class="math inline">\(n\)</span> steps, we stop there, otherwise, we continue the game until the end. In this case, the plot below shows our average reward for any <span class="math inline">\(n\)</span>. The maximum average reward we can obtain with this strategy is for the case of <span class="math inline">\(n=1000\)</span> which guarantees a reward of <span class="math inline">\(8.92\)</span> for us on average. This value is about <span class="math inline">\(54\%\)</span> of the optimal reward.</p>
-<p><img src="/images/problems/i2.png" style="width:8cm" alt="image" /></p></li>
+<p><img src="/images/problems/20_diagram2.jpg" alt="image" /></p></li>
 </ul>
 <p>The intuition behind our proposal is that the most important factor to determine whether to stop or not is how much the number of remaining white balls is greater than the number of remaining black balls . As discussed above, the stopping rule should compare the difference to the square root of the number of pebbles.</p>
 </body>

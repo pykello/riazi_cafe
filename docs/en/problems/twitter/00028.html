@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,7 +83,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/28_grid.png" style="float:left;max-width:35%"/>
+      <img class="problem-image" src="/images/problems/28_grid.png" style="max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -132,18 +133,18 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
 <p>The answer is 7.<br />
 Because we divide the search space into two parts with each question, and we start with <span class="math inline">\(11^2 = 121\)</span> candidates the answer cannot be less than <span class="math inline">\(\lceil \log 121\rceil=7\)</span>. Let us start by explaining a simple solution with 8 questions, and then we show how we can find the treasure with 7 questions.</p>
 <p>If, inspired by binary search, we divide the main rectangle into 2 almost equal rectangles each time and ask one of them, we will find the treasure with at most 8 questions: First we ask if the treasure is in a <span class="math inline">\(11\times 6\)</span> rectangle, then a <span class="math inline">\(6\times 6\)</span> rectangle, then a <span class="math inline">\(3 \times 6\)</span> rectangle, then a <span class="math inline">\(3 \times 3\)</span> rectangle, then a <span class="math inline">\(3 \times 2\)</span> rectangle, then a <span class="math inline">\(2 \times 2\)</span> rectangle, then a <span class="math inline">\(2 \times 1\)</span> rectangle, and finally a <span class="math inline">\(1 \times 1\)</span> rectangle. An example is shown in the figure below.</p>
-<p><img src="/images/problems/sol1.png" style="width:14cm" alt="image" /></p>
+<p><img src="/images/problems/28_diagram0.png" alt="image" /></p>
 <p>In order to improve our strategy, we make two observations:</p>
 <ul>
 <li><p>In order to keep the number of questions bounded by 7, after the first question, a maximum of 64 cells must remain in the search space; after the second question, a maximum of 32 cells. More formally, after the <span class="math inline">\(i\)</span>’th question, the number of cells remaining in the search space should be at most <span class="math inline">\(2^{7-i}\)</span>. In the above solution, after the first question, we may end up with 66 cells in the search space which does not lead to a solution with 7 questions.</p></li>
 <li><p>The cells remaining in the search space do not have to be connected.</p></li>
 </ul>
 <p>In our solution, we ask if the treasure is in the red rectangle first, as shown below. Let us first consider the case where the answer is “No" and explain the other case later. If the answer is “No", our second question will be for the green rectangle in right figure. By these two questions, we limit the search space to a maximum of 61 cells in the first question and to a maximum of 31 cells in the second question.</p>
-<p><img src="/images/problems/sol2.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/28_diagram1.png" alt="image" /></p>
 <p>We will postpone the “Yes" case of the second question to later. If the answer to the second question is “No", then 31 cells remain in the search space. In this case, by asking the black and white part of the figure below, we divide the search space into 2 parts of 15 cells and 16 cells. After this question, we can divide the search space into two pars of equal size (with a difference of at most one) in each step and thus we can find the treasure with a maximum of 7 questions in total.</p>
-<p><img src="/images/problems/sol3.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/28_diagram2.png" alt="image" /></p>
 <p>What remains is to explain the solution when the treasure is in the red rectangle of the first figure or the green rectangle of the second figure. With two questions for the red rectangle and one question for the green rectangle the space of search can be narrowed down to a <span class="math inline">\(3 \times 5\)</span> rectangle. After this, we only need four more questions to find the treasure as explained in the figures below.</p>
-<p><img src="/images/problems/sol4.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/28_diagram3.png" alt="image" /></p>
 </body>
 </html>
 

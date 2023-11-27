@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,7 +83,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/24_dices.jpg" style="float:left;max-width:35%"/>
+      <img class="problem-image" src="/images/problems/24_dices.jpg" style="max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -135,7 +136,7 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
 <strong>Explanation of the first part</strong>: At any moment in time, the only factor that determines how many steps are required on average for the labels on the boxes to be desirable is how many labels written on the boxes are desired? At first, because all the labels are equal to one, this amount is equal to 1. Because only the label of the first box desired.</p>
 <p>Based on this, the problem can be modeled as a graph: We have a graph with 7 vertices, where vertex number <span class="math inline">\(i\)</span> represents all states in which <span class="math inline">\(i\)</span> boxes are desirable. At first, there is a token on vertex number 1. In each step, this token moves to one of the vertices of the graph (including the current vertex) based on certain probabilities. On average, how many steps does it take for the token to reach vertex number 6?</p>
 <p>In the figure, you can see the probability of moving from each vertex to other vertices:</p>
-<p><img src="/images/problems/sol1.png" style="width:12cm" alt="image" /></p>
+<p><img src="/images/problems/24_diagram1.jpeg" alt="image" /></p>
 <p>Problems like this are called Markov chain and can be solved as a system of equations. In this system, for each vertex <span class="math inline">\(i\)</span>, there is a variable <span class="math inline">\(v_i\)</span> that shows the answer of the problem when starting with the token placed on that node.</p>
 <p>The system of equations for our problem is as follows:</p>
 <p><span class="math display">\[\begin{aligned}
@@ -177,7 +178,7 @@ v_9&amp;=(2,1,1,1,1)\\
 v_{10}&amp;=(1,1,1,1,1,1)
 \end{aligned}\]</span></p>
 <p>Below are the graph of the problem and the system of equations for the answer:</p>
-<p><img src="/images/problems/sol2.png" style="width:12cm" alt="image" /></p>
+<p><img src="/images/problems/24_diagram4.png" alt="image" /></p>
 <p><span class="math display">\[\begin{aligned}
 &amp;v_0 = 1 + \frac{1}{6}v_0 + \frac{5}{6}v_1 \\
 &amp;v_1 = 1 + \frac{1}{36}v_0 + \frac{5}{18}v_1 + \frac{5}{36}v_2 + \frac{5}{9}v_4 \\

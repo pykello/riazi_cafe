@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,7 +83,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/02_family_photos.jpg" style="float:left;max-width:35%"/>
+      <img class="problem-image" src="/images/problems/02_family_photos.jpg" style="max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -130,7 +131,7 @@ Link to the problem on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1
 <body>
 <p>The correct answer is 16.<br />
 To prove this, we must first show that it is possible to make 10 photos with 16 people. Then we show that this is not possible with smaller than 16 people. Some people have already given a correct answer to the first part: see for example <a href="https://twitter.com/AliAbdi_fa/status/1663881857862193153">https://twitter.com/AliAbdi_fa/status/1663881857862193153</a>.</p>
-<p><img src="/images/problems/sol.jpeg" style="width:8cm" alt="image" /></p>
+<p><img src="/images/problems/02_diagram0.jpeg" alt="image" /></p>
 <p>Now we show why at least 16 distinct people have to be present in the photos. Let <span class="math inline">\(a\)</span> be the number of people who are neither a father in any photo nor an uncle in any photo (and thus they can only appear in the middle of each picture). Let <span class="math inline">\(b\)</span> be the number of people who are a father in at least one photo but not an uncles in any photo. Also let <span class="math inline">\(c\)</span> be the number of people who are an uncle in at least one photo but not a father an any photo. Finally, let <span class="math inline">\(d\)</span> be the number of people who are both an uncle in at least one photo and a father in at least one photo. The total number of people in the photos is the sum of these 4 numbers. It can be proved that <span class="math inline">\(a \geq d/2 + 1\)</span> and because we have 10 photos with 20 uncles and fathers in them, <span class="math inline">\(b + c + 2d = 20\)</span>. By putting the above inequalities together, we conclude <span class="math inline">\(a + b + c + d \geq 21 - d/2\)</span> and since we have 10 photos, <span class="math inline">\(d\)</span> is at most 10, so <span class="math inline">\(a + b + c + d \geq 16\)</span>.<br />
 link to the solution on Twitter: <a href="https://twitter.com/Riazi_Cafe/status/1664832603759824897">https://twitter.com/Riazi_Cafe/status/1664832603759824897</a></p>
 </body>

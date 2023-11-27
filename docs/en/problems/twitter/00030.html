@@ -20,6 +20,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="/css/styles.css" rel="stylesheet">
+    <link href="/css/styles-ltr.css" rel="stylesheet">
 
     <!-- Mathjax stuff -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -82,7 +83,7 @@
 
 <div class="tab-content problem" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-      <img src="/images/problems/30_circle.png" style="float:left;max-width:35%"/>
+      <img class="problem-image" src="/images/problems/30_circle.png" style="max-width:35%"/>
     <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
 <head>
@@ -134,7 +135,7 @@ Because we asked for an approximate answer, below we present a simple <span clas
 <p>Our claim is that this probability is between <span class="math inline">\(nf(n)\)</span> and <span class="math inline">\(2nf(n)\)</span>.</p>
 <p>To show this, let for a particular arrangement <span class="math inline">\(A\)</span> the distance between the two nearest points be equal to <span class="math inline">\(f(n,A)\)</span>. For each of the <span class="math inline">\(n\)</span> points, we color an arc of the circle whose distance from that point (along the circle’s perimeter) is equal to <span class="math inline">\(f(n,A)\)</span>. We color the counter-clockwise part of the arc with blue and the clockwise part of the arc with red. Because <span class="math inline">\(f(n,A)\)</span> is equal to the distance of the closest two points, then all the blue arcs are disjoint. Also, so are all of the red arcs. However, red and blue arcs may overlap.</p>
 <p>Therefore, the total size of all colored arcs is between <span class="math inline">\(nf(n,A)\)</span> and <span class="math inline">\(2nf(n,A)\)</span>.</p>
-<p><img src="/images/problems/sol1.png" style="width:9cm" alt="image" /></p>
+<p><img src="/images/problems/30_diagram1.png" alt="image" /></p>
 <p>Keep in mind that the perimeter of the circle is 1, and thus if the <span class="math inline">\(n+1\)</span>th point is added, the probability that it will be placed on a colored arc is between <span class="math inline">\(n f(n,A)\)</span> and <span class="math inline">\(2nf(n,A)\)</span>.</p>
 <p>If we calculate the average of this probability for all configurations <span class="math inline">\(A\)</span> of the first <span class="math inline">\(n\)</span> points, this probability would be between <span class="math inline">\(nf(n)\)</span> and <span class="math inline">\(2nf(n)\)</span>. Notice that this is exactly equal to the probability that by adding the <span class="math inline">\(n+1\)</span>’th point, the distance between the two closest points change.</p>
 <p>Now we calculate the same quantity in another way. Since all <span class="math inline">\(n+1\)</span> points placed on the circle are random, then the probability that any point is one of the ends of the closest two points is equal to <span class="math inline">\(2/(n+1)\)</span>.</p>
