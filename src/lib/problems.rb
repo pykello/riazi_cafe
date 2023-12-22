@@ -20,14 +20,13 @@ def generate_problem_list_page(problems, language)
     File.write(File.join(output_dir, language, 'problem-list.html'), output_html)
 end
 
-def generate_problem_pages(source_info, language)
+def get_problems_info(source_info, language, render_content: true)
     generate_problem = lambda {|input_root, output_root, subfolder, entry|
         return nil unless entry.match? /.tex$|.md$/
         entry_html = entry.gsub(/.tex|.md/, ".html")
         problem_path = File.join(input_root, subfolder, entry)
         output_path = File.join(output_root, subfolder, entry_html)
-        problem_info = parse_problem(problem_path, source_info)
-        render_problem(problem_info, output_path, language)
+        problem_info = parse_problem(problem_path, source_info, render_content)
         problem_info.url = File.join('', language, 'problems', subfolder, entry_html)
         problem_info
     }
@@ -48,22 +47,22 @@ def render_problem(problem_info, output_path, language)
     File.write(output_path, output_html)
 end
 
-def parse_problem(path, source_info)
+def parse_problem(path, source_info, render_content)
     if path.end_with? ".md"
-        parse_problem_md(path, source_info)
+        parse_problem_md(path, source_info, render_content)
     elsif path.end_with? ".tex"
-        parse_problem_tex(path, source_info)
+        parse_problem_tex(path, source_info, render_content)
     else
         raise "Unsupported format: #{path}"
     end
 end
 
-def parse_problem_md(path, source_info)
+def parse_problem_md(path, source_info, render_content)
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     info = ProblemInfo.new
 
-    def process_section(name, contents, info, path)
+    def process_section(name, contents, info, path, render_content)
         case name
         when 'title' then
             info.title = contents.join(" ")
@@ -93,23 +92,23 @@ def parse_problem_md(path, source_info)
             info.statement =
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
-                    contents.join("\n"))
+                    contents.join("\n")) if render_content
         when 'hint' then
             info.hints.append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
-                    contents.join("\n")))
+                    contents.join("\n"))) if render_content
         when 'solution' then
             info.solutions.append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
-                    contents.join("\n")))
+                    contents.join("\n"))) if render_content
         when 'solution-tex' then
             dirname = File.dirname(path)
             tex_path = File.join(dirname, contents.join("\n").strip)
             info.solutions.append(
                 render_tex_path(tex_path)
-            )
+            ) if render_content
 
         end
     end
@@ -119,7 +118,7 @@ def parse_problem_md(path, source_info)
     contents.each { |line|
         if line.start_with? "# "
             if not current_section.nil?
-                process_section(current_section, current_content, info, path)
+                process_section(current_section, current_content, info, path, render_content)
             end
             current_section = line.downcase[2..]
             current_content = []
@@ -134,22 +133,21 @@ def parse_problem_md(path, source_info)
     info
 end
 
-def parse_problem_tex(path, source_info)
-    puts path
+def parse_problem_tex(path, source_info, render_content)
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     info = ProblemInfo.new
 
-    def process_section(name, contents, info, path, section_params)
+    def process_section(name, contents, info, path, section_params, render_content)
         case name
         when "problem"
             info.image = section_params[0] if !section_params[0].empty?
             info.title = section_params[1]
-            info.statement = render_tex_s(contents.join("\n"))
+            info.statement = render_tex_s(contents.join("\n")) if render_content
         when "solution"
-            info.solutions.append(render_tex_s(contents.join("\n")))
+            info.solutions.append(render_tex_s(contents.join("\n"))) if render_content
         when "hint"
-            info.hints.append(render_tex_s(contents.join("\n")))
+            info.hints.append(render_tex_s(contents.join("\n"))) if render_content
         end
     end
 
@@ -164,7 +162,7 @@ def parse_problem_tex(path, source_info)
             current_content = []
             next
         elsif !current_section.nil? && line.start_with?("\\end{#{current_section}}")
-            process_section(current_section, current_content, info, path, section_params)
+            process_section(current_section, current_content, info, path, section_params, render_content)
             current_section = nil
         else
             current_content.append(line)
@@ -173,7 +171,7 @@ def parse_problem_tex(path, source_info)
 
     fa_problem_filename = path.gsub('en', 'fa').gsub('tex', 'md')
     begin
-        fa_p = parse_problem_md(fa_problem_filename, source_info)
+        fa_p = parse_problem_md(fa_problem_filename, source_info, render_content)
         info.timestamp = fa_p.timestamp
         info.image = fa_p.image
         info.id = "Problem #{path.scan(/\d/).join.to_i}"
