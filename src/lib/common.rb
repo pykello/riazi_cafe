@@ -3,6 +3,14 @@ require 'erubis'
 require 'github/markup'
 require_relative 'config.rb'
 
+def suppress_stdout
+    original_stdout = $stdout  # Preserve the original stdout
+    $stdout = File.new('/dev/null', 'w')  # Redirect stdout to /dev/null
+    yield
+ensure
+    $stdout = original_stdout  # Restore the original stdout
+end
+
 def numfa(num)
     if num == 0
         return "۰"

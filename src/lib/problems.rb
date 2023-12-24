@@ -190,7 +190,10 @@ end
 
 def render_tex_s(tex_content)
     converter = PandocRuby.new(tex_content, from: :latex)
-    html_content = converter.to_html(standalone: false, mathjax: false)
+
+    html_content = suppress_stdout do
+        converter.to_html(standalone: false, mathjax: false)
+    end
 
     html_content
 end
