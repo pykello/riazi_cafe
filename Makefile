@@ -9,6 +9,8 @@ PROBLEM_TARGETS := $(PROBLEM_TARGETS:problems/en/%.tex=docs/en/problems/%.html)
 
 PROBLEM_LIST_TARGETS := docs/fa/problem-list.html docs/en/problem-list.html
 
+all: generate
+
 generate: $(PROBLEM_TARGETS) $(PROBLEM_LIST_TARGETS)
 	@mkdir -p docs/images docs/css
 	@cp -R static/images/* docs/images/
