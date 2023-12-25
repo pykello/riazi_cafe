@@ -35,18 +35,4 @@ def main
     end
 end
 
-def read_metadata(input_path)
-    path_parts = input_path.split('/')
-    metadata = {}
-    path_parts.size.times do |i|
-        current_dir = path_parts[0...i].join('/')
-        metadata_file = File.join(current_dir, 'metadata.json')
-        if File.exist?(metadata_file)
-            content = JSON.parse(File.read(metadata_file))
-            metadata.update(content)
-        end
-    end
-    metadata
-end
-
 main
