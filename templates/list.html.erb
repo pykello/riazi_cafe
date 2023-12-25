@@ -1,0 +1,22 @@
+<div class="row">
+    <h2><%= title %></h2>
+    <ul>
+        <% posts.each do |post| %>
+            <li>
+                <a href="<%= post["url"] %>">
+                    <% if !post["id"].nil? && !post["id"].empty? %>
+                       <b> <%= post["id"] %>. </b>
+                    <% end %>
+                    <%= post["title"] %>
+                </a>
+                <% if post["author_name"] and post["author_link"] %>
+                    (نویسنده:
+                        <a href="<%= post["author_link"] %>">
+                            <%= post["author_name"] %></a>)
+                <% elsif post["author_name"] %>
+                    (نویسنده: <%= post["author_name"] %>)
+                <% end %>
+            </li>
+        <% end %>
+    </ul>
+</div>

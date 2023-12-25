@@ -69,44 +69,18 @@ def render_with_master_layout_s(content, data, language="fa")
         }))
 end
 
-#
-# Walks recursively in input_root, and for each file calls
-# generate_lambda(input_root, output_root, subfolder, filename).
-# Returns results of all function calls in an array.
-#
-def walk_and_generate(input_root, output_root, generate_lambda)
-    worker = lambda do |subfolder, recurse|
-        input_files_path = File.join(input_root, subfolder)
-        output_files_path = File.join(output_root, subfolder)
-
-        FileUtils.mkdir_p(output_files_path)
-
-        entries = Dir.entries(input_files_path)
-
-        files = entries.filter { |entry|
-                    File.file? File.join(input_files_path, entry)
-                }
-
-        subfolders = entries.filter { |entry|
-                        entry != '.' && entry != '..' &&
-                        (File.directory? File.join(input_files_path, entry))
-                    }
-        
-        results = []
-
-        subfolders.each do |entry|
-            results = results + recurse.call(File.join(subfolder, entry), recurse)
+def read_metadata(input_path)
+    path_parts = input_path.split('/')
+    metadata = {}
+    path_parts.size.times do |i|
+        current_dir = path_parts[0...i].join('/')
+        metadata_file = File.join(current_dir, 'metadata.json')
+        if File.exist?(metadata_file)
+            content = JSON.parse(File.read(metadata_file))
+            metadata.update(content)
         end
-
-        files.each do |entry|
-            result = generate_lambda.call(input_root, output_root, subfolder, entry)
-            results.append(result) if result
-        end
-
-        return results
     end
-
-    worker.call('', worker)
+    metadata
 end
 
 def translate(s, language)

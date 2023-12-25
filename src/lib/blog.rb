@@ -3,34 +3,6 @@ require 'github/markup'
 require 'date'
 require_relative 'common'
 
-
-def generate_blog_index(blogposts, blogdir)
-    data = {
-        "blogposts": blogposts.sort_by { _1.timestamp }.reverse,
-        "title": "وبلاگ"
-    }
-    output_html =
-        render_with_master_layout(
-            tmpl('blog-index.html.erb'),
-            data)
-    File.write(File.join(output_dir, "fa", blogdir, 'index.html'), output_html)
-end
-
-def generate_blogposts(blogdir)
-    generate_blogpost = lambda {|input_root, output_root, subfolder, entry|
-        entry_html = entry.gsub(".md", ".html")
-        blogpost_path = File.join(input_root, subfolder, entry)
-        output_path = File.join(output_root, subfolder, entry_html)
-        blogpost_info = parse_blogpost(blogpost_path)
-        render_blogpost(blogpost_info, output_path)
-        blogpost_info.url = File.join('', 'fa', blogdir, subfolder, entry_html)
-        blogpost_info
-    }
-
-    output_root = File.join(output_dir, 'fa', blogdir)
-    walk_and_generate(File.join(".", blogdir), output_root, generate_blogpost)
-end
-
 def render_blogpost(blogpost_info, output_path)
     data = {
         "blogpost": blogpost_info,
@@ -41,12 +13,14 @@ def render_blogpost(blogpost_info, output_path)
             tmpl('blogpost.html.erb'),
             data)
     File.write(output_path, output_html)
+    File.write(output_path.gsub(".html", ".json"), blogpost_info.metadata.to_json)
 end
 
-def parse_blogpost(path)
+def parse_blogpost(path, url)
     contents = File.readlines(path).map { _1.strip }
     contents.append("# end")
     info = BlogpostInfo.new
+    info.url = url
 
     def process_section(name, contents, info)
         case name
@@ -108,5 +82,17 @@ class BlogpostInfo
         @body = nil
         @tags = []
         @url = nil
+    end
+
+    def metadata
+        {
+            "title" => @title,
+            "tags" => @tags,
+            "url" => @url,
+            "timestamp" => @timestamp.to_s,
+            "author_name" => @author_name,
+            "author_link" => @author_link,
+            "twitter" => @twitter
+        }
     end
 end

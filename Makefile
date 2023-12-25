@@ -1,36 +1,32 @@
 # Define the shell to use
 SHELL := /bin/bash
 
-PROBLEM_FILES := $(shell find problems/ -type f \( -name '*.md' -o -name '*.tex' \))
-PROBLEM_TARGETS := $(PROBLEM_FILES:problems/fa/%.md=docs/fa/problems/%.html)
-PROBLEM_TARGETS := $(PROBLEM_TARGETS:problems/fa/%.tex=docs/fa/problems/%.html)
-PROBLEM_TARGETS := $(PROBLEM_TARGETS:problems/en/%.md=docs/en/problems/%.html)
-PROBLEM_TARGETS := $(PROBLEM_TARGETS:problems/en/%.tex=docs/en/problems/%.html)
+CONTENT_FILES := $(shell find content/ -type f \( -name '*.md' -o -name '*.tex' -o -name '*.html' \) ! -name 'index.html')
+CONTENT_TARGETS := $(CONTENT_FILES:content/%.md=docs/%.html)
+CONTENT_TARGETS := $(CONTENT_TARGETS:content/%.tex=docs/%.html)
+CONTENT_TARGETS := $(CONTENT_TARGETS:content/%.html=docs/%.html)
 
-PROBLEM_LIST_TARGETS := docs/fa/problem-list.html docs/en/problem-list.html
+LIST_FILES := $(shell find content/ -type f \( -name 'index.*' \))
+LIST_TARGETS := $(LIST_FILES:content/%.list=docs/%.html)
+LIST_TARGETS := $(LIST_TARGETS:content/%.html=docs/%.html)
 
 STATIC_FILES := $(shell find static/ -type f)
 STATIC_TARGETS := $(STATIC_FILES:static/%=docs/%)
 
 all: generate
 
-generate: $(PROBLEM_TARGETS) $(PROBLEM_LIST_TARGETS) static
+generate: $(CONTENT_TARGETS) $(LIST_TARGETS) static
 	@mkdir -p docs/images docs/css
-	@src/bin/generate-rest.rb
 
-docs/fa/problems/%.html: problems/fa/%.* templates/layout.html.erb templates/problem.html.erb
-	@echo "Generate FA problem: $<"
+docs/%/index.html: content/%/index.* $(CONTENT_TARGETS)
+	@echo "Generating $@ ..."
 	@mkdir -p $(@D)
-	@src/bin/generate-problem.rb $< $@
+	@src/bin/generate-list.rb $@ $< $(shell find $(@D) -type f \( -name '*.json' \))
 
-docs/en/problems/%.html: problems/en/%.* templates/layout.html.erb templates/problem.html.erb
-	@echo "Generate EN problem: $<"
+docs/%.html docs/%.json: content/%.*
+	@echo "Generating $@ ..."
 	@mkdir -p $(@D)
-	@src/bin/generate-problem.rb $< $@
-
-docs/%/problem-list.html: $(PROBLEM_FILES)
-	@echo "Generating problem lists ..."
-	@src/bin/generate-problem-list.rb
+	@src/bin/generate.rb $@ `echo $^ | grep -oE '\b\S+\.(md|tex|html)\b'`
 
 static: $(STATIC_TARGETS)
 	@echo "Copying static files ..."

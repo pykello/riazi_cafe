@@ -46,20 +46,20 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <h1><a class="navbar-brand" href="/"><%= translate("Riazi Cafe", language) %></a></h1>
+    <h1><a class="navbar-brand" href="/<%= language %>/"><%= translate("Riazi Cafe", language) %></a></h1>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/"><%= translate("Home", language) %></a>
+          <a class="nav-link active" aria-current="page" href="/<%= language %>/"><%= translate("Home", language) %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/<%= language %>/problem-list.html"><%= translate("Problems", language) %></a>
+          <a class="nav-link active" href="/<%= language %>/problems"><%= translate("Problems", language) %></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/send-problem.html"><%= translate("Suggest A Problem", language) %></a>
+          <a class="nav-link active" href="/<%= language %>/send-problem.html"><%= translate("Suggest A Problem", language) %></a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/<%= language %>/blog"><%= translate("Blog", language) %></a>
