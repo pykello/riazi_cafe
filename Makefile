@@ -3,16 +3,16 @@ SHELL := /bin/bash
 
 BUILD_DIR := build
 
-CONTENT_FILES := $(shell find content/ -type f \( -name '*.md' -o -name '*.tex' -o -name '*.html' \) ! -name 'index.html')
+CONTENT_FILES := $(shell find content -type f \( -name '*.md' -o -name '*.tex' -o -name '*.html' \) ! -name 'index.html')
 CONTENT_TARGETS := $(CONTENT_FILES:content/%.md=$(BUILD_DIR)/%.html)
 CONTENT_TARGETS := $(CONTENT_TARGETS:content/%.tex=$(BUILD_DIR)/%.html)
 CONTENT_TARGETS := $(CONTENT_TARGETS:content/%.html=$(BUILD_DIR)/%.html)
 
-LIST_FILES := $(shell find content/ -type f \( -name 'index.*' \))
+LIST_FILES := $(shell find content -type f \( -name 'index.*' \))
 LIST_TARGETS := $(LIST_FILES:content/%.list=$(BUILD_DIR)/%.html)
 LIST_TARGETS := $(LIST_TARGETS:content/%.html=$(BUILD_DIR)/%.html)
 
-STATIC_FILES := $(shell find static/ -type f)
+STATIC_FILES := $(shell find static -type f)
 STATIC_TARGETS := $(STATIC_FILES:static/%=$(BUILD_DIR)/%)
 
 all: generate
