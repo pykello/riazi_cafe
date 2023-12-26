@@ -1,4 +1,6 @@
 .vscode
 .direnv/
 build/
-
+booklet/main.pdf
+booklet/*.log
+booklet/*.out
