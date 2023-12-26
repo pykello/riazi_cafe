@@ -1,5 +1,4 @@
-\begin{problem}{/images/problems/01_gashniz.jpg}{The Magician}
-    A magician has 52 cards (13 heart cards, 13 club cards, 13 diamond cards and 13 spades cards) and plays a game with Dena and Tara. In this game, there is a number $n$ and a number $k$, which the magician, Dena and Tara are aware of before the game starts.
+\begin{problem}{/images/problems/01_gashniz.jpg}{The Magician}A magician has 52 cards (13 heart cards, 13 club cards, 13 diamond cards and 13 spades cards) and plays a game with Dena and Tara. In this game, there is a number $n$ and a number $k$, which the magician, Dena and Tara are aware of before the game starts.
 
 Dena and Tara are teammates and their goal is to defeat the magician together.
 Before the game start, Dena and Tara fix a strategy for the game. When the game starts, the magician gives Dena $n \leq 52$ cards, then Dena chooses $k < n$ cards and shows them to Tara in the order of his choosing. After observing those cards and their order, Tara has to tell Dena what are the other $n-k$ cards in his hand. If Tara can identify them correctly, Dena and Tara win the game, otherwise the magician wins.
@@ -8,8 +7,7 @@ Before the game start, Dena and Tara fix a strategy for the game. When the game 
 
 \textbf{challenge question}: for what pairs of $n$ and $k$ can Dena and Tara win the game?\\[0.2cm]
 
-link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1708371315856658706}
-\end{problem}
+link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1708371315856658706}\end{problem}
 \begin{solution}
 \textbf{Solution to the first problem:} Let us assume for simplicity that each card has a suit and a  number between 1 and 13.
 Also we define circular order of the cards in the following way: put the cards 1 to 13 in a circle in the clockwise order. The card after each card $i$ will be $i+1$ and the card after card number 13 will be card $1$. Thus, the 5'th card ahead of card $10$ would be card $2$.
@@ -47,6 +45,5 @@ Because the constructed graph is a  bipartite graph where the degrees of the ver
 In order for Dena and Tara to win, they must be able to agree on a matching that covers all vertices of the first part.
 Thus, Dena and Tara can defeat the magician if and only if 
 $\binom{52}{n} \leq \binom{52}{k}  k!$
-
 
 \end{solution}

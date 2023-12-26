@@ -5,8 +5,7 @@ We have 1369 lines of balls; In each line $i$, there are $i$ balls placed next t
 
 Heshmat selects one ball from each line and colors them with red. Afterwards, Gholi finds a ninja path that contains the most number of red balls. If Heshmat does not cooperate with Gholi, what is the minimum number of red balls of Gholi's ninja path?\\[0.2cm]
 
-Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1699307153184739688}
-\end{problem}
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1699307153184739688}\end{problem}
 \begin{solution}
 The answer to question is 11.\\[0.2cm]
 
@@ -49,5 +48,4 @@ For this we leverage the Dilworth theorem below:
 \begin{theorem}[Dilworth theorem, \url{https://en.wikipedia.org/wiki/Dilworth\%27s_theorem}]
 	 In any finite partially ordered set, the largest antichain has the same size as the smallest chain decomposition.
 \end{theorem}
-The Dilworth theorem shows that if there is no ninja path with 11 red balls for some coloring, then the line can be divided into 10 groups such that no two red balls in lines of a group are reachable from one another. In other words, if lines $i$ and $j$ are in the same group and their red balls are at positions $a$ and $b$, then we have $|a-b| > |i-j|$.  One can see that this is impossible since $2^{10} < 1369$.
-\end{solution}
+The Dilworth theorem shows that if there is no ninja path with 11 red balls for some coloring, then the line can be divided into 10 groups such that no two red balls in lines of a group are reachable from one another. In other words, if lines $i$ and $j$ are in the same group and their red balls are at positions $a$ and $b$, then we have $|a-b| > |i-j|$.  One can see that this is impossible since $2^{10} < 1369$.\end{solution}

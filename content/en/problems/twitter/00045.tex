@@ -5,8 +5,7 @@
 	
 	\textbf{Challenging version}: The same question, but with 13 digits: How many 13-digit numbers are there whose every digit is 5 or 7 and the number is divisible by both 5 and 7?\\[0.2cm]
 	
-Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1709796691770323356}
-\end{problem}
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1709796691770323356}\end{problem}
 \begin{solution}.
 The answer for the 7-digits case is equal to 9 and for the 13-digits case it is equal to 585. In general, for the $6n+1$-digits case the solution is equal to $\frac{2^{6n}-1}{7}$.\\[0.2cm]
 
@@ -59,5 +58,4 @@ Since 7 is a prime number, each of numbers 1 to 6 has a unique multiplicative in
 Therefore, the total number of multisubsets of $X_n$ whose sum is divisible by 7 is: $$6 \cdot 9 \cdot \frac{2^{6n-6} - 1}{7} + 10 \cdot \frac{2^{6n-6}+6}{7} = \frac{54 \cdot 2^{6n-6} - 54 + 10 \cdot 2^{6n-6} + 60}{7} = \frac{2^{6n} + 6}{7}.$$
 It follows from our discussions above that for any $1 \leq i \leq 6$, the number of multisubsets of $X_n$ whose sum module $7$ is equal to $i$ is equal to $$\frac{2^{6n} - \frac{2^{6n}+6}{7}}{6} = \frac{2^{6n}-1}{7}.$$
 \end{proof}
-
 \end{solution}

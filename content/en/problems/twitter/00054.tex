@@ -1,0 +1,18 @@
+\begin{problem}{/images/problems/54_normal.png}{Normal Variables}  We keep drawing random variables from distribution $N(0,1)$ (normal distribution with mean 0 and variance 1) until the total sum is at least 1. If all the draws are independent, what is the average number of variables that we draw?
+\end{problem}
+\begin{solution}
+The answer is equal to $\infty$. In other words, the average number of steps that we take before the total sum is at least 1 is infinity.\\[0.2cm]
+
+Let us denote by $e_x$ the average number of draws from $N(0,1)$ until the \textbf{absolute value} of the sum of the variables is at least $x$. Let $s$ be the sum of the variables, which is initially equal to 0. It takes $e_1$ steps on average until the absolute value of the sum of the variables ($|s|$) is at least $1$. At this point, if $s$ is positive, the process will end, otherwise the total sum of variables is smaller than or equal to $-1$. Notice that since $N(0,1)$ is symmetric,  the odds that $s$ is negative is exactly $0.5$.
+
+Now, for the case that $s< -1$, we draw new variables from $N(0,1)$ until the absolute value of the sum of the new variables is at least $2$. This again takes $e_2$ steps on average. Notice that again since $s \leq -1$ holds initially, $s$ will never reach a value of at least $1$ before the absolute value of the sum of the new variables is at least $2$. We assume for simplicity that if the total sum of the new variables is at least $2$, the process ends (although this may not be the case in reality) however, we know that with probability 0.5, the total sum of the new variables is smaller or equal to $-2 $ in which case the new value of $s$ would be less than or equal to $-3$. Now, we repeat the same process until the absolute value of the sum of the new variables is at least $4$. This continues until at some point the sum of the new variables is at least $2^{i-1}$ in some step $i$ in which case we stop the process.\\[0.2cm]
+
+Notice that in the first step, we draw $e_1$ variables on average. In the second step, we draw $e_2$ variables on average and generally in step $i$ we draw $e_{2^{i-1}}$ variables on average. Moreover, the probability that in our process we go to step $i$ is $1/2^{i-1}$. Thus, by linearity of expectation, the average number of variables we draw is at least $\sum_{i=0}^{\infty} e_{2^i}/2^i$. We show in the following that $e_x \geq x$ which implies that the expression of the solution is not bounded by any real number. Thus, the answer to the problem is infinity.
+
+\begin{lemma}
+	$e_x \geq x$.
+\end{lemma}
+\begin{proof}
+	Notice that $\mathbb{E}(|N(0,1)|)$ (the expected value of the absolute value of a normal variable with mean 0 and variance 1) is less that $0.8$. Thus, on average it takes at least $x/0.8$ steps until the absolute value of the sum of the variables is at least $x$.
+\end{proof}
+\end{solution}

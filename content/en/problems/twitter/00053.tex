@@ -1,0 +1,23 @@
+\begin{problem}{/images/problems/53_heshmat.png}{Heshmat and Elevators}  The office building of Hashmat has 15 floors and two elevators. Hashmat wants to get on the elevator on the 13th floor. What is the probability that the first elevator that reaches this floor will go down?\\[0.2cm]
+	
+Explanations:
+\begin{itemize}
+	\item Elevators only change directions when they reach floors 0 or 15.
+	\item The time spent on stopping the elevator and picking up people is assumed to be negligible compared to the time spent moving.
+	\item Each elevator starts moving from a random location in the continuous real line between floors 0 and 15, with a random direction, independently of each other at the beginning of the day. The speeds of the elevators are equal.
+\end{itemize}
+	
+Reference of this problem: \url{https://www.math.ucdavis.edu/~gravner/MAT135A/resources/chpr.pdf}.
+
+Link to the problem on Twitter: \url{https://twitter.com/Riazi_Cafe/status/1734815565003567158}.
+\end{problem}
+\begin{solution}
+	Consider the interval from floor 9 up to floor 15, and then down to floor 13. If an elevator is at a random point in this interval, when it reaches floor 13 It will go either up or down with equal probabilities.
+	
+	If an elevator is in this interval, it will definitely reach floor 13 sooner than any elevator outside this interval, and thus we can ignore elevators outside of this interval. If there are no elevators in this interval, the first elevator that reaches floor 13 will be going up.
+	
+	The probability that at least one elevator is in this interval is equal to 
+	$1-(22/30)^2$.
+	Moreover, due to symmetry, the first elevator from this interval that reaches floor 13 is 50\% likely to be going down. Therefore the answer is equal to:
+	$\frac{1-(22/30)^2}{2} = 5/225.$
+\end{solution}

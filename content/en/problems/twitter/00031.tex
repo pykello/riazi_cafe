@@ -1,10 +1,8 @@
-\begin{problem}{/images/problems/31_roshanak.png}{Lights} 
-    The school wherein Roshank studies has 10 lamps at the highest point of the ceiling. Each of these lamps is controlled by a separate key in the control room in the basement. There are 10 keys in the control room but Roshanak doesn't know which key controls which light.\\[0.2cm]
+\begin{problem}{/images/problems/31_roshanak.png}{Lights} The school wherein Roshank studies has 10 lamps at the highest point of the ceiling. Each of these lamps is controlled by a separate key in the control room in the basement. There are 10 keys in the control room but Roshanak doesn't know which key controls which light.\\[0.2cm]
 
 Roshank is very tired and does not want to go to the control room more than 3 times. How many key-light pairs can she figure out with going to the basement three times? Each time she goes to the control room, she can turn some of the keys on and off and then come back and see which lights are on. All the lights are off in the beginning.\\[0.2cm]
 
-Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1698250117898486041}
-\end{problem}
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1698250117898486041}\end{problem}
 \begin{solution}
 The answer is  7.\\[0.2cm]
 
@@ -13,5 +11,4 @@ For each key, let us denote the off position by 0 and the on position by 1. Thus
 Suppose we have only one key that follows the pattern 001. That is, in the first visit it is set to off, in the second visit, it is set to off, and in the third visit it is set to on. In this case, there will be only one light bulb that follows this on/off pattern and we can find out the pairing. More precisely, we can detect a key-light pairing if and only if the corresponding key has a unique configuration.
 
 Since the number of unique configurations is 8, the high number of keys with unique configurations is 7. More precisely, we can give a unique configuration to the first 7 keys and use the last configuration for the remaining 3 keys. 
-
 \end{solution}

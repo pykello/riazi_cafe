@@ -1,15 +1,12 @@
-\begin{problem}{/images/problems/37_imo.jpg}{Distinct Numbers}
-    This question is from the 1998 Balkan Mathematics Olympiad.\\[0.2cm]
+\begin{problem}{/images/problems/37_imo.jpg}{Distinct Numbers}This question is from the 1998 Balkan Mathematics Olympiad.\\[0.2cm]
 
 Consider the sequence of numbers $[k^2/1998]$ for $k = 1, \ldots, 1997$. How many distinct numbers are there in this sequence? ($[x]$ means the integer component of x) This question is easy to solve by computer programming. Try to solve it without programming.\\[0.2cm]
 
-Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1702560431720759369}
-\end{problem}
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1702560431720759369}\end{problem}
 \begin{solution}
 The correct answer is 1498.\\[0.2cm]
 
 If the distance between $i^2$ and $(i-1)^2$ is less than 1998, then the distance between $[1998/i^2]$ and $[1998/(i-1)^2]$ is either zero or one. The distance between $i^2$ and $(i-1)^2$ is equal to $2i-1$, so this is the case for $2i-1 < 1998$, which means $i \leq 999$. Thus all numbers from zero to $[999^2/1998]=499$ will appear in the sequence. These are 500 distinct numbers.
 
 On the other hand, when $i > 999$, the distance between $i^2$ and $(i-1)^2$ will be greater than or equal to $1998$, and thus, we will have a new distinct number for every such $i$. So we will get $1997-999=998$ new distinct numbers here (which are obviously disjoint from the previous 500 numbers). Therefore, the total number of distinct numbers in the sequence will be $500+998=1498$.
-
 \end{solution}

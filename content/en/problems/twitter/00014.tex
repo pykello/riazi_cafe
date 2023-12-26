@@ -1,21 +1,18 @@
-\begin{problem}{/images/problems/14_nim.jpg}{Playing with Numbers}
-    The number $X$ is equal to 33750000.
+\begin{problem}{/images/problems/14_nim.jpg}{Playing with Numbers}The number $X$ is equal to 33750000.
 
 Two people play a game as follows: each person in his turn divides X by one of the divisors of X which is either prime or a power of a prime number (e.g., 2, 17, 8, 9, ol 125). Players play in turns until the value of $X$ becomes 1. Whoever turns $X$ into 1 wins the game. Which player has a winning strategy? \\[0.2cm]
 
-Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1678625174537527297}
-\end{problem}
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1678625174537527297}\end{problem}
 \begin{solution}.
-The winner of the game is the second player (if both players play optimally).\\[0.2cm]
-
-The solution is based on the Nim game explained below. By decomposing  number 33750000 into its prime factors, it can be seen that the powers of bases two, three and five are equal to four, three and seven (i.e., $33750000 = 2^4 3^3 5^7$). Because each time a player reduces the power of one of the bases of $X$, this game is equivalent to a Nim game with pile sizes  three, four and seven and thus the winner of the game is the second player.\\[0.2cm]
-
-\textbf{Explanation of the Nim game}: Nim is a two-player game in combinatorial mathematics which includes a number of piles where pile contains a number of beans. Two players take turns to remove the beans from the piles. In each turn, a player must choose one of the non-empty piles and remove some (at least one) beans from it. The winner of the game is the player who removes the last bean from the piles.
-
-The optimal strategy in the Nim game is to always play in such a way that after your move the XOR of the number of beans in the piles is equals 0. This is possible if  and only if the XOR of the number of beans before your move is not equal to 0. For example, if there are two piles of sizes 3 and 5, their XOR will be 6, and removing two beans from a pile of 5 will make the XOR of the number of beans of the piles equal to zero.
-
-Therefore, if the XOR of the number of beans is zero initially, the player who plays first will lose. This is because after his move the XOR of the number of beans will be non-zero and the opponent can always play in a way that the XOR of the number of beans of the piles becomes zero again. By repeating this process, the opponent will win the game. Because in the Nim game equivalent to our original problem, the XOR of the beans of the equivalent piles (three, four and seven) is equal to zero,  the second player has a winning strategy.\\[0.2cm]
-
-
-Solution link on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1679386866783776769}
-\end{solution}
+	The winner of the game is the second player (if both players play optimally).\\[0.2cm]
+	
+	The solution is based on the Nim game explained below. By decomposing  number 33750000 into its prime factors, it can be seen that the powers of bases two, three and five are equal to four, three and seven (i.e., $33750000 = 2^4 3^3 5^7$). Because each time a player reduces the power of one of the bases of $X$, this game is equivalent to a Nim game with pile sizes  three, four and seven and thus the winner of the game is the second player.\\[0.2cm]
+	
+	\textbf{Explanation of the Nim game}: Nim is a two-player game in combinatorial mathematics which includes a number of piles where pile contains a number of beans. Two players take turns to remove the beans from the piles. In each turn, a player must choose one of the non-empty piles and remove some (at least one) beans from it. The winner of the game is the player who removes the last bean from the piles.
+	
+	The optimal strategy in the Nim game is to always play in such a way that after your move the XOR of the number of beans in the piles is equals 0. This is possible if  and only if the XOR of the number of beans before your move is not equal to 0. For example, if there are two piles of sizes 3 and 5, their XOR will be 6, and removing two beans from a pile of 5 will make the XOR of the number of beans of the piles equal to zero.
+	
+	Therefore, if the XOR of the number of beans is zero initially, the player who plays first will lose. This is because after his move the XOR of the number of beans will be non-zero and the opponent can always play in a way that the XOR of the number of beans of the piles becomes zero again. By repeating this process, the opponent will win the game. Because in the Nim game equivalent to our original problem, the XOR of the beans of the equivalent piles (three, four and seven) is equal to zero,  the second player has a winning strategy.\\[0.2cm]
+	
+	
+	Solution link on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1679386866783776769}\end{solution}

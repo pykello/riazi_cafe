@@ -5,8 +5,7 @@ For the second box, if the coin is drawn head, the number of coins in the box wi
 At the end, any number of coins left in each box will be yours. How would  you play this game?
 If instead of two different coins, we use the same coin for both boxes (with similar rules) how do you play?\\[0.2cm]
 
-Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1692781066136731810}
-\end{problem}
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1692781066136731810}\end{problem}
 \begin{solution}The correct answer is to put 900 coins in the first box and 100 coins in the second box for the case where we throw coins separately for each box. In the case that we throw only one coin, we put everything in the first box.\\[0.2cm]
 
 Here we only explain the details of the former case. The explanation for the latter case is the same. The  expected value  of the outcome per coin for both boxes is equal to 1.25. Thus, regardless of how we put the coins in the boxes, the expected number of coins we receive in the end is 1250. When the expected values are the same, then the second parameter that is desirable to minimize is the variance of the outcome, whose formula is given below:
@@ -15,5 +14,4 @@ $$\textsf{Var}(x) = \textsf{E}\big[(\mathsf{E}[x] - x)^2\big].$$
  
 	 If we put a coin in box number one, the variance of the final number of coins in this box is equal to 0.125, and if we put a coin in box number two, the variance of the final number of coins in this box is equal to 1.125. Because the random process used for boxes are independent (we throw separate coins for them), so by placing $x$ coins in the first box and $y$ coins in the second box, the variance of the total coins is equal to $x^2 \cdot 0.125 + y^2 \cdot 1.125$. And since we put all 1000 coins in the two boxes, we have  $y=1000-x$. 
 	 
-	 Therefore, the variance of the answer is equal to $x^2 \times 0.125 + (1000-x)^2 \times 1.125$. To minimize this expression, we must set its derivative equal to 0. The value of the derivative of this expression is equal to $\frac{5x-4500}{2} $ which will be equal to 0 for $x = 900$. The last thing to verify is that the amount of variance becomes minimum (and not maximum) in this case. The reason for this is that when the derivative of a continuous expression is equal to 0,  at that point  the expression is either minimized or maximized. Since by setting $x=0$, the value of variance becomes equal to 125000, but by setting $x=900$, the value of variance becomes equal to 112500, so for $x=900$, the value of variance is minimized.
-\end{solution}
+	 Therefore, the variance of the answer is equal to $x^2 \times 0.125 + (1000-x)^2 \times 1.125$. To minimize this expression, we must set its derivative equal to 0. The value of the derivative of this expression is equal to $\frac{5x-4500}{2} $ which will be equal to 0 for $x = 900$. The last thing to verify is that the amount of variance becomes minimum (and not maximum) in this case. The reason for this is that when the derivative of a continuous expression is equal to 0,  at that point  the expression is either minimized or maximized. Since by setting $x=0$, the value of variance becomes equal to 125000, but by setting $x=900$, the value of variance becomes equal to 112500, so for $x=900$, the value of variance is minimized.\end{solution}

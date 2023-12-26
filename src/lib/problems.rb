@@ -113,12 +113,18 @@ def parse_problem_tex(path, info)
     current_content = []
     contents.each { |line|
         if current_section.nil? && line.start_with?("\\begin{")
-            v = line.strip.split(/}{|{|}/)[1..]
+            match = line.match(/\\[^{} ]+(\{[^}]*\})*/)
+            split_index = match.end(0)
+            part1 = line[0...split_index]
+            part2 = line[split_index..-1]
+            v = part1.strip.split(/}{|{|}/)[1..]
             current_section = v[0]
             section_params = v[1..]
-            current_content = []
+            current_content = [part2]
             next
-        elsif !current_section.nil? && line.start_with?("\\end{#{current_section}}")
+        elsif !current_section.nil? && line.end_with?("\\end{#{current_section}}")
+            v = line.sub("\\end{#{current_section}}", "").strip
+            current_content.append(v) if v.length
             process_section(current_section, current_content, info, path, section_params)
             current_section = nil
         else

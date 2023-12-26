@@ -1,32 +1,29 @@
-\begin{problem}{/images/problems/01_gashniz.jpg}{The last Cilantro}
-    We have a deck of 52 cards whose order is uniformly at random (with all permutations having the same probability).
-    Each time we take one card from the top and remove it until all 13 Coriander cards are completely removed. How many cards do we remove on average?\\[0.2cm]
-    
-    Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1662455315546161152}
-\end{problem}
+\begin{problem}{/images/problems/01_gashniz.jpg}{The Last Club}
+We have a deck of 52 cards whose order is uniformly at random (with all permutations having the same probability).
+Each time we take one card from the top and remove it until all 13 Club cards are completely removed. How many cards do we remove on average?\\[0.2cm]
 
+Link to the problem on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1662455315546161152}\end{problem}
 \begin{hint}.
-    \begin{itemize}
-    \item What is the probability that a particular non-coriander card comes after all the cilantros?
-    \item How does the final solution relate to the above probability?
-    \end{itemize}    
+\begin{itemize}
+\item What is the probability that a particular non-Club card comes after all the Clubs?
+\item How does the final solution relate to the above probability?
+\end{itemize}
+
 \end{hint}
-    
 \begin{solution}.
-    The correct answer is equal to: $13 + 39 \cdot 13/14 \simeq 49.2142857143$.\\[0.3cm]
-    
-    \noindent Obviously, all 13 Coriander cards are removed in this process. Now consider a card with another suit, say a heart card $h$. For now, we ignore all cards except for the 13 cards of Coriander and card $h$. Now, consider the position of card $h$ relative to the 13 Coriander cards. There are 14 possibilities for it:
-    
-    \begin{itemize}
-    \item $h$ comes before all the Coriander cards,
-    \item $h$ comes between  between the first and second Coriander cards,
-    \item $h$ comes between  between the second and the third Coriander cards,
-    \item $\ldots$
-    \item $h$ comes after all of the Coriander cards.
-    \end{itemize}
-    
-    $h$ will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus  we remove card $h$ with probability $13/14$. Therefore, each of the 39 non-coriander cards will be removed with a probability of $13/14$ in this process, and therefore, the answer to the problem is equal to:
-    $13 + (13/14) \cdot 39$ (keep in mind the linearity of expectation).\\[0.2cm]
-    
-    Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1663022266064556033}
-\end{solution}
+The correct answer is equal to: $13 + 39 \cdot 13/14 \simeq 49.2142857143$.\\[0.3cm]
+
+\noindent Obviously, all 13 Club cards are removed in this process. Now consider a card with another suit, say a Heart card $h$. For now, we ignore all cards except for the 13 cards of Club and card $h$. Now, consider the position of card $h$ relative to the 13 Club cards. There are 14 possibilities for it:
+
+\begin{itemize}
+\item $h$ comes before all the Club cards,
+\item $h$ comes between  between the first and second Club cards,
+\item $h$ comes between  between the second and the third Club cards,
+\item $\ldots$
+\item $h$ comes after all of the Club cards.
+\end{itemize}
+
+$h$ will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus  we remove card $h$ with probability $13/14$. Therefore, each of the 39 non-Club cards will be removed with a probability of $13/14$ in this process, and therefore, the answer to the problem is equal to:
+$13 + (13/14) \cdot 39$ (keep in mind the linearity of expectation).\\[0.2cm]
+
+Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1663022266064556033}\end{solution}
