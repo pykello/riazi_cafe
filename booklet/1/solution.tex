@@ -1,0 +1,17 @@
+\begin{solution}.
+The correct answer is equal to: $13 + 39 \cdot 13/14 \simeq 49.2142857143$.\\[0.3cm]
+
+\noindent Obviously, all 13 Club cards are removed in this process. Now consider a card with another suit, say a Heart card $h$. For now, we ignore all cards except for the 13 cards of Club and card $h$. Now, consider the position of card $h$ relative to the 13 Club cards. There are 14 possibilities for it:
+
+\begin{itemize}
+\item $h$ comes before all the Club cards,
+\item $h$ comes between  between the first and second Club cards,
+\item $h$ comes between  between the second and the third Club cards,
+\item $\ldots$
+\item $h$ comes after all of the Club cards.
+\end{itemize}
+
+$h$ will be removed in the process for all of the first 13 cases, (the last case is the only exception). Because the order of the cards is uniformly at random, all of the 14 possibilities have the same probability and thus  we remove card $h$ with probability $13/14$. Therefore, each of the 39 non-Club cards will be removed with a probability of $13/14$ in this process, and therefore, the answer to the problem is equal to:
+$13 + (13/14) \cdot 39$ (keep in mind the linearity of expectation).\\[0.2cm]
+
+Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1663022266064556033}\end{solution}

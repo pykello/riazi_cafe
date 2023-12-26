@@ -1,0 +1,26 @@
+\newcounter{problemnumber}
+\setcounter{problemnumber}{0}
+\usepackage{tgpagella}
+
+\newenvironment{problem}[2]{
+\begin{mdframed}[roundcorner=10pt,leftmargin=1, rightmargin=1, 
+  linecolor=orange,outerlinewidth=.5,
+  innerleftmargin=8,innertopmargin=8,innerbottommargin=8]
+\begin{minipage}[t]{0.3\linewidth}
+\raisebox{\dimexpr-\height+\ht\strutbox\relax}{\includegraphics[width=.88\textwidth]{#1}}
+\end{minipage}
+\hspace{.1mm}
+\begin{minipage}[t]{0.7\linewidth}\addtocounter{problemnumber}{1}\textbf{Problem \theproblemnumber\  (#2)}:
+}{
+\end{minipage}
+\end{mdframed}}
+
+\newenvironment{hint}[1]{\begin{mdframed}[roundcorner=10pt,leftmargin=1, rightmargin=1, 
+  linecolor=purple,outerlinewidth=.5,
+  innerleftmargin=8,innertopmargin=8,innerbottommargin=8] \textbf{Hint}: }{
+\end{mdframed}}
+
+\newenvironment{solution}[1]{\begin{mdframed}[roundcorner=10pt,leftmargin=1, rightmargin=1, 
+  linecolor=blue,outerlinewidth=.5,
+  innerleftmargin=8,innertopmargin=8,innerbottommargin=8]\textbf{Solution}: }{
+\end{mdframed}}

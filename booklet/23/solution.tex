@@ -1,0 +1,12 @@
+\begin{solution}
+Let the people involved in this process be numbered from 1 to 5 from the youngest to the oldest. The correct answer is the following: The fifth person (the oldest) takes 98 coins for himself, and gives one coin to each of the first and third persons.\\[0.2cm]
+
+The solution is based on a bottom up analysis:
+\begin{itemize}
+\item If there are 2 people left, one vote is enough for the second person to survive. This would be his own vote. So the oldest person can take all 100 coins for himself.
+\item If there are 3 people left, the oldest person needs 2 votes to survive. The first person also knows that in the case of 2 people, nothing will be given to him; Thus he would be happy with receiving only one coin. Therefore, the third person takes 99 coins for himself and gives one coin to the first person.
+\item If there are 4 people left, with the same reasoning, the second person will be happy with receiving one coin, and thus the fourth person will get 99 coins for himself.
+He takes, one for the second person, and the first and third person will receive nothing.
+\item For 5 people, the first and the third persons know that if the fifth person dies, they will receive nothing. Thus, they are happy with receiving a single coin. Therefore, the fifth person takes 98 coins for himself, and gives one to each of the first and third persons.
+\end{itemize}
+\end{solution}

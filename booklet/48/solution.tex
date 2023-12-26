@@ -1,0 +1,14 @@
+\begin{solution}
+A simple  strategy is to choose a box $p$ uniformly at random in the beginning and move to that box. From then on, we let the magician open the boxes one by one until we find the gift. This strategy takes time $5010.5$ on average (regardless of which box the magician puts the gift into). However, we can do a bit better by using a non-uniform distribution for choosing box $p$. More details is given below.\\[0.2cm]
+
+As mentioned in the problem statement, if we do not use randomization, the magician can always find out which box is the last box that our strategy opens and put the gift in that box. Thus, we never find the gift in time less than 10000. This is far from the optimal solution and thus we need to use a randomized strategy in order to minimize the time.
+
+With our proposed strategy, we spend a 10 minutes time to move to box $p$ in the beginning, and from then on the average number of boxes we open to find the gift is equal to $5000.5$. Thus, on average we wait for $5010.5$ minutes before we find the gift.
+
+This strategy is clearly not optimal  if our randomly chosen variable $p$ is between 1 and 10. The reason is that we already spend 10 minutes to move to box $p$ and if we let the magician to go to box $p$ by opening the boxes one by one, we reach box $p$ sooner. Thus, a better strategy is to choose variable $p$ uniformly at random from range $[11, 10000]$ and move to box number $p$ with probability $999/1000$. This way, the magician would put the gift in box number 10 and thus our average waiting time would be equal to:
+\begin{itemize}
+	\item \textbf{If we decide not to move the magician in the beginning} (probability $1/1000$): 10  
+	\item \textbf{If we decide to move the magician to a random box $p$ in range $[11, 10000]$} (probability $999/1000$): 10 (moving time) + $\frac{10000 + 9999 + 9998 + \ldots + 11}{9990}$ (average time to reach the gift) $ = 5015.5$ 
+\end{itemize} 
+Thus, on average the waiting time would be $10 / 1000 + 5015.5 (999/1000) = 5010.4945$. Although this strategy is not optimal either, its waiting time is very close to the optimal solution.
+\end{solution}

@@ -1,0 +1,10 @@
+\begin{solution}.
+As some friends mentioned, the correct strategy in this game is to play scissors with probability $2/3$ and rock with probability $1/3$.\\[0.2cm]
+
+The mathematical definition of the best strategy in this type of games is the strategy that has the highest average utility in the worst case. It is obvious that playing paper is of no use to us (since we either lose or get a draw in that case). So we either play rock or scissors. Let $p$ be the probability that we play scissors and $1-p$ be the probability that we play rock.
+
+Based on this, if our opponent plays scissors, the game is a draw with probability $p$ and a win for us with probability $1-p$. If the opponent plays paper, with probability $p$ we win the game and with probability $1-p$ we lose the game. So we have to choose the probability $p$ in such a way that our minimum utility is maximized in the above two cases. In other words, $p$ should be chosen in  a way that
+$$\min\{p-(1-p), 1-p\}$$
+is maximized. The above expression is maximized for $p =  2/3$.\\[0.2cm]
+
+Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1665301277142654976}\end{solution}

@@ -1,0 +1,10 @@
+\begin{solution}
+	Consider the interval from floor 9 up to floor 15, and then down to floor 13. If an elevator is at a random point in this interval, when it reaches floor 13 It will go either up or down with equal probabilities.
+	
+	If an elevator is in this interval, it will definitely reach floor 13 sooner than any elevator outside this interval, and thus we can ignore elevators outside of this interval. If there are no elevators in this interval, the first elevator that reaches floor 13 will be going up.
+	
+	The probability that at least one elevator is in this interval is equal to 
+	$1-(22/30)^2$.
+	Moreover, due to symmetry, the first elevator from this interval that reaches floor 13 is 50\% likely to be going down. Therefore the answer is equal to:
+	$\frac{1-(22/30)^2}{2} = 5/225.$
+\end{solution}

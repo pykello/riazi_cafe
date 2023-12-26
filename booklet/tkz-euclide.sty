@@ -1,0 +1,218 @@
+% tkz-euclide.sty
+% Copyright 2023  Alain Matthes
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+% http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+% This work has the LPPL maintenance status “maintained”.
+% The Current Maintainer of this work is Alain Matthes.
+%-------------------------------------------------------------------------------
+\def\fileversion{5.02c}
+\def\filedate{2023/02/03} 
+\typeout{2023/02/03 5.02c  tkz-euclide.sty} 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tkz-euclide}[ 2023/02/03 5.02c for pure  Euclidean Geometry ]
+\newif\if@tkzlua
+\@tkzluafalse
+\DeclareOption{lua}{\@tkzluatrue}
+\ProcessOptions\relax
+
+\@ifpackageloaded{tkz-base}{
+\newdimen\tkzRadius
+\newdimen\tkzLength
+\newdimen\tkz@radi
+\newif\iftkz@line@normed
+\newif\ifnormtkzcode@execute% german ? right angle
+%---------------------- semi circle
+\newif\iftkz@swap@sc
+\newif\iftkz@line@normed
+%--------------------- circles
+\newif\iftkzClipOutCircle 
+%--------------------- polygons
+\newif\iftkzClipOutPoly
+%--------------------- triangles
+\newif\iftkz@swap@tr
+\newif\iftkz@permute
+%--------------------- intersections
+\newif\iftkzFlagLC\tkzFlagLCfalse
+\newif\iftkzFlagCC\tkzFlagCCfalse
+\newif\iftkz@near\tkz@nearfalse
+%--------------------- 
+\newif\iftkzLinear\tkzLinearfalse
+\newif\iftkzOrtho\tkzOrthofalse
+}{
+\RequirePackage{tikz} 
+\usetikzlibrary{angles,
+                arrows,
+                arrows.meta,
+                backgrounds,
+                calc,
+                decorations,
+                decorations.markings,
+                decorations.pathreplacing,
+                decorations.shapes,
+                decorations.text,
+                decorations.pathmorphing,
+                intersections,
+                math,
+                plotmarks,
+                positioning,
+                quotes,
+                shapes.misc,
+                through
+                }
+\RequirePackage{xfp}
+\usepackage{xpatch}
+\xpatchcmd\pgfmathreciprocal@@ {\pgfmath@y.1\pgfmath@y\pgfmath@y.1\pgfmath@y\pgfmath@y.1\pgfmath@y\pgfmath@y.1\pgfmath@y}
+  {\pgfmath@y\dimexpr\pgfmath@y/10000\relax}
+  {}{\PatchFailed}
+
+%-------------------------------------------------------------------------------
+\newdimen\tkzRadius
+\newdimen\tkzLength
+\newdimen\tkz@radi
+%-------------------------------------------------------------------------------
+% tkz registres
+\newdimen\tkz@ax
+\newdimen\tkz@ay
+\newdimen\tkz@bx
+\newdimen\tkz@by
+\newdimen\tkz@cx
+\newdimen\tkz@cy
+\newdimen\tkz@dx
+\newdimen\tkz@dy
+%--------------------- points
+\newif\iftkz@polar\tkz@polarfalse
+\newif\iftkz@pt@polar 
+\newif\iftkz@pt@show 
+\newif\iftkz@pt@noname 
+\newif\iftkz@coord@noxdraw
+\newif\iftkz@coord@noydraw
+\newif\iftkz@vec@normed
+%--------------------- lines
+\newif\iftkz@line@normed
+%--------------------- circles
+\newif\iftkzClipOutCircle 
+%--------------------- polygons
+\newif\iftkzClipOutPoly
+%--------------------- triangles
+\newif\iftkz@swap@tr
+\newif\iftkz@permute
+%--------------------- intersections
+\newif\iftkzFlagLC\tkzFlagLCfalse
+\newif\iftkzFlagCC\tkzFlagCCfalse
+\newif\iftkz@near\tkz@nearfalse
+%--------------------- utilities
+\newif\iftkzLinear\tkzLinearfalse
+\newif\iftkzOrtho\tkzOrthofalse
+%--------------------- tkz axis
+\newif\iftkz@X@noticks
+\newif\iftkz@Y@noticks
+\newif\iftkz@X@nograd
+\newif\iftkz@Y@nograd
+\newif\iftkz@X@orig
+\newif\iftkz@Y@orig
+\newif\iftkz@X@unit
+\newif\iftkz@Y@unit
+\newif\iftkz@np 
+\newif\iftkz@swap
+\newif\iftkz@init@NO
+\newif\iftkz@integer
+\newif\iftkz@Rep@orig%--------------------- Rep
+\newif\iftkzLengthIncm%--------------------- Math
+\newif\iftkz@sop@show%--------------------- marks
+\newif\iftkz@equi@show
+\newif\iftkz@gd@sub% sub grid ?%--------------------- about grid
+\newif\iftkz@node\tkz@nodefalse  
+\newif\iftkz@legend@line%--------------------- legend
+\newif\iftkz@TestSubString
+\newif\ifnormtkzcode@execute% german ? right angle
+\newif\iftkz@swap@sc%---------------------- semi circle
+\newif\ifpgf@unknown % math arith
+\newif\ifpgf@isaprime    
+\newcount\tkz@cntmk
+\newif\iftkz@RappReturn % protractor
+\newif\iftkz@RappFull
+%-------------------------------------------------------------------------------
+%  Init
+\def\tkz@xa{0}
+\def\tkz@xb{10}
+\def\tkz@ya{0}
+\def\tkz@yb{10}
+\def\tkz@mathresult{}
+\InputIfFileExists{tkz-euclide.cfg}{%
+\typeout{Local configuration file tkz-euclide.cfg found and used}}{%
+\typeout{tkz-euclide.cfg not found}}
+}
+%-------------------------------------------------------------------------------
+\def\tkz@tmp@xa{-5}
+\def\tkz@tmp@xb{+5}
+\def\tkz@tmp@ya{-5}
+\def\tkz@tmp@yb{+5}
+%-------------------------------------------------------------------------------
+\DeclareOption*{}
+\ProcessOptions
+%<---------------------------------------------------------->
+%                          Initialisation
+%<---------------------------------------------------------->
+\if@tkzlua
+\RequirePackage{luacode}
+\fi
+
+
+\@ifpackageloaded{tkz-base}{}{%
+% from base
+\input{tkz-tools-eu-base.tex}
+\input{tkz-tools-eu-utilities.tex}
+\input{tkz-tools-eu-BB.tex}
+\input{tkz-obj-eu-grids.tex}
+\input{tkz-lib-eu-marks.tex}
+\input{tkz-tools-eu-text.tex}
+\input{tkz-lib-eu-shape.tex}
+\input{tkz-obj-eu-axesmin.tex}
+\input{tkz-tools-eu-colors.tex}
+\input{tkz-obj-eu-points.tex}
+\input{tkz-draw-eu-points.tex}
+}
+% % next from euclide
+\makeatletter
+\if@tkzlua
+\input{tkz-tools-lua-base.tex}
+\input{tkz-obj-lua-points.tex}
+\input{tkz-tools-lua-math.tex}
+\input{tkz-tools-lua-intersections.tex}
+\input{tkz-obj-lua-points-by.tex}
+\input{tkz-obj-lua-points-with.tex}
+\input{tkz-obj-lua-points-spc.tex}
+\input{tkz-tools-lua-angles.tex}
+\else
+\input{tkz-obj-eu-points.tex} 
+\input{tkz-obj-eu-points-by.tex}
+\input{tkz-tools-eu-math.tex}
+\input{tkz-tools-eu-intersections.tex}
+\input{tkz-obj-eu-points-with.tex}
+\input{tkz-obj-eu-points-spc.tex}
+\input{tkz-tools-eu-angles.tex} 
+ \fi
+
+\input{tkz-obj-eu-points-rnd.tex}
+\input{tkz-obj-eu-circles.tex}
+\input{tkz-obj-eu-circles-by.tex}
+\input{tkz-obj-eu-lines.tex}
+\input{tkz-obj-eu-polygons.tex}
+\input{tkz-obj-eu-triangles}
+
+% drawings
+\input{tkz-draw-eu-lines.tex}
+\input{tkz-draw-eu-circles.tex}
+\input{tkz-draw-eu-polygons.tex}
+\input{tkz-draw-eu-angles.tex}
+\input{tkz-draw-eu-sectors.tex}
+\input{tkz-draw-eu-compass.tex}
+\input{tkz-draw-eu-show.tex}
+\input{tkz-draw-eu-protractor.tex}
+
+\endinput

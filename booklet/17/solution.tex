@@ -1,0 +1,8 @@
+\begin{solution}.
+The answer to this question is positive. There is a shooting algorithm that always kills the dragon. \\[0.2cm], 
+
+Let the boxes be numbered from 1 to 100 from left to right. We start from box 1 and in the first 100 steps, we shoot box number $i$ in step $i$. Notice that our shooting position increases by one each time and the dragon's position either increases by one or decreases by one. Therefore, the distance between the box we shoot at and the dragon's box either remains the same or decreases by 2. This implies that if in the beginning, the dragon's box number is odd, we shoot at him at some point in this process. Therefore, if the dragon survives the first 100 shots, it means that his original box number was even. This means that after 100 steps, the number of the box that contains the dragon is even too.
+
+With that knowledge, we can repeat the above algorithm but start from box 2. With the same analysis, since the distance between the box of the dragon and the box we shoot at changes by either 2 or 0 each time, we will eventually shoot the dragon in this algorithm.\\[0.2cm]
+
+Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1682656010081828865}\end{solution}

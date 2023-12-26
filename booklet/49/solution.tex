@@ -1,0 +1,19 @@
+\begin{solution}
+The answer for the case of 1234 people is 421 and for the case of 12345678987654321 is 6676959465826659. More explanation is given below:\\[0.2cm]
+
+This problem is known as the Josephus problem. Let $n$ be the number of people around the circle and $m$ be the largest power of 2 which is not greater than $n$. The Josephus theorem states that the answer to the Josephus problem is $2(n-m)+1$.
+
+\begin{theorem}[from \url{https://en.wikipedia.org/wiki/Josephus_problem}]
+	Let $n \geq 1$ be the number of people of the Josephus problem and $m$ be the largest power of 2 which is not greater than $n$. The answer to the Josephus problem with $n$ people is $2(n-m)+1$.
+\end{theorem}
+\begin{proof}
+	We prove the theorem using an induction on $n$. The base case is when $n=1$ for which the hypothesis holds (the answer for $n=1$ is equal to $1$ which is as formulated).
+	
+	For the induction step, we consider the two cases of odd $n$ and even $n$ separately. In both cases, let $l = n-m$:
+	\begin{itemize}
+	\item If $n$ is even, then let $m'$ be  the largest power of two which not greater than $n/2$ and $l'$ be $n/2 - m'$. After going around the circle once, we eliminate all the people with even numbers and then start over with $n/2$ remaining people that only have odd labels. By the induction hypothesis, the answer for the remaining people would be $2l'+1$'th person whose label would be $4l'+1$. Since $l' = l/2$ then the label of the last remaining person would be equal to $2l+1$.
+	
+	\item If $n$ is odd, then let $m'$ be  the largest power of two which not greater than $(n-1)/2$ and $l'$ be $(n-1)/2 - m'$. After going around the circle once, we eliminate all the people with even numbers and then start over with $(n+1)/2$ remaining people that only have odd labels. Also, since we eliminate the people with even labels, the last person is skipped and the next person to eliminate is person number 1. After eliminating person number 1, we are left with $(n-1)/2$ people with labels $2i+1$ for $i$ in range $[1, (n-1)/2]$. By the induction hypothesis, the last person who remains among these $(n-1)/2$ people would be the $2l'+1$'th person whose label is equal to $4l'+3$.  Note that $l' = (l-1)/2$ and therefore $4l'+3 = 2l+1$ which completes the proof.
+	\end{itemize}
+\end{proof}
+\end{solution}

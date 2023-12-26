@@ -1,0 +1,33 @@
+\begin{solution}.
+The answer to the first part is 45 and the answer to the second part is 13.\\[0.2cm]
+
+\textbf{First part}: If only one weighing is allowed, we should make an identical number of coins from each machine so that after the weighing we can realize which machine is broken. Thus the smallest number of coins we need is  $0+1+2+\ldots+9$ which is equal to 45.\\[0.2cm]
+
+\textbf{Second part}: If we can use the scale twice, the minimum number of coins required is 13. There are two strategies that make this possible for us. Below is how we put the coins on the scale in the first round of these strategies:
+\begin{itemize}
+\item Strategy 1. Put no coin from 3 machines (subset $A$), one coin from 4 machines (subset $B$), and 2 coins from 3 machines (subset $C$).
+\item Strategy 2. Put no coin from 4 machines (subset $A$), one coin from 5 machines (subset $B$), and 2 coins from 1 machine (subset $C$).
+\end{itemize}
+In each case,  we narrow down the search to a subset of machines after the first weighting and then we use the exact same strategy of the first part to pinpoint the broken machine. The only difference is that we can reuse the already produced coins of the first step.
+
+For example, in the first strategy, if we find out with the first weighting that the broken machine belongs to subset $B$ (the machines that produced one coin), then in the second round there are 4 candidates left. We then need 0,1,2, and 3 coins from them for the second round and since we can reuse one coin for each of them from the previous round, we only need $3$ extra coins. The rest of the cases are the same. Table below explains how we proceed in both strategies after the first weighing:
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	& broken machine in set $A$ & broken machine in set $B$ & broken machine in set $C$ \\
+	\hline
+	& 0, 1, and 2  & 0, 1, 2, and 3 & 0, 1 , 2   \\
+	Strategy 1 & coins for machines of set $A$ & coins for machines of set $B$ &coins for machines of set $C$\\
+	& (3 new coins) & (3 new coins) & (no new coins) \\
+	\hline 
+	& 0, 1, 2, and 3& 0, 1, 2, 3, and 4 &  \\
+	Strategy 2 &  coins for machines of set $A$  &coins for machines of set $B$   & no weighing required\\
+	& (6 new coins) & (6 new coins) &  \\
+	\hline
+\end{tabular}
+\end{center}
+
+%To prove that the answer is not smaller than 13, we can limit and check the cases on paper, but considering that there are so many modes that the computer can check them all, we can check all the modes with a program like this:  \url{https://github.com/pykello/riazi_cafe/blob/main/problem_codes/twitter/00015/coins2.cpp} 
+
+Link to the solution on Twitter: \url{https://twitter.com/Riazi_Cafe/status/1681197786795220997}\end{solution}

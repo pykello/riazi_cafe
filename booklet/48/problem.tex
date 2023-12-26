@@ -1,0 +1,12 @@
+\begin{problem}{48/figs/pic.jpg}{Magician and the Boxes} 10,000 boxes are placed around a circle. 9999 of them are empty but one of them contains a gift. You play a game with a magician in the following way: 	The magician is initially standing in front of box number 1. Let $p$ be the position of the magician at every step ($p=1$ initially).
+	\begin{itemize}
+	\item \textsf{Step 1}: Each time the magician asks if you want him to move to another box. If you decide to move him next to a box of your choosing, it takes 10 minutes for him to move to your desired location (and the value of $p$ will be changed to your desired box number).
+	\item \textsf{Step 2}: Then he opens box number $p$. This process takes 1 minute. If the gift is in box number $p$ the game is terminated, otherwise the magician will go to the next unopened box in the clockwise order. This moving takes no time.
+	\item You then proceed to step 1.
+	\end{itemize}
+
+Before you start the game, the magician reads your mind and finds out how you want to play with him. Then, based on your strategy, he puts the gift in the box that takes the longest time for you to find it (on average). How would you play in this game and how much time it would take for you to find the gift?\\[0.2cm]
+
+Keep in mind that the magician reads your mind and if you decide to play deterministically, he will put the gift in the last box that your strategy opens. Thus, in order to confuse the magician, you should play a randomized strategy and thus he would not be fully aware of your strategy beforehand.
+
+\end{problem}

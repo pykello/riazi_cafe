@@ -1,0 +1,13 @@
+\begin{solution}
+No power of 2 can be written as the sum of two or more consecutive positive integers.
+
+The proof of this statement is by contradiction. Let us assume that it is possible to write a power of 2 as the sum of two or more consecutive positive integers. Then, we would have two positive integers $m$ and $n$ such that: $$m+(m+1)+\ldots+(m+n)=(2m+n)(n+1)/2=2^k.$$ 
+
+We can simplify this into
+$(2m+n)(n+1)=2^{k+1}$
+
+
+The right side of this equation has no odd factors, but at least one of $2m+n$ and $m+1$, which are both greater than 1, is odd. Therefore, the above equation cannot hold, and the initial assumption was incorrect.
+
+In other words, if we could write a power of 2 as the sum of two or more consecutive positive integers, then we would have an odd number equal to an even number. This is a contradiction, so the initial assumption must be false.
+\end{solution}

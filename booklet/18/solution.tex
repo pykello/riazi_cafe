@@ -1,0 +1,11 @@
+\begin{solution}.
+The correct answer is equal to 50/51 hours or $\simeq 58.82$ minutes.\\[0.2cm]
+
+Since  there is no distinction between the ants, we can assume that when two ants meet each other, they bypass each other and continues their moving with the original directions. Therefore, the answer to the problem is equal to the maximum distance of an ant to the end of the wood in the direction of the ant's movement.
+
+Because the distance of each ant to the end of the wood in the direction of its movement is an independent random number between zero and one (in meters), the answer to the question is equal to $\max\{a_1, a_2, a_3, ..., a_{50}\}$ where each $a_i$ is drawn uniformly and independently at random from interval $[0,1]$. This number can be determined with the following integral:
+$$\int_0^1 x(50x^{49}) d_x = 50/51.$$\\
+
+Clarification on the integral: The probability that one ant has distance $d$ to the end of the wood and the rest of the ants have distance at least $d$ to the end of the wood is equal to $\binom{50}{1} x^{49}$.\\[0.2cm]
+
+Link to the solution on Twitter:  \url{https://twitter.com/Riazi_Cafe/status/1683959598485577728}\end{solution}

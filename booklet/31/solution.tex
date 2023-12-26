@@ -1,0 +1,9 @@
+\begin{solution}
+The answer is  7.\\[0.2cm]
+
+For each key, let us denote the off position by 0 and the on position by 1. Thus, if we combine the three positions of a key in the three visits of Roshanak to the control room, there are 8 possibilities for each key: 000,001,010,011,100,101,110,111. We denote this string of length 3 by the configuration of a key.\\[0.2cm]
+
+Suppose we have only one key that follows the pattern 001. That is, in the first visit it is set to off, in the second visit, it is set to off, and in the third visit it is set to on. In this case, there will be only one light bulb that follows this on/off pattern and we can find out the pairing. More precisely, we can detect a key-light pairing if and only if the corresponding key has a unique configuration.
+
+Since the number of unique configurations is 8, the high number of keys with unique configurations is 7. More precisely, we can give a unique configuration to the first 7 keys and use the last configuration for the remaining 3 keys. 
+\end{solution}

@@ -1,0 +1,66 @@
+\definecolor{light}{HTML}{c48fcd}
+\definecolor{medium}{HTML}{a757b2}
+\definecolor{dark}{HTML}{9637a0}
+\definecolor{mygray}{gray}{0.95}
+\definecolor{mypink}{rgb}{0.91, 0.98, 0.99}
+\newcounter{problemnumber}
+\setcounter{problemnumber}{0}
+\usepackage{tgpagella}
+
+\newenvironment{problem}[2]{
+\addtocounter{problemnumber}{1}
+\noindent
+\begin{tikzpicture}
+\draw[solid] (-8,-2) -- (8,-2);
+\node (B) [fill=white,draw] at (2,-2)  {\textbf{Problem \theproblemnumber\  (#2)}};
+\end{tikzpicture}
+\newline
+\begin{minipage}[t]{0.3\linewidth}
+\raisebox{\dimexpr-\height+\ht\strutbox\relax}{\includegraphics[width=.88\textwidth]{#1}}
+\end{minipage}
+\hspace{.1mm}
+\begin{minipage}[t]{0.7\linewidth}
+}{
+\end{minipage}
+\color{white}.\color{black}\\[0cm]
+\begin{tikzpicture}
+\draw[solid] (-8,-2) -- (8,-2);
+\end{tikzpicture}
+\color{white}.\color{black}\\[1cm]
+}
+
+\newenvironment{hint}[1][\hsize]
+{%
+	\noindent
+	\begin{tikzpicture}
+	\node (B) [fill=white,draw] at (2,-2)  {\textbf{Hint}};
+	\end{tikzpicture}
+	.\\[-0.8cm]
+	\def\FrameCommand
+	{%
+		{\color{pink}\vrule width 3pt}%
+		\hspace{0pt}%must no space.
+		\fboxsep=\FrameSep\colorbox{mypink}%
+	}%
+	\MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+	\noindent
+}
+{\endMakeFramed}
+
+\newenvironment{solution}[1][\hsize]
+{%
+	\noindent
+	\begin{tikzpicture}
+	\node (B) [fill=white,draw] at (2,-2)  {\textbf{Solution}};
+	\end{tikzpicture}
+	.\\[-0.8cm]
+	\def\FrameCommand
+	{%
+		{\color{purple}\vrule width 3pt}%
+		\hspace{0pt}%must no space.
+		\fboxsep=\FrameSep\colorbox{mygray}%
+	}%
+	\MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+	\noindent
+}
+{\endMakeFramed}
