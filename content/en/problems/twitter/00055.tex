@@ -1,0 +1,18 @@
+\begin{problem}{/images/problems/55_pic.png}{Maximum Number of Edges}  What is the maximum number of edges of a simple graph with 100 vertices that has no cycle of even length?
+\end{problem}
+
+\begin{solution}
+	The answer is equal to $148$.\\[0.2cm]
+	
+	Let $G$ be the solution graph. Since $G$ has no even cycle, no two cycles of $G$  share any edge. In other words, the cycles of $G$ are edge-disjoint. To show a bound on the number of edges of $G$, we construct a graph $H$ in the following way:
+	\begin{itemize}
+		\item For each vertex of $G$ there is a corresponding vertex in $H$.
+		\item For each cycle of $G$, there is a vertex in $H$.
+		\item For each edge $(u,v)$ of $G$ that does not belong to any cycle, we put an edge between the corresponding vertices of $u$ and $v$ in $H$.
+		\item For each edge $(u,v)$ of $G$ that belongs to a cycle $c$, we put an edge between the corresponding vertex of $c$ in $H$ and both $u$ and $v$. We remove duplicate edges so $H$ is also simple.
+	\end{itemize}
+
+It follows from the construction of $H$ and the fact that cycles of $G$ are edge disjoint that (i) $H$ is a tree and (ii) the number of edges of $H$ is equal to the number of edges of $G$. This implies that the number of edges of $G$ is equal to $|V(H)-1|$ where $|V(H)|$ is the number of vertices of $H$. Since every cycle of $G$ has a length of at least $3$, the degrees of all vertices of $H$ that correspond to cycles of $G$ are at least $3$. Moreover, no two such vertices of $H$ are adjacent and thus their count is bounded by $\lfloor (|V(H)|-1)/3 \rfloor$. $|V(G)| =100$ implies that $|V(H)| \leq 149$ and since $H$ is a tree then it has at most $148$ edges. 
+
+It is easy to see that by adding 49 edges to 98 disjoint pairs of leaves of a star with 100 vertices, we obtain a simple graph with 100 vertices and 148 edges that has no even cycle.
+\end{solution}
