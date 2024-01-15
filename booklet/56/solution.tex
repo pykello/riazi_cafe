@@ -1,0 +1,10 @@
+\begin{solution}
+	The maximum probability of winning is 0.5. If we slightly change the game so that if the second player never says "stop", the color of the last card is the determining factor, then the minimum probability of winning is also 0.5, and regardless of the strategy, the chance of winning is always 0.5.\\[0.2cm]
+	
+	Due to the symmetry between the remaining cards, the probability of the next card being red is the same as the probability of the last card being red. Therefore, the winning probability of a strategy in the original game is the same as the winning probability of  the same strategy in the modified game: the cards are turned over one by one, and whenever the second player says "stop!", the color of the last card is verified and if it is red, the second player wins, otherwise the first player  wins.
+	
+	In this modified game, because the color of the last card is black in 50\% of the permutations of the 52 cards, then in 50\% of the games, there is no strategy that can win and the maximum probability of winning is 0.5.
+	
+	If a strategy wants to minimize the probability of winning, it must maximize the probability of the next card being black after saying "stop!". According to a similar argument, the maximum winning probability of this case is also 0.5. Therefore, the minimum probability of winning is also 0.5.
+	
+\end{solution}
