@@ -1,0 +1,38 @@
+\begin{solution}
+Nikoo is born on either Ordibehesht 7th (the 38th day of the year) or Ordibehesht 8th (the 39th day of the year) \\[0.2cm]
+
+Let us analyze what goes on in Nik's and Nikoo's minds after each question. 
+When Nik asks Nikoo if his birthday is earlier than Nikoo's birthday, given that they don't know each others birthdays, Nikoo would only say no if her birthday was Farvardin 1st (the first day of the year). Otherwise, her answer would be ``I don't know". Thus, after the first question, it is common knowledge that Nikoo's birthday is not Farvardin 1st. When Nikoo asks the same question from Nik, Nik is already aware that Nikoo's birthday is not Farvardin 1st. So he would say no, if his birthday is either Farvardin 1st or Farvardin 2nd; otherwise he would reply I don't know. Therefore, after Nikoo's question, it is common knowledge that Nikoo is not born on Farvardin 1st and Nik is born on neither Farvardin 1st, nor Farvardin 2nd.
+
+The second time Nik asks Nikoo if his birthday is earlier that hers, nikoo is already aware of the above information and thus she would say no only if her birthday is either Farvardin 2 or Farvardin 3rd. Otherwise she would say ``I don't know".  This process goes on until the last question. Table below shows the common knowledge after each question:
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Question & Answer & common knowledge\\
+		\hline
+		Nik's first question & I don't know & Nikoos birthday is after Farvard 1st \\
+		\hline 
+		Nikoo's first question & I don't know & Nikoos birthday is after Farvard 1st\\
+		& &  and Nik's birthday is after Farvardin 2nd \\
+		\hline
+		Nikoo second question & I don't know & Nikoos birthday is after Farvard 3rd\\
+		& &  and Nik's birthday is after Farvardin 2nd \\
+		\hline
+		Nikoo's second question & I don't know & Nikoos birthday is after Farvard 3st\\
+		& &  and Nik's birthday is after Farvardin 4th \\
+		\hline
+		$\vdots$ & $\vdots$ & $\vdots$ \\
+		\hline
+		Nik's 19th question & I don't know & Nikoos birthday is after Ordibehesh 6th\\
+		& &  and Nik's birthday is after Ordibehesh 5th \\
+		\hline
+		Nikoo's 19th question & I don't know & Nikoos birthday is after Ordibehesh 6th \\
+		& &  and Nik's birthday is after Ordibehesh 7th \\
+		\hline
+		Nik's 20th question & no & Nikoos birthday is not after Ordibehesh 8th\\
+		& &  and Nik's birthday is after Ordibehesh 7th \\
+		\hline
+	\end{tabular}
+\end{center}
+Thus, Nikoo's birthday should be either on Ordibehesht 7th, or on Ordibehesh 8th.
+\end{solution}
