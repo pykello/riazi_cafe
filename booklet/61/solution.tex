@@ -1,0 +1,7 @@
+\begin{solution}
+	The algorithm for this problem is known as ``the moving knife algorithm".\\[0.2cm]
+	
+	Let us move a vertical knife from the left-most point of the cake to the right. We stop as soon as any of the ten people is happy with receiving the portion of the cake to the left of the knight. At that point, we cut the cake vertically and give the portion of the cake to the left of the knife to the person who is happy with receiving that portion. After that, we again move the knight to the right until a person among the 9 remaining people is happy with receiving the portion of the cake to the left of the knife. We proceed until each person receives one portion of the cake.
+	
+	The above algorithm works because of the following fact: Every time we cut the cake vertically, each of the people loses at most 1/10 of the parts of the cake that he likes (otherwise we would stop the knife earlier). Thus, this algorithm allocates the desired pieces of the cake to all 10 people.
+\end{solution}
