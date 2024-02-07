@@ -1,0 +1,21 @@
+\begin{solution}
+In the optimal solution, we place the antennas at locations $(1/16,0.5), (9/16,0.25),(9/16,0.75)$ and the farthest points from these antennas would be the four extreme points of the square whose distance to the closest antenna would be $\frac{\sqrt{1/8^2 + 1}}{2} \simeq 0.503891$. 
+\begin{center}
+	\begin{tikzpicture}[scale=0.70]
+	\draw (0,0)--(10,0);
+	\draw (10,0)--(10,10);
+	\draw (10,10)--(0,10);
+	\draw (0,10)--(0,0);
+	\draw[dashed,color=red] (10/8,0)--(10/8,10);
+\filldraw (0.625,5) circle (3pt);
+\draw (0.625,5) circle (5.03891);
+\filldraw (5.625,2.5) circle (3pt);
+\draw (5.625,2.5) circle (5.03891);
+\filldraw (5.625,7.5) circle (3pt);
+\draw (5.625,7.5) circle (5.03891);
+	\end{tikzpicture}
+\end{center}
+We think of the problem in the following way: find the smallest radius $r$ and three points $a$, $b$, $c$, such that three circles with radius $r$ centered at $a,b, c$ respectively would cover a square whose sides have unit length. Since we only have three circles, one side of the square should be completely covered by one of the circles. Let that edge of the square be the left vertical edge and $a$ be the center of the circle that covers it. Due to symmetry we know that there is an optimal solution in which the $y$-coordinate of $a$ is 0.5. Let $x$ be the $x$-coordinate of $a$. Therefore, $ r \geq \sqrt{x^2 + 0.5^2}$ so that $a$ would cover the two end points of that side of the square. On the other hand, since the two remaining circles should cover a rectangle of size $(1-2x) \times 1$, also we have $r \geq \sqrt{((1-2x)/2) ^ 2 + 0.25 ^ 2}$. Thus, we should find an $r$ that minimizes:
+$$\max_{0 \leq x \leq 1}\{\sqrt{((1-2x)/2) ^ 2 + 0.25 ^ 2}, \sqrt{x^2 + 0.5^2}\}.$$
+This expression is minimized when $\sqrt{((1-2x)/2) ^ 2 + 0.25 ^ 2} =  \sqrt{x^2 + 0.5^2}$ which means $$((1-2x)/2) ^ 2 + 0.25 ^ 2 =  x^2 + 0.5^2$$ and thus $x = 1/16$. The minimized value of $r$ would be $\frac{\sqrt{1/8^2 + 1}}{2} \simeq 0.503891$.
+\end{solution}
