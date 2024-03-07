@@ -23,7 +23,7 @@ generate: $(CONTENT_TARGETS) $(LIST_TARGETS) static
 $(BUILD_DIR)/%/index.html: content/%/index.* $(CONTENT_TARGETS)
 	@echo "Generating $@ ..."
 	@mkdir -p $(@D)
-	@src/bin/generate-list.rb $@ $< $(shell find $(@D) -type f \( -name '*.json' \))
+	src/bin/generate-list.rb $@ $< $(shell find $(@D) -type f \( -name '*.json' \))
 
 $(BUILD_DIR)/%.html $(BUILD_DIR)/%.json: content/%.*
 	@echo "Generating $@ ..."

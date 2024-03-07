@@ -32,7 +32,9 @@ def generate_list(output_path, input_path, post_paths, language)
 
     data = {
         "posts": posts,
-        "title": metadata["title"]
+        "title": metadata["title"],
+        "twitter": metadata["twitter"],
+        "telegram": metadata["telegram"]
     }
 
     output_html =

@@ -6,3 +6,7 @@ br {
     display: block;
     margin-top: 10px;
 }
+
+li {
+    margin-left: 25pt;
+}

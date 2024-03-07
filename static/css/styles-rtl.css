@@ -1,3 +1,7 @@
 .problem-image {
     float: left;
 }
+
+li {
+    margin-right: 25pt;
+}
