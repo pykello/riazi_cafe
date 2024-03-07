@@ -93,7 +93,8 @@ def translate(s, language)
         "Riazi Cafe" => "کافه ریاضی",
         "Problem Statement" => "صورت مساله",
         "Hint" => "راهنمایی",
-        "Solution" => "راه‌حل"
+        "Solution" => "راه‌حل",
+        "Credits" => "درباره"
     }
     return m[s].nil? ? s : m[s]
 end
