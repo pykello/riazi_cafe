@@ -1,0 +1,23 @@
+\begin{problem}{/images/problems/64_pic.jpg}{Half Cookies} There are 15 cookies in a container. Each day, we randomly pick one of the contents of this container. If it is a whole cookie, we eat half of it and put the other half back in the container. If it is a half-eaten cookie, we eat it.
+	
+What is the expected number of half-eaten cookies  in the container when we take out the last whole cookie?
+\end{problem}
+\begin{solution}
+The solution to the problem is approximately 2.3182.\\[0.2cm]
+
+We number the cookies in the order they are removed from the container (for the first time). Therefore, the half-cookie that is placed in the container after halving the $k$-th whole cookie is numbered $k$. We define random variable $X_k$ to be 1 if the $k$-th half-cookie is removed from the container after the last whole cookie, and 0 otherwise.
+Since we wish to find the expected number of the half-cookies that are removed after the 15th whole cookie, the answer to the problem is
+
+$$E(X_1 + X_2 + ... + X_{14}) = E(X_1) + E(X_2) + \ldots + E(X_{14}).$$
+
+After the $k$-th half-cookie is returned to the container, there are still $15 - k$ whole cookies in the container, and $X_k$ = 1 if and only if the $k$-th half-cookie is the last one to be removed from the container among this set of $15 - k$ whole cookies and the $k$-th half-cookie. Since in each step, the probability of removing any member of this set is the same, we have:
+
+$$E(X_k) = P(X_k = 1) = 1 / (15 - k + 1).$$
+
+Therefore, the answer to the problem is:
+
+$$E(X_1) + \ldots E(X_{14}) = 1/15 + 1/14 + \ldots + 1/2  \simeq 2.3182.$$
+
+
+\end{solution}
+
