@@ -1,0 +1,97 @@
+\begin{solution}
+
+The answer is equal to 846.\\[0.2cm]	
+
+Let us first represent each state of the game with a pair $(a,b)$ (called a configuration) which shows there are $a$ cherries in the first bowl and $b$ cherries in the second bowl. If both players play optimally, the only factor that determines the winner of a state of the game is the configuration $(a,b)$ on which the game starts. Therefore, in the rest of the proof, we identify which configurations $(a,b)$ constitute winning states (i.e., the player whose turn it is to start from configuration $(a,b)$ has a winning strategy) and which configurations constitute losing states. Since the rules of the game are symmetric, it is easy to see that a configuration $(a,b)$ is a winning state if and only if configuration $(b,a)$ is also a winning state.
+
+Without giving a proof here, we state an observation which helps the reader to better understand the rest of the proof. This observation follows from the arguments that we make below.
+\begin{observation}
+\textbf{Observation. }
+	For each integer $a \geq 0$, there is a \textbf{unique} $b$ for which configuration $(a,b)$ is a losing state!
+\end{observation}
+
+Thus, the question that we answer in the rest of the proof is ``for a given $a$, what is the value $b$ such that configuration $(a,b)$ makes a losing state"?
+
+To answer this question, let us define a Fibonacci-based system for representing integer numbers. Recall the sequence of Fibonacci numbers $fib(1) = 1, fib(2) = 2, fib(3) = 3, fib(4) = 5,\ldots, $. In order to represent a number $x \geq 1$ in the Fibonacci-based system, we greedily pick the largest Fibonacci number whose value is not larger than $x$ and then subtract it from $x$. By doing so, we transform $x$ into a subset of Fibonacci numbers. In the Fibonacci-based representation of $x$, we put a $1$ for every index whose corresponding Fibonacci number appears in the set and $0$ for other indices. Similar to all representation systems, we ignore the leading zeros. Table below, shows the Fibonacci-based representations of numbers 1 to 20.
+
+\begin{center}
+\begin{tabular}{|c|c|r|}
+\hline
+number & decomposition & Fibonacci-based representation \\
+\hline
+1 & 1 = 1 = fib(1) & 1 \\
+\hline
+2 & 2 = 2 = fib(2) & 10 \\
+\hline
+3 & 3 = 3 = fib(3) & 100 \\
+\hline
+4 & 4 = 3+1 = fib(3)+fib(1) & 101 \\
+\hline
+5 & 5 = 5 = fib(4) & 1000 \\
+\hline
+6 & 6 = 5+1 = fib(4)+fib(1) & 1001 \\
+\hline
+7 & 7 = 5+2 = fib(4)+fib(2) & 1010 \\
+\hline
+8 & 8 = 8 = fib(5) & 10000 \\
+\hline
+9 & 9 = 8+1 = fib(5)+fib(1) & 10001 \\
+\hline
+10 & 10 = 8+2 = fib(5)+fib(2) & 10010 \\
+\hline
+11 & 11 = 8+3 = fib(5)+fib(3) & 10100 \\
+\hline
+12 & 12 = 8+3+1 = fib(5)+fib(3)+fib(1) & 10101 \\
+\hline
+13 & 13 = 13 = fib(6) & 100000 \\
+\hline
+14 & 14 = 13+1 = fib(6)+fib(1) & 100001 \\
+\hline
+15 & 15 = 13+2 = fib(6)+fib(2) & 100010 \\
+\hline
+16 & 16 = 13+3 = fib(6)+fib(3) & 100100 \\
+\hline
+17 & 17 = 13+3+1 = fib(6)+fib(3)+fib(1) & 100101 \\
+\hline
+18 & 18 = 13+5 = fib(6)+fib(4) & 101000 \\
+\hline
+19 & 19 = 13+5+1 = fib(6)+fib(4)+fib(1) & 101001 \\
+\hline
+20 & 20 = 13+5+2 = fib(6)+fib(4)+fib(2) & 101010 \\
+\hline
+\end{tabular}
+\end{center}
+
+We are now ready to show which configurations $(a,b)$ constitute losing states of the game.
+
+\begin{theorem}
+\textbf{Theorem. }
+	Given $0 \leq a \leq b$, configuration $(a,b)$ is a losing state of the game if and only if one of the two cases holds:
+	\begin{itemize}
+		\item $a = b = 0$
+		\item  The first non-zero index of the Fibonacci-based representation of $a$ is an even index (we start the indices from 0) and by shift-lefting the Fibonacci-based representation of $a$ we obtain the Fibonacci-based representation of $b$.
+	\end{itemize}
+\end{theorem}
+
+Before we prove Theorem~\ref{theorem:fib}, we note that the Fibonacci-based representations of 1369 and 846 are equal to 101000000001000 and 10100000000100 respectively and thus $(1369,846)$ is a losing configuration. Thus, Gholi should put 846 cherries in the second bowl.
+
+\begin{proof}[Proof of Theorem~\ref{theorem:fib}]
+\textbf{Proof. }
+	Notice the following properties of the losing configurations characterized by this theorem:
+	\begin{itemize}
+		\item Each number $x \geq 1$ appears in exactly one losing pair.
+		\item The difference between the values of the numbers in the $i$'th losing pair is equal to $i$. Here we consider the $(0,0)$ to be the 0'th losing pair and $(1,2)$ to be the first losing pair.
+	\end{itemize}
+	
+	We proceed the proof in two parts.
+	
+	\textbf{Part 1}: If a player starts from configuration $(a, b)$ which satisfies the conditions of the theorem, he cannot make a move that modifies the state of the game to another configuration which satisfies the conditions of the theorem. This follows from the following fact: each move either keeps $a$ intact, or keeps $b$ intact or keeps $a-b$ intact. One can easily observe that all pairs that satisfy the conditions of the theorem are completely disjoint and their differences are also unique.
+	
+	\textbf{Part 2}: If $(a,b)$ is not a losing configuration, then the first player can with one move turn $(a,b)$ into a configuration $(a',b')$ which is a losing state. Let us assume for simplicity that $a \leq b$. Also, the case that $a$ is equal to 0 is trivial since in this case $b > 0$ should hold and thus the first player can move to configuration $(0,0)$ with one move and win the game. Thus, there are two cases to consider:
+	\begin{itemize}
+		\item The first non-zero index of the Fibonacci-based representation of $a$ is an odd index: In this case, let $b'$ be the number such that if we shift left its Fibonacci-based representation we obtain the Fibonacci-based representation of $a$. Notice that $b' < a < b$ and therefore the first player can move from configuration $(a,b)$ to configuration $(a,b')$ which is a losing configuration by definition.
+		\item The first non-zero index of the Fibonacci-based representation of $a$ is an even index: in this case, let $c$ be the number which makes configuration $(a,c)$ a losing state. If $c > b$ then the first player can turn $(a,b)$ into $(a,c)$ with one move. Otherwise, $c-a > b-a$ and thus there is a losing configuration $(a',b')$ such that $min(a',b') < a$ and $|a'-b'| = b-a$. In this case, the first player can move the state of the game from $(a,b)$ to either $(a',b')$ or $(b',a')$ with one move.
+	\end{itemize}
+	
+\end{proof}
+\end{solution}
