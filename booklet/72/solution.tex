@@ -1,0 +1,14 @@
+\begin{solution}
+The answer is $10/512 \simeq 0.02$.\\[0.2cm]
+
+Let us use $n$ to denote the number of points (in this case $n = 10$ hods). If all $n$ points can be covered with a semi-circle arc, then we define the leader of the $n$ points as the point which is covered first in the clock-wise order. We divide the desirable possibilities into $n$ disjoint scenarios:
+
+\begin{itemize}
+	\item Point 1 is the leader and all other $n-1$ points are covered with a half circle arc starting from point 1 in the clock-wise order.
+	\item Point 2 is the leader and all other $n-1$ points are covered with a half circle arc starting from point 2 in the clock-wise order.
+	\item $\vdots$
+	\item Point $n$ is the leader and all other $n-1$ points are covered with a half circle arc starting from point $n$ in the clock-wise order.
+\end{itemize}
+
+Note that all $n$ scenarios given above are disjoint. Moreover, the probability of each scenario is exactly $1/2^{n-1}$ as each of the $n-1$ non-leader points lie on the corresponding semi-circle arc with probability $1/2$. Thus, the answer to the problem is equal to $\frac{n}{2^{n-1}} = 10/512 \simeq 0.02$.
+\end{solution}
