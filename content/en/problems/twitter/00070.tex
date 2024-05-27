@@ -1,0 +1,15 @@
+\begin{problem}{/images/problems/70_pic.jpg}{Parking} We have 10 parking spaces lined up from left to right. We also have 10 drivers, each with a favourite parking space (possibly multiple drivers for the same space). Drivers enter from the left in order. If a driver's favourite parking space is available, they park there. Otherwise, they park in the first empty space to the right of their favourite spot. If they can't find a spot using this method, they leave.\\[0.2cm]
+	
+How many arrangements are there for favourite parking spaces that allow all drivers to park? (An arrangement is a sequence of 10 numbers $a_1$ to $a_{10}$, where $a_i$ is the favourite parking space of the driver who enters i-th.)
+\end{problem}
+
+\begin{solution}
+The answer is $11^9$. In general, if there are $n$ drivers and $n$ parking spaces, the answer is $(n+1)^{n-1}$.\\[0.2cm]
+
+Let us modify the problem in the following way: We have $n$ drivers as in the original problem, but we add one more parking space right after the last space. We arrange these $n+1$ parking spaces in a circle, in the clockwise order. Each driver has a favourite parking space, and the drivers enter in order, each starting from their favourite parking space and moving clockwise around the circle until they find the first empty parking space and park there.
+
+In this modified problem, everyone can park, and at the end one of the spaces will be empty. A favourite parking space assignment in the modified problem is a solution to the original problem if and only if the empty space in the modified problem is the $n+1$'th space.
+
+In the modified problem, since each person has $n+1$ options for their favourite parking space, there are $(n+1)^n$ arrangements. Also, due to symmetry, in the modified problem, the number of arrangements that leave each parking space empty in the end are equal. Thus, exactly $1/(n+1)$ fraction of the arrangements are valid for the original problem. Therefore, the the solution to the original problem is  $(n+1)^n/(n+1) = (n+1)^{n-1}$. For $n=10$, this amounts to $11^9$.
+\end{solution}
+

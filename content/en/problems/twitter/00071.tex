@@ -1,0 +1,40 @@
+\begin{problem}{/images/problems/71_pic.jpg}{Playing with Random Numbers} Mojgan plays this game: She has a number $X$, which is initially zero. At each step, she has two options: either to end the game with the current value of $X$, or to add a uniformly random number between zero and one to $X$. If $X$ becomes greater than one, the game also ends.
+	If $X$ is less than one when the game ends, Mojgan gets a final score of $X$. Otherwise, she gets a final score of zero.\\[0.2cm]
+	
+	Mojgan's goal is to play in such a way that the expected value of her final score is maximized. What is the optimal strategy for Mojgan to maximize her score in the end?
+\end{problem}
+
+\begin{solution}
+If we end the game as soon as the score exceeds $\sqrt{2}-1 \simeq 0.4142$, the expected value of the final score will be approximately $0.6268$. This is the maximum score that any strategy can guarantee in expectation.\\[0.29cm]
+
+Obviously, the optimal strategy is of the following form: We continue playing the game as long as the current sum hasn't reached a certain threshold. As soon as it reaches that value, we stop. To determine the optimal threshold, let us assume that  the current value of $X$ is $q$ and we want to decide whether or not to add another random number. If the next random number is between 0 and $1-q$, then our score in the next step will be higher than now, otherwise it will be zero. So the average score with one move will be:
+
+$$\int_{t=0}^{1-q} (q+t)\cdot d_t = (1-q^2)/2.$$
+
+Therefore, for adding another random number to be profitable, this value must be greater than $q$. Thus, for the next move to be reasonable we should have: $\frac{1-q^2}{2} > q$ and thus $q^2+2q-1 < 0$ which implies $q < \sqrt{2}-1$.
+
+	Thus in the optimal strategy, we end the game immediately after $X$ reaches $\sqrt{2}-1$ (for $X = \sqrt{2}-1$, the expected value of the score is the same whether or not we continue. In the following, we assume that we continue and generate a new random number in this case).
+
+Next we determine the expected value of the final score with the above strategy when we start from $x \leq \sqrt{2}-1$. We denote this value by $f(x)$. Since we only consider the cases that the game has not ended yet, we have $x \leq \sqrt{2}-1$. Starting from $X = x$ and adding a new random number, $X$ will turn into a new number $t$ in the range $[x, 1+x]$. To determine $f(x)$, we consider three cases:
+
+\begin{itemize}
+\item If the new value $t$ is less than or equal to $\sqrt{2}-1$, according to the above strategy, we continue the game, so in this case, the expected value of our score will be $f(t)$.
+
+\item If the new value $t$ is between $\sqrt{2}-1$ and $1$, according to the above strategy, we will end the game and our score will be $t$.
+
+\item If the new value $t$ is greater than 1, the game will be over and our score will be zero.
+\end{itemize}
+
+Based on the above, we can determine function $f(x)$ for  $x \leq \sqrt{2}-1$ as the following recursive formula:
+
+$$f(x) = \int_{t=x}^{\sqrt{2}-1} f(t)\cdot d_t + \int_{t=\sqrt{2}-1}^1 t\cdot d_t + \int_{t=1}^{1+x} 0\cdot d_t.$$
+
+If we take the derivative of both sides, we get the differential equation $f'(x)+f(x)=0$. Also, for $x=\sqrt{2}-1$, we have $f(\sqrt{2}-1)=\sqrt{2}-1$. Solving this differential equation with the boundary condition $f(\sqrt{2}-1) = \sqrt{2}-1$, we get the following solution for $f$:
+
+$$f(x) = e^{-x+\log(\sqrt{2}-1)+\sqrt{2}-1}.$$
+
+Thus the expected value of the game starting from a value of zero for $X$ is $f(0) = e^{\log(\sqrt{2}-1)+\sqrt{2}-1}  \simeq 0.6268$.
+
+
+\end{solution}
+

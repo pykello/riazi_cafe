@@ -1,0 +1,9 @@
+\begin{solution}
+The answer is $11^9$. In general, if there are $n$ drivers and $n$ parking spaces, the answer is $(n+1)^{n-1}$.\\[0.2cm]
+
+Let us modify the problem in the following way: We have $n$ drivers as in the original problem, but we add one more parking space right after the last space. We arrange these $n+1$ parking spaces in a circle, in the clockwise order. Each driver has a favourite parking space, and the drivers enter in order, each starting from their favourite parking space and moving clockwise around the circle until they find the first empty parking space and park there.
+
+In this modified problem, everyone can park, and at the end one of the spaces will be empty. A favourite parking space assignment in the modified problem is a solution to the original problem if and only if the empty space in the modified problem is the $n+1$'th space.
+
+In the modified problem, since each person has $n+1$ options for their favourite parking space, there are $(n+1)^n$ arrangements. Also, due to symmetry, in the modified problem, the number of arrangements that leave each parking space empty in the end are equal. Thus, exactly $1/(n+1)$ fraction of the arrangements are valid for the original problem. Therefore, the the solution to the original problem is  $(n+1)^n/(n+1) = (n+1)^{n-1}$. For $n=10$, this amounts to $11^9$.
+\end{solution}
