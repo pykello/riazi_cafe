@@ -1,0 +1,29 @@
+\begin{problem}{/images/problems/73_pic.jpg}{Ayla and Bardia} Ayla has 100 distinct real numbers $x_1$ to $x_{100}$. Bardia is not aware of this sequence and his goal is to find the index of the smallest number by asking some questions. For each question, Bardia chooses two numbers $i$ and $j$ between 1 and 100 and asks Ayla "Which number is smaller, $x_i$ or $x_j?$". Ayla is allowed to answer one of Bardia's questions incorrectly but all the other answers should be correct. What is the smallest number of questions that Bardia has to ask in order to find the smallest number given Ayla may answer one question incorrectly?\\[0.2cm]
+	
+Source: 46th Iranian Mathematical Collegiate Contest, Iranian Mathematics Society
+\end{problem}
+\begin{solution}
+The answer is equal to $199$.\\[0.2cm]
+
+First we show that Bardia can find the smallest number with $199$ questions. To this end, he starts with a partial answer $p$ which is initially equal to 1. He iterates a variable $i$ over all numbers 2 to $100$ and each time does the following:
+\begin{itemize}
+	\item He asks two times if $x_p$ is smaller than $x_i$.
+	\item If the answer to the two previous questions were not the same (which means that Ayla has given an incorrect answer to one of the above questions), he asks the same question a third time and finds the correct answer.
+	\item If $x_i$ is smaller than $x_p$, he sets $p$ equal to $i$.
+\end{itemize}
+
+It follows from the procedure above that at the end of each iteration, $x_p$ is the smallest number between $x_1, x_2, \ldots, x_i$. Thus, $p$ would be the index of the smallest number in the end. Also, since Ayla can give an incorrect answer at most once, Bardia will asks 3 questions for at most one $i$ and he asks 2 questions for the rest of the iterations. Thus, the total number of questions will be at most $199$. We then prove that any strategy that can find the smallest number with full confidence, has to ask at least $199$ questions.\\[0.2cm]
+
+We first begin by giving a definition: At any point in time, we define the \textit{fingerprint} of Bardia's questions as a sequence $a_1, a_2, \ldots, a_{100}$ where $a_i$ is the number of times a question involved $x_i$ and the answer indicated that $a_i$ is larger than the other number. We call a fingerprint \textit{desirable} if at most one of $a_i$'s is smaller than $2$. We next define a strategy for Ayla that enforces Bardia to ask at least $199$ questions in order to find the answer. Ayla will answer questions correctly as long as doing so does not make the fingerprint desirable. The first time answering the next question correctly makes the fingerprint desirable, Ayla will lie to that question. He will answer all questions correctly after his lie. Notice that it follows from the definition of fingerprint that, $\sum a_i$ is equal to the number of questions that Bardia asked up until that point. Therefore after answering the first $197$ questions correctly, $\sum a_i = 197$ and thus the fingerprint cannot be desirable. Thus, Ayla will never lie for the first $197$ questions.
+
+We first prove that after getting the answers for the first $197$ questions Bardia will not be able to find the smallest number. Notice that up to this point, all Ayla's answers were correctly but Bardia cannot count on this fact (since he is not aware of Ayla's strategy). Also, at least two elements of the sequence $a_1, \ldots, a_{100}$ (say $a_{\alpha}$ and $a_{\beta}$) are smaller than $2$. Thus, Bardia can never rule out the possibilities of either $x_{\alpha}$ or $x_{\beta}$ being the minimum given that each of them was announced to be lager than at most one other number and the answer to that question may be a lie (and in that case all other answers make correct comparisons). Thus, Bardia cannot know for sure which number is the smallest.
+
+We also prove that after getting the answer for the $198$'th question Bardia cannot know which number is the minimum. We consider two cases: 
+\begin{itemize}
+	\item If Ayla's answer to the $198$'s question is correct, this means that the fingerprint is not desirable after getting the $198$'th answer and thus Ayla will not be able to determine the smallest number with the exact same analysis made above.
+	\item If Ayla's answer to the $198$'s question is incorrect, this means that the fingerprint would have become desirable if he answered the question correctly. Notice that when the fingerprint is desirable, it means that the only number that can be the minimum is the only $x_i$ whose $a_i$ is less than 2. Therefore, Bardia would know the answer if Ayla had answered the question correctly. This means that Bardia would not be able to know the answer if Ayla answers incorrectly (otherwise Bardia would know the answer regardless of the $198$'th response and thus $198$ question would be redundant and he could have determined the answer with the first $197$ questions which is impossible as explained above).
+\end{itemize}
+
+Therefore Bardia needs to ask at least $199$ questions to find the answer.
+\end{solution}
+
