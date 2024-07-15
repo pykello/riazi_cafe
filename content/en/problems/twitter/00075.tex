@@ -1,0 +1,15 @@
+\begin{problem}{/images/problems/75_pic.jpg}{Ice Cream Sharing} We want to divide an ice cream between two people. Each time, we flip a coin and choose one of the two people. We ask them if they would accept $10\%$ of the ice cream and give $90\%$ to the other person. If they accept, the process is finished and the ice cream is divided. Otherwise, $10\%$ of the ice cream melts (meaning its volume is multiplied by $90\%$) and the process is repeated. If the players play optimally, how much ice cream does each player receive on average?\\[0.2cm]
+	
+Note that each player plays in a way that maximizes his own share of the ice cream given that the other player plays strategically.
+\end{problem}
+\begin{solution}
+If the players play optimally, they each obtain a $1/9$ portion of the ice cream and they both accept any deal with probability $1/36$.\\[0.2cm]
+
+The answer to this question relies on the concept of Nash Equilibrium. Here we are looking for an optimal strategy for the players that (i) maximizes the average share of the ice cream that they receive (ii) puts them in a Nash Equilibrium (meaning that no player can obtain a better utility by altering her strategy). It follows from symmetry that such a strategy would be the same for both players.
+
+Keep in mind that neither a strategy that always accepts any deal nor a strategy that never accepts a deal guarantees the above conditions. Thus, players have to play a randomized strategy. We present such a strategy with a probability $p$ where the player accepts a deal with probability $p$ and rejects it with probability $1-p$. To find out what the optimal value of $p$ is, we need to take into account that a player cannot obtain a higher utility by altering his strategy. To this end, let us consider a case where a coin is tossed in the beginning of the game and the first player has to decide whether he receives $10\%$ of the ice cream. In this case, her utility would be equal to $0.1$ if he accepts the deal. Since the game is in Nash Equilibrium, he should obtain the same utility whether or not he accepts the deal. Thus, the player should also obtain a utility of $0.1$ if he rejects the deal. Note that since after he rejects the deal $10\%$ of the ice cream melts, such a utility would be $0.9u$ where $u$ is the utility of the players when they play the optimal strategy. This implies that $u = 1/9$.
+
+On the other hand, when both players accept any deal with probability $p$, the average utility of the players would be equal to $\frac{p + p(1-p)  0.9 + p(1-p)^2 0.9^2 + p(1-p)^3 0.9^3 + \ldots}{2}$ which is equal to $u$ by definition. This implies that $2u = \frac{2u-p}{(1-p)0.9}$ and therefore $2/9 = \frac{2/9 - p}{(1-p)0.9}$. Thus, $0.2 - 0.2 p = 2/9 - p$ and which means $p = 1/36$.
+
+\end{solution}
+
