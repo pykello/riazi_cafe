@@ -1,0 +1,6 @@
+\begin{solution}
+The answer is equal to $\sum_{i=1}^{10} \frac{1}{2i-1} \simeq 2.133$.\\[0.2cm]
+
+Let $f(n)$ be the answer to the problem in which we have $n$ ropes. Now, take one end of one of the ropes and randomly connect it to one of the other $2n-1$ ends. If both ends are from the same rope, we end up having one loop and $n-1$ disconnected ropes, otherwise we end up with $n-2$ disconnected ropes and two rops that are connected from one end. Note that when we connect two ropes, the combination is technically equivalent to a single rope and therefore in both cases the average number of loops that are made for the rest of the ropes is $f(n-1)$. Since the former case happens with probability $1/(2n-1)$ and the likelihood of the latter case is $(2n-2)/(2n-1)$ , we have $$f(n) = \frac{1}{2n-1} + f(n-1) = \sum_{i=1}^{n} \frac{1}{2i-1}.$$
+
+\end{solution}
