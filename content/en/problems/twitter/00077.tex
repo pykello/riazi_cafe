@@ -1,0 +1,22 @@
+\begin{problem}{/images/problems/77_pic.jpg}{Sorting the Cards} We have a billion cards, each with a unique number from 1 to $10^9$, placed in a random order. We can see the number on every card. For one dollar, we can perform the following operation: divide the cards into any number of stacks, reverse each stack, and then stack the reversed stacks on top of each other in their order. What is the minimum cost to sort the cards into ascending order, considering the worst-case scenario?\\[0.2cm]
+	
+\textbf{Example}: Consider 5 cards in the following order $[4,3,5,1,2]$. By spending 1 dollar, we could divide them into 3 stacks: $[4,3]$, $[5]$, and $[1,2]$. Reversing each stack gives us $[3,4]$, $[5]$, and $[2, 1]$. Stacking these together gives us  $[3,4,5,2,1]$.
+\end{problem}
+
+\begin{solution}
+This is an open ended question and finding the optimal solution is extremely difficult. We give a solution below that sorts the cards by spending 900 dollars in the worst case.\\[0.2cm]
+
+To simplify the solution, we assume that instead of a billion cards, the number of cards is equal to $2^{30}$ (which is slightly larger than one billion). We begin the solution by solving a simpler problem which only deals with 0's and 1s.
+\begin{lemma}\label{lemma:mohem}
+	Let the number of cards $n$ be equal to $2^k$ for an integer $k > 0$. Moreover, assume that the numbers on half of the cards are equal to 0 and the numbers on the other half are equal to $1$. One could spend $2k-1$ dollars and bring the $n/2$ cards with number 0 to the top and the rest of the cards to the bottom.
+\end{lemma}
+\begin{proof}
+To achieve this, we first aim to put cards with values 0 in odd positions and cards with value 1 in even positions. Thus, the numbers on the cards in their order would be $010101\ldots01$. We show that this is possible by spending only $k$ dollars. With our first operation, we guarantee that the number of 0's in the top $n/2$ cards is equal to the number of 1's in the top $n/2$ cards (this also implies that the number of 0's in the bottom $n/2$ cards is equal to the number of $1$'s in the bottom $n/2$ cards). Such a move is possible given that the number of 0's and 1s are equal initially and that by reversing an interval centred around the middle card we can obtain this. By repeating a similar operation once again, we can guarantee that each of the 4 chunks of the cards of length $n/4$ have equal number of 0's and 1s. Generally, by repeating this operation $k$ times we can guarantee that all the 0's are in odd places and the ones are in even positions.
+
+Now, starting from a $01010101\ldots0101$ sequence, we can spend one dollar and turn it into a $001100110011001100\ldots00110011$ sequence. Similarly, we can spend another dollar and turn the sequence into $0000111100001111\ldots00001111$. Generally, by spending $k-1$ dollars we can bring all the 0's to the top and the rest to the bottom.
+\end{proof}a
+
+Consider the number of cards $n=2^{30}$ and $k = 30$. Lemma~\ref{lemma:mohem} basically sorts the cards with $2k-1$ operations when half of the values are equal to $0$ and the other half are equal to $1$. Now, assume that the numbers are unique and they are between $1$ and $n$. We can assume all numbers from $1$ to $n/2$ to be zero and the rest to be one. Using Lemma ~\ref{lemma:mohem} we can send all cards with value between $1$ and $n/2$ to the top and the rest to the bottom. This costs us $2k-1$ dollars. From here on, we have to sort the cards in the two halves of the cards. With a similar technique, we can spend $2(k-1)-1$ dollars and make sure that each of the 4 chunks of cards of size $n/4$ contain their corresponding cards (but not necessarily in the order). Thus, if we continue this $k$ times we can sort all of the cards. The total cost that we pay in this case is equal to $$(2k-1) + (2(k-1)+1) + (2(k-2)-1) + \ldots + (2(1)-1) = k(k+1) - k = k^2.$$ in which case is equal to 900. 
+
+\end{solution}
+
