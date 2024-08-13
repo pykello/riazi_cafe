@@ -1,0 +1,37 @@
+\begin{problem}{/images/problems/78_pic.jpg}{Multiple Choice Exam} We have a 10-question multiple-choice exam with 4 options for each question. We haven't studied at all and want to guess the answers. Each correct answer is worth 1 point, and each incorrect answer is worth -0.25 points.
+	How can we maximize the probability of getting a positive score?
+\end{problem}
+
+\begin{solution}
+If we leave one question blank and choose an option randomly for the other 9 questions, the probability of getting a positive score will be approximately 70 percent, which is better than guessing all the questions (in which case the probability of a positive score is approximately 47 percent).
+
+If we randomly choose an option for $n$ questions and leave the rest blank, the probability of answering exactly $c$ questions correctly is $\binom{n}{c} 0.25^c 0.75^{n-c}$. To get a positive score on 9 questions, we need to answer at least 2 questions correctly. So the probability of getting a positive score with 9 questions is $$1 - \binom{10}{0} 0.75^{10} - \binom{10}{1} 0.25 0.75^{9}$$ which is approximately 0.70. Table below shows the probability that we get a positive score by making a guess on a certain number of questions.\\[0.2cm]
+\begin{tabular}{|c|c|c|}
+\hline
+ Number of Questions to be Guessed &  Number of Correct Answers Needed &  Probability of a Positive Score \\
+\hline
+1 &  1 &  0.25 \\
+\hline
+2 &  1 &  0.44 \\
+\hline
+3 &  1 &  0.58 \\
+\hline
+4 &  1 &  0.68 \\
+\hline
+5 &  2 &  0.37 \\
+\hline
+6 &  2 &  0.47 \\
+\hline
+7 &  2 &  0.56 \\
+\hline
+8 &  2 &  0.63 \\
+\hline
+9 &  2 &  0.70 \\
+\hline
+10 &  3 &  0.47 \\
+\hline
+\end{tabular}
+\\[0.2cm]
+As you can see, the best strategy is to leave a question black and guess the answer for the rest of the questions.
+\end{solution}
+
