@@ -1,0 +1,15 @@
+\begin{problem}{/images/problems/80_pic.jpg}{Twisted Function} Function $F(u,v) = (u \cdot \cos(v), u \cdot \sin(v), 0.5 v)$ maps $\mathbb{R}^2$	to a surface called Helicoid.
+What is the inverse of this function? That is, provide a function $F^{-1}(x,y,z)$ that takes a point on the helix surface and returns the corresponding point in $\mathbb{R}^2$.
+\end{problem}
+
+\begin{solution}
+The inverse function of $F$ is equal to $F^{-1}(x,y,z) = (y \cdot \sin(2z) + x \cdot \cos(2z), 2z)$.\\[0.2cm]
+Since $F(u,v) = (u \cdot \cos(v), u \cdot \sin(v), 0.5 v)$, if we define $F^{-1}(x,y,z) = (u,v)$ it implies that $v=2z$. To determine the value of $u$ we leverage the fact that $\sin^2(v) + \cos^2(v) = 1$ which implies:
+$$\begin{aligned}
+	u &= u \cdot (\sin^2(v) + \cos^2(v))\\
+	&= (u \cdot \sin(v)) \cdot \sin(v) + (u \cdot \cos(v)) \cdot \cos(v) \\
+	&= y \cdot \sin(v) + x \cdot \cos(v) \\
+	&= y \cdot \sin(2z) + x \cdot \cos(2z).
+\end{aligned} $$
+\end{solution}
+
