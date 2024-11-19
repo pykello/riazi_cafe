@@ -2,7 +2,7 @@ import glob
 import os
 import shutil
 
-ids = list(filter(lambda x: x.split('/')[-1].isnumeric(),glob.glob("booklet/*")))
+ids = list(filter(lambda x: x.split('/')[-1].isnumeric(),glob.glob("booklet/*"))) 
 
 mp = {}
 
