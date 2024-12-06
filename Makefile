@@ -41,6 +41,10 @@ $(BUILD_DIR)/css/%: static/css/%
 	@mkdir -p $(@D)
 	@cp $< $@
 
+$(BUILD_DIR)/html/%: static/html/%
+	@mkdir -p $(@D)
+	@cp $< $@
+
 $(BUILD_DIR)/CNAME: static/CNAME
 	@mkdir -p $(@D)
 	@cp $< $@
