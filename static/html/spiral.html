@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polar Coordinates Plot</title>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="primeOnly"> Draw Only Primes
+    </label>
+    <canvas id="canvas" width="1000" height="1000"></canvas>
+    
+    <script>
+        const N = 1000000;
+        const Zoom = 100;
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        ctx.translate(centerX, centerY);
+
+        function isPrime(num) {
+            if (num < 2) return false;
+            for (let i = 2; i * i <= num; i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        function drawPolarPoints(n, primeOnly) {
+            ctx.clearRect(-centerX, -centerY, canvas.width, canvas.height);
+            for (let i = 1; i <= n; i++) {
+                if (primeOnly && !isPrime(i)) continue;
+                let r = i / Zoom;
+                let theta = i;
+                let x = r * Math.cos(theta);
+                let y = r * Math.sin(theta);
+
+                ctx.beginPath();
+                ctx.arc(x, -y, 1, 0, Math.PI * 2);
+                ctx.fillStyle = "red";
+                ctx.fill();
+            }
+        }
+
+        document.getElementById("primeOnly").addEventListener("change", function() {
+            drawPolarPoints(N, this.checked);
+        });
+
+        drawPolarPoints(N, false);
+    </script>
+</body>
+</html>
