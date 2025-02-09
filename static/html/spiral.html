@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polar Coordinates Plot</title>
+    <style>
+        #tooltip {
+            position: absolute;
+            background-color: white;
+            border: 1px solid black;
+            padding: 5px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,16 +26,20 @@
     </label>
     <br />
     <canvas id="canvas" width="1000" height="1000"></canvas>
+    <div id="tooltip"></div>
 
     <script>
         const N = 1000000;
         let Zoom = 100;
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
+        const tooltip = document.getElementById("tooltip");
 
         const centerX = canvas.width / 2;
         const centerY = canvas.height / 2;
         ctx.translate(centerX, centerY);
+
+        let points = [];
 
         function isPrime(num) {
             if (num < 2) return false;
@@ -38,12 +51,15 @@
 
         function drawPolarPoints(n, primeOnly) {
             ctx.clearRect(-centerX, -centerY, canvas.width, canvas.height);
+            points = [];
             for (let i = 1; i <= n; i++) {
                 if (primeOnly && !isPrime(i)) continue;
                 let r = i / Zoom;
                 let theta = i;
                 let x = r * Math.cos(theta);
                 let y = r * Math.sin(theta);
+
+                points.push({ x, y, i });
 
                 ctx.beginPath();
                 ctx.arc(x, -y, 1, 0, Math.PI * 2);
@@ -59,6 +75,32 @@
         document.getElementById("zoomSlider").addEventListener("input", function () {
             Zoom = this.value;
             drawPolarPoints(N, document.getElementById("primeOnly").checked);
+        });
+
+        canvas.addEventListener("mousemove", function (event) {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = event.clientX - rect.left - centerX;
+            const mouseY = event.clientY - rect.top - centerY;
+
+            let closestPoint = null;
+            let minDist = Infinity;
+
+            for (const point of points) {
+                const dist = Math.hypot(mouseX - point.x, mouseY + point.y);
+                if (dist < minDist) {
+                    minDist = dist;
+                    closestPoint = point;
+                }
+            }
+
+            if (closestPoint && minDist < 10) {
+                tooltip.style.display = "block";
+                tooltip.style.left = `${event.clientX + 10}px`;
+                tooltip.style.top = `${event.clientY + 10}px`;
+                tooltip.textContent = `i: ${closestPoint.i}`;
+            } else {
+                tooltip.style.display = "none";
+            }
         });
 
         window.onload = function() {
