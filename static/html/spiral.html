@@ -9,11 +9,15 @@
     <label>
         <input type="checkbox" id="primeOnly"> Draw Only Primes
     </label>
+    <label>
+        Zoom: <input type="range" id="zoomSlider" min="10" max="100" value="100">
+    </label>
+    <br/>
     <canvas id="canvas" width="1000" height="1000"></canvas>
     
     <script>
         const N = 1000000;
-        const Zoom = 100;
+        let Zoom = 100;
         const canvas = document.getElementById("canvas");
         const ctx = canvas.getContext("2d");
 
@@ -47,6 +51,11 @@
 
         document.getElementById("primeOnly").addEventListener("change", function() {
             drawPolarPoints(N, this.checked);
+        });
+
+        document.getElementById("zoomSlider").addEventListener("input", function() {
+            Zoom = this.value;
+            drawPolarPoints(N, document.getElementById("primeOnly").checked);
         });
 
         drawPolarPoints(N, false);
