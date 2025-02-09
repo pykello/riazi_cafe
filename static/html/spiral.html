@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Polar Coordinates Plot</title>
 </head>
+
 <body>
     <label>
         <input type="checkbox" id="primeOnly"> Draw Only Primes
@@ -12,9 +14,9 @@
     <label>
         Zoom: <input type="range" id="zoomSlider" min="10" max="100" value="100">
     </label>
-    <br/>
+    <br />
     <canvas id="canvas" width="1000" height="1000"></canvas>
-    
+
     <script>
         const N = 1000000;
         let Zoom = 100;
@@ -49,16 +51,22 @@
             }
         }
 
-        document.getElementById("primeOnly").addEventListener("change", function() {
+        document.getElementById("primeOnly").addEventListener("change", function () {
             drawPolarPoints(N, this.checked);
         });
 
-        document.getElementById("zoomSlider").addEventListener("input", function() {
+        document.getElementById("zoomSlider").addEventListener("input", function () {
             Zoom = this.value;
             drawPolarPoints(N, document.getElementById("primeOnly").checked);
         });
 
-        drawPolarPoints(N, false);
+        window.onload = function() {
+            document.getElementById("primeOnly").checked = false;
+            document.getElementById("zoomSlider").value = 100;
+            Zoom = 100;
+            drawPolarPoints(N, false);
+        };
     </script>
 </body>
+
 </html>
