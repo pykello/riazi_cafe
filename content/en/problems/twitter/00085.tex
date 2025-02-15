@@ -1,0 +1,99 @@
+\begin{problem}{}{A Problem from Türkiye's Math Olympiad}
+Find the minimum value of the following expression for positive real numbers $x$, $y$, $z$.
+$$
+2 \cdot \sqrt{(x + y + z) \left(\frac{1}{x} + \frac{1}{y} + \frac{1}{z} \right)} - \sqrt{\left(1 + \frac{x}{y} \right) \left(1 + \frac{y}{z} \right)}
+$$
+\end{problem}
+
+\begin{solution}
+The answer is $1 + 2 \sqrt{2}$.
+
+If we expand the radical expression on the left, we get:
+
+\[
+2 \cdot \sqrt{3 + \frac{x}{y} + \frac{x}{z} + \frac{y}{x} + \frac{y}{z} + \frac{z}{x} + \frac{z}{y}} - \sqrt{\left(1 + \frac{x}{y} \right) \left(1 + \frac{y}{z} \right)}
+\]
+
+By setting $a = x/y$ and $b = y/z$, we can reduce the expression from three variables to two:
+
+\[
+f(a, b) = 2 \cdot \sqrt{3 + a + a \cdot b + \frac{1}{a} + b + \frac{1}{a \cdot b} + \frac{1}{b}} - \sqrt{(1 + a) (1 + b)}
+\]
+
+Here, due to symmetry between $a$ and $b$ (i.e., $f(a,b) = f(b,a)$), it seems plausible that the minimum occurs at $a = b$. However, this assumption is not necessarily correct. For example, the function $g(a,b) = [(a-1)^2+(b-2)^2]\cdot[(a-2)^2+(b-1)^2]$ is also symmetric, but its minimum occurs at $(1,2)$ and $(2,1)$. To assume that the minimum occurs at $a=b$, we must examine other properties of the function.
+
+Thus, we do not assume this and continue by simplifying $f$ as follows:
+
+\[
+f(a, b) = 2 \cdot \sqrt{\left(1 + a + \frac{1}{b}\right)\left(1 + b + \frac{1}{a}\right)} - \sqrt{(1 + a) (1 + b)}
+\]
+
+The Cauchy-Schwarz inequality states that for any two arbitrary vectors $u$ and $v$, the absolute value of their inner product is at most the product of their norms:
+
+\[
+|u \cdot v| \leq ||u|| \cdot ||v||
+\]
+
+If we choose:
+
+\[
+\begin{aligned}
+u &= \left(\frac{1}{\sqrt{b}}, \sqrt{1+a}\right) \\\\
+v &= \left(\frac{1}{\sqrt{a}}, \sqrt{1+b}\right)
+\end{aligned} 
+\]
+
+then their inner product and norms are:
+
+\[
+\begin{aligned}
+u \cdot v &= \frac{1}{\sqrt{b}} \cdot \frac{1}{\sqrt{a}} + \sqrt{1+a} \cdot \sqrt{1+b} = \frac{1}{\sqrt{a \cdot b}} + \sqrt{(1 + a)(1 + b)} \\\\
+||u|| &= \sqrt{\left( \frac{1}{\sqrt{b}} \right)^2 + \left( \sqrt{1+a} \right)^2} = \sqrt{1 + a + \frac{1}{b}} \\\\
+||v|| &= \sqrt{\left(\frac{1}{\sqrt{a}}\right)^2 + \left(\sqrt{1+b}\right)^2} = \sqrt{1 + b + \frac{1}{a}}
+\end{aligned}
+\]
+
+Thus, by the Cauchy-Schwarz inequality:
+
+\[
+\frac{1}{\sqrt{a \cdot b}} + \sqrt{(1 + a)(1 + b)} \leq \sqrt{\left(1 + a + \frac{1}{b}\right)\left(1 + b + \frac{1}{a}\right)}
+\tag{1}
+\]
+
+Now, if we define function $e$ as:
+
+\[
+\begin{aligned}
+e(a, b) &= 2 \cdot \left(\frac{1}{\sqrt{a \cdot b}} + \sqrt{(1+a)(1+b)} \right) - \sqrt{(1+a)(1+b)} \\\\
+&= \frac{2}{\sqrt{a \cdot b}} + \sqrt{(1+a)(1+b)}
+\end{aligned}
+\]
+
+Then, according to inequality (1), we have $f(a,b) \geq e(a, b)$.
+
+Also, by the AM-GM inequality for any two nonnegative numbers $x$ and $y$:
+
+\[
+\frac{x+y}{2} \geq \sqrt{x\cdot y}
+\]
+
+Using this, we get:
+
+\[
+(1+a)(1+b) = 1 + a \cdot b + a + b \geq 1 + a \cdot b + 2\sqrt{a \cdot b} = (1 + \sqrt{a \cdot b})^2
+\tag{2}
+\]
+
+Now, defining function $d$ as:
+
+\[
+d(a, b) = \frac{2}{\sqrt{a \cdot b}} + 1 + \sqrt{a \cdot b}
+\]
+
+By inequality (2), we get $e(a, b) \geq d(a, b)$, and thus $f(a, b) \geq d(a, b)$. Therefore, the minimum value of $f$ is greater than or equal to the minimum of the much simpler function $d$.
+
+By setting $t = \sqrt{a \cdot b}$ and analyzing the derivatives of $d$, we find its minimum at $\sqrt{a \cdot b} = t = \sqrt{2}$, which equals $1 + 2 \sqrt{2}$. Also, we have $f(\sqrt{2}, \sqrt{2}) = 1 + 2 \sqrt{2}$, and since the minimum value of $f$ is greater than or equal to the minimum of $d$, the minimum of $f$ is also $1 + 2 \sqrt{2}$.
+
+
+\end{solution}
+
