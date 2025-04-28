@@ -62,16 +62,19 @@ def parse_problem_md(path, info)
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n"))
+            info.statement_md = contents.join("\n")
         when 'hint' then
             info.hints.append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
+            info.hints_md.append(contents.join("\n"))
         when 'solution' then
             info.solutions.append(
                 GitHub::Markup.render_s(
                     GitHub::Markups::MARKUP_MARKDOWN,
                     contents.join("\n")))
+            info.solutions_md.append(contents.join("\n"))
         end
     end
 
@@ -101,10 +104,13 @@ def parse_problem_tex(path, info)
             info.image = section_params[0] if !section_params[0].empty?
             info.title = section_params[1]
             info.statement = render_tex_s(contents.join("\n"))
+            info.statement_tex = contents.join("\n")
         when "solution"
             info.solutions.append(render_tex_s(contents.join("\n")))
+            info.solutions_tex.append(contents.join("\n"))
         when "hint"
             info.hints.append(render_tex_s(contents.join("\n")))
+            info.hints_tex.append(contents.join("\n"))
         end
     end
 
@@ -152,14 +158,22 @@ end
 class ProblemInfo
     attr_accessor :title, :tags, :statement,
                   :hints, :solutions, :url,
-                  :timestamp, :image, :id
+                  :timestamp, :image, :id,
+                    :statement_md, :hints_md, :solutions_md,
+                    :statement_tex, :hints_tex, :solutions_tex
     def initialize
         @title = nil
         @id = ""
         @tags = []
         @statement = nil
+        @statement_md = nil
+        @statement_tex = nil
         @hints = []
+        @hints_md = []
+        @hints_tex = []
         @solutions = []
+        @solutions_md = []
+        @solutions_tex = []
         @url = nil
         @timestamp = nil
         @image = nil
